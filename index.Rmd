@@ -1,6 +1,6 @@
 --- 
-title: "[2020 UST 일반강의] R 프로그래밍과 데이터 분석"
-author: "Haseong Kim"
+title: "R 프로그래밍과 데이터 분석"
+author: "한국생명공학연구원 김하성"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 mainfont: Nanum Myeongjo
@@ -8,31 +8,73 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is Haseong's home."
+description: "UST lecture web site"
 ---
 
-# Lectures
 
 
-* R 프로그래밍 (2019년 1학기 UST 대학원 일반강의) https://greendaygh.github.io/Rprog2019/ 
-* R로 배우는 기초통계 (2019년 2학기 UST 대학원 일반강의) https://greendaygh.github.io/Rstat2019/ 
-* 기계학습 x 생물공학 (2019년 12월 생물공학회 워크샵) https://github.com/greendaygh/bioengml 
+# Introduction 강의 개요 
+- 장소: 한국생명공학연구원 연구동 세미나실 1213호 (매주수요일 13:00~16:00)
+- 강사: 한국생명공학연구원 바이오합성연구센터 김하성
+- 연락처: 042-860-4372, haseong@kribb.re.kr (생명연 연구동 1143)
+- 강의site: https://greendaygh.github.io/Rstat2019/ 
+
+## Goal 강의 목표
+- 이공계열 대학원생이 보다 쉽게 통계 이론을 습득하고 활용하는 능력을 배양하는데 주요 목적이 있음. 특히 데이터 분석용 프로그래밍언어인 R을 기반으로 한 실습을 통하여 프로그래밍 기술 습득과 함께 데이터를 다루는 능력을 배움으로써 이공계 연구에 있어서 필수인 통계적 사고의 기초를 다지는데 그 목적이 있음. 
 
 
-# Publications
+## References 참고 자료
+<center>
+![](images/01-15.PNG)
+</center>
 
-SK Kim\*, **H. Kim\***, WC Ahn, KH Park, E Woo, DH Lee, and SG Lee, Efficient Transcriptional Gene Repression by Type V-A CRISPR-Cpf1 from Eubacterium eligens, 10.1021/acssynbio.6b00368, 2017
+- Using R for Introductory Statistics by John Verzani
+  - Free version of 1st Edition 
+    - https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf
+    - http://cbb.sjtu.edu.cn/~mywu/bi217/usingR.pdf
+  - Second edition
+    - https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731
+- R for Data Science (https://r4ds.had.co.nz, https://github.com/hadley)
+- https://resources.rstudio.com/
+- 일반통계학 (영지문화사, 김우철 외)
 
-**H. Kim\***, E. Rha\*, W. Seong, SJ Yeom, DH Lee, S G Lee, A cell-cell communication-based screening system for novel microbes with target enzyme activities, ACS Synthetic Biology, DOI: 10.1021/acssynbio.5b00287, 2016
 
-**H. Kim**, KK Kwon, W. Seong, SG Lee, Multi-Enzyme Screening Using a High-throughput Genetic Enzyme Screening System, The Journal of Visualized Experiments, (114), e54059, 2016
+## Evaluation 평가 세부 항목
+- 출석 50% / 과제 50% / 80점 이상 S, 80점 미만 U 부여
 
-Y J Kim\*, **H. Kim\***, S H Kim, E Rha, S-L Choi, S J Yeom, H S Kim, S G Lee, Improved metagenome screening efficiency by random insertion of T7 promoters J BIOTECHNOL, 230(0) : 47-53, 2016
+## Schedule 강의 계획
 
-SL Choi, E Rha, SJ Lee, **H. Kim**, G Kwon, YS Jeong, YH Rhee, JJ Song, HS Kim, SG Lee, Towards a Generalized and High-throughput Enzyme Screening System Based on Artificial Genetic Circuits, ACS Synthetic Biology, 3(3), 2014
+- 1주차- R basics / introduction of data 
+- 2주차 - Univariate data – Summary statistics 일변량자료 (범주형, 수치형, 분포)
+- 3주차 - Bivariate data – Correlation  / Independence  이변량자료 (자료비교, 수치자료의 관계, 단순선형회귀)
+- 4주차 - Multivariate data – R data structure 다변량자료 (다변량, R자료형, R그래픽) 
+- 5주차 - Populations – Families of distributions 모집단과 분포 
+- 6주차 - Sampling – Distribution and CLT 시뮬레이션, 샘플링
+- 7주차 - Statistical inference 통계적 추론
+- 8주차 - Confidence intervals 신뢰구간 
+- 9주차 - Significance test - parameteric 유의성 검정 (모수)
+- 10주차 - Significance test – non parametric 유의성 검정 (비모수)
+- 11주차 - Goodness of fit - parametric 적합도 검정 (모수) 
+- 12주차 - Goodness of fit – non parametirc 적합도 검정 (비모수) 
+- 13주차 - Linear regression – basics & simple LR 단순회귀모형 
+- 14주차 - Multiple linear regression 다중회귀모형 
+- 15주차 - Analysis of variance 분산분석 
+- 16주차 - Logistic / Non-linear regression 로지스틱/비선형회귀모형  
 
-**H. Kim**, T. Park, and E. Gelenbe, Identifying Disease Candidate Genes via Large-scale Gene Network Analysis, International Journal of Data Mining and Bioinformatics, 10(2), 2014
+- 9/25 휴강 (강사 해외 출장)
 
-**H. Kim**, Modelling and analysis of gene regulatory networks based on the G-network, International Journal of Advanced Intelligence Paradigms, 6(1), 2014
+## References 참고 자료
+- R 홈페이지 https://www.r-project.org/
+- Rstudio 홈페이지 https://www.rstudio.com/
+- Packages for biologists https://www.bioconductor.org/
+- R 기본 문서들 (소개, 사용, 설치, 운영)
+  + https://cran.r-project.org/doc/manuals/r-release/R-intro.html
+  + https://cran.r-project.org/doc/manuals/r-release/R-data.html
+  + https://cran.r-project.org/doc/manuals/r-release/R-admin.html
+- R ebooks 
+  + https://bookdown.org/
+- Cheat Sheets
+  + https://www.rstudio.com/resources/cheatsheets/ 
+    ![](images/01-16.PNG)
 
 
