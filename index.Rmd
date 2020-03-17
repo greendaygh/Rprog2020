@@ -17,17 +17,21 @@ description: "UST lecture web site"
 - 장소: 한국생명공학연구원 연구동 세미나실 1213호 (매주수요일 13:00~16:00)
 - 강사: 한국생명공학연구원 바이오합성연구센터 김하성
 - 연락처: 042-860-4372, haseong@kribb.re.kr (생명연 연구동 1143)
-- 강의site: https://greendaygh.github.io/Rstat2019/ 
+- 강의site: https://greendaygh.github.io/Rstat2020/ 
 
 ## Goal 강의 목표
-- 이공계열 대학원생이 보다 쉽게 통계 이론을 습득하고 활용하는 능력을 배양하는데 주요 목적이 있음. 특히 데이터 분석용 프로그래밍언어인 R을 기반으로 한 실습을 통하여 프로그래밍 기술 습득과 함께 데이터를 다루는 능력을 배움으로써 이공계 연구에 있어서 필수인 통계적 사고의 기초를 다지는데 그 목적이 있음. 
+- 이공계열 대학원생의 원활한 실험 설계와 데이터 분석을 위한 범용 프로그램 언어인 R의 사용법과 프로그래밍 기술의 습득이 목표. 특히 Data scientist를 위해 개발된 tidyverse와 ggplot2 패키지 사용법을 위주로 강의와 실습을 진행하며 후반부 대규모 서열 데이터를 이용한 실습을 통해 R의 활용 기술을 학습함
+
+## Lecture 
+- R 사용에 대한 기본 개념과 프로그래밍을 중심으로 필요시 기초 통계지식 강의
+- 실습 데이터로는 교제에서 제공되는 예제 데이터와 생물학 서열 등 대규모 데이터를 사용한 분석 진행
+- 모든 강의 시간 실습을 위한 개인 노트북 지참 필수
+- 강의 자료는 강의 웹사이트에 수업 전 업데이트됨  
+- 상황에 따라 강의 일정이 조정될 수 있음 
+- 과제물은 필요에 따라 수업 후 제공되며 다음 수업 전까지 메일로 제출 
 
 
 ## References 참고 자료
-<center>
-![](images/01-15.PNG)
-</center>
-
 - Using R for Introductory Statistics by John Verzani
   - Free version of 1st Edition 
     - https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf
@@ -35,8 +39,16 @@ description: "UST lecture web site"
   - Second edition
     - https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731
 - R for Data Science (https://r4ds.had.co.nz, https://github.com/hadley)
+- Bioinformatics Data Skills by Vince Buffalo (http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf)
 - https://resources.rstudio.com/
+- http://shiny.rstudio.com/tutorial/
 - 일반통계학 (영지문화사, 김우철 외)
+- R 홈페이지 https://www.r-project.org/
+- Rstudio 홈페이지 https://www.rstudio.com/
+- Packages for biologists https://www.bioconductor.org/
+- R 기본 문서들 (소개, 사용, 설치, 운영) https://cran.r-project.org/manuals.html 
+- R ebooks https://bookdown.org/
+- Cheat Sheets https://www.rstudio.com/resources/cheatsheets/ 
 
 
 ## Evaluation 평가 세부 항목
@@ -44,37 +56,22 @@ description: "UST lecture web site"
 
 ## Schedule 강의 계획
 
-- 1주차- R basics / introduction of data 
-- 2주차 - Univariate data – Summary statistics 일변량자료 (범주형, 수치형, 분포)
-- 3주차 - Bivariate data – Correlation  / Independence  이변량자료 (자료비교, 수치자료의 관계, 단순선형회귀)
-- 4주차 - Multivariate data – R data structure 다변량자료 (다변량, R자료형, R그래픽) 
-- 5주차 - Populations – Families of distributions 모집단과 분포 
-- 6주차 - Sampling – Distribution and CLT 시뮬레이션, 샘플링
-- 7주차 - Statistical inference 통계적 추론
-- 8주차 - Confidence intervals 신뢰구간 
-- 9주차 - Significance test - parameteric 유의성 검정 (모수)
-- 10주차 - Significance test – non parametric 유의성 검정 (비모수)
-- 11주차 - Goodness of fit - parametric 적합도 검정 (모수) 
-- 12주차 - Goodness of fit – non parametirc 적합도 검정 (비모수) 
-- 13주차 - Linear regression – basics & simple LR 단순회귀모형 
-- 14주차 - Multiple linear regression 다중회귀모형 
-- 15주차 - Analysis of variance 분산분석 
-- 16주차 - Logistic / Non-linear regression 로지스틱/비선형회귀모형  
+- 1주차 - Introduction and installation of R/Rstudio
+- 2주차 - R language basics I – Interface, operations, packages, help, NULL, NA, and NaN
+- 3주차 - R language basics II - data type and structure 
+- 4주차 - R language basics III – if, for, while
+- 5주차 - R programming – Maze Robot (function, matrix) I
+- 6주차 - R programming – Maze Robot (function, matrix) II
+- 7주차 - Data manipulation I - read, write, rbind, cbind, split, subset
+- 8주차 - Data manipulation II - dplyr, apply, reshape 
+- 9주차 - Visualizing data in R I – plot, hist
+- 10주차 - Visualizing data in R II – ggplot2
+- 11주차 - Visualizing data in R III – ggplot2
+- 12주차 - Shiny for interactive applications in R I
+- 13주차 - Shiny for interactive applications in R II 
+- 14주차 - Data analysis #1 
+- 15주차 - Data analysis #2 
+- 16주차 - Data analysis #3  
 
-- 9/25 휴강 (강사 해외 출장)
-
-## References 참고 자료
-- R 홈페이지 https://www.r-project.org/
-- Rstudio 홈페이지 https://www.rstudio.com/
-- Packages for biologists https://www.bioconductor.org/
-- R 기본 문서들 (소개, 사용, 설치, 운영)
-  + https://cran.r-project.org/doc/manuals/r-release/R-intro.html
-  + https://cran.r-project.org/doc/manuals/r-release/R-data.html
-  + https://cran.r-project.org/doc/manuals/r-release/R-admin.html
-- R ebooks 
-  + https://bookdown.org/
-- Cheat Sheets
-  + https://www.rstudio.com/resources/cheatsheets/ 
-    ![](images/01-16.PNG)
 
 
