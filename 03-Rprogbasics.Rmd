@@ -1,0 +1,145 @@
+
+# R programming basics
+
+## terminology
+
+- Console: 명령어 입력하는 창 
+- Code: R 프로그래밍 변수/제어문 모음   
+- Objects (개체, variable): 값이 (데이터) 저장되는 장소 
+- Data types: Integers, doubles/numerics, logicals, and characters.
+- Object (Variable) types:
+  - Vectors: 값들의 모임 combine function ```c()``` EX: c(6, 11, 13, 31, 90, 92)
+  - Factors: 범주형 데이터 저장 장소
+  - Data frames: 2D matrix 형태 데이터 자장 장소 
+- Conditionals (조건, 제어):
+  - ```if```, ```==```, ```&``` (AND), ```|``` (OR) Ex: ```(2 + 1 == 3) & (2 + 1 == 4) ```
+  - ```for```, ```while```: 반복 수
+- Functions (함수, commands): 특정 일 수행, 함수이름 - 입력값 (arguments) - 출력값 (output) 으로 구성 
+
+
+## R coding practice 
+
+- 콘솔 계산기 
+
+$$ 2 + 2 $$
+$$ ((2 - 1)^2 + (1 - 3)^2)^{1/2} $$
+
+```{r, eval=FALSE}
+2 + 2
+((2 – 1)^2 + (1 – 3)^2 )^(1/2)
+2 + 2; 2 - 2
+```
+- 이전 명령: 콘솔에서 위 아래 화살표  
+
+
+## Variables and values 
+
+- R is a programming language 
+- Assignment operator ( `<-` OR `=` )
+  - Valid object name `<-` value 
+  - 단축키: `Alt + -` (the minus sign)
+- 내장 변수 Built-in variables
+
+```{r, eval=FALSE}
+x <- 2
+y <- x^2 – 2*x + 1
+y
+x <- "two"  
+some_data <- 9.8
+pi
+```
+
+- 변수이름 작명법 
+  - Characters (letters), numbers,  “_”,  “.”
+  - A and a are different symbols
+  - Names are effectively unlimited in length
+
+```{r, eval=F}
+i_use_snake_case <- 1
+otherPeopleUseCamelCase <- 2
+some.people.use.periods <- 3
+And_aFew.People_RENOUNCEconvention <- 4
+```
+
+- 자동 완성 기능 (Tab completion) in RStudio
+
+
+## Variable type of (storage) mode
+
+![](images/01-13.PNG)
+
+
+## Variable - Vectors 
+
+- Combine function `c()`: Concatenating elements end to end
+
+```{r, eval=FALSE}
+x <- c(10.4, 5.6, 3.1, 6.4, 21.7) 
+y <- c("X1", "Y2",  "X3",  "Y4")
+```
+
+- 인덱싱: Subsets of the elements of a vector 
+
+```{r, eval=F}
+x[1]
+x[1:3]
+x[c(1,2,4)]
+y[3]
+```
+
+
+
+## Functions
+
+- Function define
+
+```{r, eval=FALSE}
+my_sine <- function(x){
+	y <- sin(x)
+	return(y)
+}
+```
+
+- Usage
+
+```{r, eval=F}
+my_sine(pi)
+```
+
+- Terminology 
+  - function name: `my_sine`
+  - parameter: `x`
+  - argument: `pi`
+  - return value: `y`
+
+
+- Built-in functions
+  - Arguments separated by commas
+  - Tab completion
+
+
+```{r, eval=F}
+x <- pi
+sin(x)
+sqrt(x)
+log(x)
+log(x, 10)
+x <- c(10, 20, 30)
+x + x
+mean(x)
+sum(x)/length(x)
+```
+
+
+## Vectorized functions
+
+```{r, eval=F}
+x <- c(10, 20, 30)
+x + x
+sqrt(x)
+sin(x)
+log(x)
+x-mean(x)
+```
+
+
