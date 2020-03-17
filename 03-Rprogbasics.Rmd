@@ -66,7 +66,7 @@ And_aFew.People_RENOUNCEconvention <- 4
 
 ## Variable type of (storage) mode
 
-![](images/01-13.PNG)
+![](images/01/01-13.PNG)
 
 
 ## Variable - Vectors 
