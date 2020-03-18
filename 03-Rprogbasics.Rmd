@@ -3,23 +3,24 @@
 
 ## Terminology
 
+- Session: R 언어 실행 환경 
 - Console: 명령어 입력하는 창 
-- Code: R 프로그래밍 변수/제어문 모음   
-- Objects (개체, variable): 값이 (데이터) 저장되는 장소 
-- Data types: Integers, doubles/numerics, logicals, and characters.
-- Object (Variable) types:
+- Code: R 프로그래밍 변수/제어문 모음 
+- Objects (개체, variable): 데이터(값, value)가 저장되는 장소 
+- Object (variable) types:
   - Vectors: 값들의 모임 combine function ```c()``` EX: c(6, 11, 13, 31, 90, 92)
   - Factors: 범주형 데이터 저장 장소
   - Data frames: 2D matrix 형태 데이터 자장 장소 
+- Data (value) types: Integers, doubles/numerics, logicals, and characters.
 - Conditionals (조건, 제어):
   - ```if```, ```==```, ```&``` (AND), ```|``` (OR) Ex: ```(2 + 1 == 3) & (2 + 1 == 4) ```
   - ```for```, ```while```: 반복 수
 - Functions (함수, commands): 특정 일 수행, 함수이름 - 입력값 (arguments) - 출력값 (output) 으로 구성 
 
 
-## R coding practice 
+## R console script  
 
-- 콘솔 계산기 
+콘솔에서 바로 계산을 수행할 수 있습니다. 참고로 이전에 수행한 명령은 콘솔에 커서가 있는 상태에서 위 아래 화살표를 누르면 볼 수 있고 엔터를 눌러 재사용 할 수 있습니다. ```;```을 사용하면 두 개의 명령을 동시에 수행할 수 있습니다. 
 
 $$ 2 + 2 $$
 $$ ((2 - 1)^2 + (1 - 3)^2)^{1/2} $$
@@ -29,7 +30,12 @@ $$ ((2 - 1)^2 + (1 - 3)^2)^{1/2} $$
 ((2 – 1)^2 + (1 – 3)^2 )^(1/2)
 2 + 2; 2 - 2
 ```
-- 이전 명령: 콘솔에서 위 아래 화살표  
+
+
+## What is a programming language 
+
+![](images/01/24.PNG)
+![](images/01/25.PNG)
 
 
 ## Variables and values 
@@ -141,5 +147,15 @@ sin(x)
 log(x)
 x-mean(x)
 ```
+
+## Exercise 3-1
+
+다음은 한 다이어트 프로그램의 수행 전 후의 다섯 명의 몸무게이다. 각각을 before 와 after 이름의 변수에 저장 후 몸무게 값의 변화량을 계산하시오. 
+
+![](images/01/01-21.PNG)
+
+
+
+
 
 

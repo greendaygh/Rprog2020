@@ -22,7 +22,7 @@ description: "UST lecture web site"
 ## Goal 강의 목표
 - 이공계열 대학원생의 원활한 실험 설계와 데이터 분석을 위한 범용 프로그램 언어인 R의 사용법과 프로그래밍 기술의 습득이 목표. 특히 Data scientist를 위해 개발된 tidyverse와 ggplot2 패키지 사용법을 위주로 강의와 실습을 진행하며 후반부 대규모 서열 데이터를 이용한 실습을 통해 R의 활용 기술을 학습함
 
-## Lecture 
+## This course  
 - R 사용에 대한 기본 개념과 프로그래밍을 중심으로 필요시 기초 통계지식 강의
 - 실습 데이터로는 교제에서 제공되는 예제 데이터와 생물학 서열 등 대규모 데이터를 사용한 분석 진행
 - 모든 강의 시간 실습을 위한 개인 노트북 지참 필수
@@ -30,8 +30,12 @@ description: "UST lecture web site"
 - 상황에 따라 강의 일정이 조정될 수 있음 
 - 과제물은 필요에 따라 수업 후 제공되며 다음 수업 전까지 메일로 제출 
 
+## Tips
+- 눈으로 이해하지 않고 스스로 실습 필수
+- 각 명령줄이 어떻게/왜 작동하는지 이해하기
+- 인터넷 검색을 통한 다른사람의 코드를 적극적으로 이해하고 적용 필요 
 
-## References 참고 자료
+## References books 참고 교제 
 - Using R for Introductory Statistics by John Verzani
   - Free version of 1st Edition 
     - https://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf
@@ -40,9 +44,15 @@ description: "UST lecture web site"
     - https://www.crcpress.com/Using-R-for-Introductory-Statistics-Second-Edition/Verzani/p/book/9781466590731
 - R for Data Science (https://r4ds.had.co.nz, https://github.com/hadley)
 - Bioinformatics Data Skills by Vince Buffalo (http://2.droppdf.com/files/5aTvl/bioinformatics-data-skills.pdf)
+- First Course in Statistical Programming with R by Braun and
+Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-programming-with-r/C9F088122AB40517B07FA77F2F0FDE2F)
+- Introductory Statistics with R by Dalgaard (http://www.academia.dk/BiologiskAntropologi/Epidemiologi/PDF/Introductory_Statistics_with_R__2nd_ed.pdf)
+- Modern Applied Statistics with S by Venables and Ripley (http://www.bagualu.net/wordpress/wp-content/uploads/2015/10/Modern_Applied_Statistics_With_S.pdf)
+- 일반통계학 (영지문화사, 김우철 외)
+
+## References 참고 자료
 - https://resources.rstudio.com/
 - http://shiny.rstudio.com/tutorial/
-- 일반통계학 (영지문화사, 김우철 외)
 - R 홈페이지 https://www.r-project.org/
 - Rstudio 홈페이지 https://www.rstudio.com/
 - Packages for biologists https://www.bioconductor.org/

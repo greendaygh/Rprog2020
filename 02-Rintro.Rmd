@@ -3,11 +3,21 @@
 
 ## What is R / Rstudio 
 
-<center>
 ![](images/01/r.jpg)
-</center>
 
-R 사용을 위해서는 R 언어의 코어 프로그램을 먼저 설치하고 그 다음 R 언어용 IDE인 RStudio 설치가 필요합니다.  
+R은 통계나 생물통계, 유전학을 연구하는 사람들 사이에서 널리 사용되는 오픈소스 프로그래밍 언어 입니다. Bell Lab에서 개발한 S 언어에서 유래했으며 엄청나게 많은 라이브러리 (다른 사람들이 만들어 놓은 코드)가 있어서 쉽게 가져다 사용할 수 있습니다. R은 복잡한 수식이나 통계 알고리즘을 간단히 구현하고 사용할 수 있으며 C, C++, Python 등 다른 언어들과의 병행 사용도 가능합니다. 2019년 top five language에 랭크 되었으며 이는 빅데이터 증가에 따라 인기가 높아진 것으로 볼 수 있습니다 (참고로 2018년에는 7위).
+
+![](images/01/topproglang.jpeg){width=450px}
+
+Despite being a much more specialized language than the others, it’s maintained its popularity in recent years due to the world being awash in an ever-growing pile of big data.
+https://spectrum.ieee.org/computing/software/the-top-programming-languages-2019
+
+
+R은 데이터를 통계분석에 널리 사용되는데 이는 데이터를 눈으로 확인하기 위한 visualization 이나 벡터 연산 등의 강력한 기능 때문에 점점 더 많은 사람들이 사용하고 있습니다. 기존에는 속도나 확장성이 다른 언어들에 비해 단점으로 지적되었으나 R 언어의 계속적인 개발과 업데이트로 이러한 단점들이 빠르게 보완되고 있습니다. R 사용을 위해서는 R 언어의 코어 프로그램을 먼저 설치하고 그 다음 R 언어용 IDE인 RStudio 설치가 필요합니다.  
+
+![](images/01/22.PNG)  
+
+![](images/01/23.PNG)  
 
 ## R / Rstudio installation
 
@@ -77,26 +87,38 @@ R 사용을 위해서는 R 언어의 코어 프로그램을 먼저 설치하고 
 
 ## Set working directory  
 
-- 시작 전 항상 작업 디렉토리 설정 
-- 예를 들어 c:\ 아래 새로운 디렉토리 rprog01 을 만들고 작업공간으로 설정  
+시작 전 항상 작업 디렉토리 설정. 예를 들어 c:\ 아래 새로운 디렉토리 rprog2020 을 만들고 작업공간으로 설정  
 
 ```{r, eval=FALSE}
 getwd()
 dir()
-setwd("C:\\rprog01")
+setwd("C:\\rprog2020")
 getwd()
 dir()
 ```
 
-- 또는 아래와 같이 RStudio 메뉴 에서 설정 
+또는 아래와 같이 RStudio 메뉴 에서 설정 
+
 ![](images/01/01-12.PNG)  
+
+
+
+## Hello world
+
+```{r, eval=FALSE}
+mystring <- "Hello \n world!"
+cat(mystring)
+print(mystring)
+```
+
 
 ## Help
 
-- R의 장점 중 하나 (예제 포함)
+R의 장점 중 하나로 방대한 양의 도움말 페이지가 제공됩니다. ```?``` 명령을 사용하면 되며 구글이나 웹에서도 도움을 얻을 수 있습니다. 
 
 ```{r, eval=F}
-?
+?cat
+?print
 ?mean
 help("mean")
 example("mean")
@@ -114,11 +136,7 @@ help(package="MASS")
 
 ## R packages
 
-- R comes ready loaded with various libraries of functions called packages
- + ex) sum() is in the “base” package and sd() in the “stats” package
-- The packages can be found in numerous server locations on the web called repositories
- + The Comprehensive R Archive Network (CRAN) http://cran.r-project.org/web/views/
- + Bioconductor specialised in genomics http://www.bioconductor.org/packages/release/bioc/
+R은 "package"라 불리우는 다양한 함수 라이브러리를 사용할 수 있습니다. 예를 들어 ```sum()``` 이나 ```sd()```와 같은 함수는 ```stats```이라는 패키지에서 구현된 함수 입니다. 이러한 패키지는 인터넷의 ```repository```에서 구할 수 있으며 대표적으로 The Comprehensive R Archive Network (CRAN) http://cran.r-project.org/web/views/ 와 생물학자를 위한 Bioconductor specialised in genomics http://www.bioconductor.org/packages/release/BiocViews.html#___Software 가 있습니다. 이러한 패키지의 설치는 아래와 같이 RStudio를 이용하거나 콘솔창에서 ```install.packages()``` 함수를 이용할 수 있습니다. 
  
 
 ![](images/01/01-18.png)
@@ -127,7 +145,8 @@ help(package="MASS")
 
 ![](images/01/01-19.png)
 
-- UsingR package loading
+패키지를 설치하고 사용하기 위해서는 ```library()``` 함수를 사용해서 미리 loading 해 두어야 합니다. 한 번 로딩으로 작업 세션이 끝날때까지 관련된 함수를 사용할 수 있으나 R 세션이나 RStudio를 재시작 할 경우 다시 로딩해야 사용할 수 있습니다. 
+
 
 ```{r, eval=F}
 library(UsingR)
@@ -146,9 +165,7 @@ path.package()
 
 ## Data sets
 
-- Packages include accompanying data sets
-- R has a datasets package that is loaded automatically
-- The data function  produces a copy of dataset in user’s workspace
+대부분의 패키지는 함수와 함께 관련된 도움말, 예제, 그리고 데이터셋을 같이 제공해 줍니다. ```library()``` 함수를 사용할 때 자동으로 같이 로딩이 되며 ```data()``` 함수를 사용해서 사용자 작업공간에 복사본을 만들어서 사용할 수 있습니다. 
 
 ```{r, eval=F}
 head(rivers)
@@ -160,6 +177,7 @@ library(HistData)
 head(Cavendish)
 str(Cavendish)
 head(Cavendish$density2)
+data(package="HistData")
 ```
 
 
