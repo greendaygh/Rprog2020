@@ -380,6 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="vectorized-functions" class="section level2">
 <h2><span class="header-section-number">3.8</span> Vectorized functions</h2>
+<p>초기에 R이 다른 프로그래밍 언어에 비해서 경쟁력을 갖는 이유 중 하나가 바로 이 기능 이였습니다. <code>vector</code> 변수에 들어있는 각 원소들에 대해서 특정 함수나 연산을 적용하고 싶을 경우 전통 방식의 <code>C</code>나 <code>Java</code>등의 언어에서는 원소의 개수만큼 반복문을 돌면서 원하는 작업을 수행 했습니다. 그러나 R의 <code>vectorization</code> 기능은 별도의 반복문 없이 vector 안에 있는 원소들에 대한 함수 실행 또는 연산을 수행할 수 있습니다.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-programming-basics-i.html#cb22-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
 <span id="cb22-2"><a href="r-programming-basics-i.html#cb22-2"></a>x <span class="op">+</span><span class="st"> </span>x</span>
 <span id="cb22-3"><a href="r-programming-basics-i.html#cb22-3"></a><span class="kw">sqrt</span>(x)</span>
