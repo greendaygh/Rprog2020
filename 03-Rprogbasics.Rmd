@@ -231,11 +231,15 @@ sum(mysub) #8
 sum(mysub^2) #8
 ```
 
+### Excercise 3-4
 
+column이 3개이고 row가 3인 0으로 채워진 m이라는 이름의 matrix를 만들고 m의 각 원소를 1로 채우시오. 
+
+---
 
 ## Variable - data.frame
 
-데이터프레임은 변수의 모임으로 형태는 매트릭스와 같으나 `$` 기호를 이용하여 각 구성 변수를 참조할 수 있다는 점이 다릅니다. 즉 컬럼 한 줄을 변수 하나로 보고 여러 변수들을 컬럼 형태로 붙여 놓은 것이 데이터프레임이라고 볼 수 있습니다. 즉, 각 row는 샘플을 나타내고 각 column은 변수를 나타냅니다. 또한 각 변수들이 갖는 값의 개수 (vector 의 길이)는 같아야 합니다. R 기반의 데이터 분석에서는 가장 선호되는 데이터 타입이라고 볼 수 있습니다.
+데이터프레임은 형태는 매트릭스와 같으나 컬럼 하나가 하나의 변수로서 각 변수들이 다른 모드의 값을 저장할 수 있다는 차이가 있습니다. `$` 기호를 이용하여 각 구성 변수를 참조할 수 있습니다. 컬럼 한 줄이 하나의 변수 이므로 새로운 변수도 컬럼 형태로 붙여 넣을 수 있습니다. 즉, 각 row는 샘플을 나타내고 각 column은 변수를 나타내며 각 변수들이 갖는 샘플의 개수 (row의 길이, vector 의 길이)는 같아야 합니다. R 기반의 데이터 분석에서는 가장 선호되는 데이터 타입이라고 볼 수 있습니다.
 
 ```{r eval=FALSE}
 ## data.frame
@@ -248,14 +252,16 @@ students
 class(students$ids)
 class(students$idnames)
 students$idnames
+str(students)
 
 students <- data.frame(ids, idnames, stringsAsFactors = F)
 class(students$idnames)
 students$idnames
 students[1,]
+str(students)
 ```
 
-데이터프레임에서도 변수 이름을 따옴표(")로 묶은 후 참조가 가능합니다.  
+데이터프레임에서도 변수 이름으로 인덱싱이 가능합니다.  
 
 ```{r, eval=F}
 ## data frame indexing 
@@ -263,7 +269,6 @@ students$ids
 students[,1]
 students[,"ids"]
 ```
-
 
 
 ## Variable - list

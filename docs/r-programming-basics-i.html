@@ -169,13 +169,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.2" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#excercise-3-2"><i class="fa fa-check"></i><b>3.6.2</b> Excercise 3-2</a></li>
 <li class="chapter" data-level="3.6.3" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#excercise-3-3"><i class="fa fa-check"></i><b>3.6.3</b> Excercise 3-3</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#variable---matrix"><i class="fa fa-check"></i><b>3.7</b> Variable - matrix</a></li>
+<li class="chapter" data-level="3.7" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#variable---matrix"><i class="fa fa-check"></i><b>3.7</b> Variable - matrix</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#excercise-3-4"><i class="fa fa-check"></i><b>3.7.1</b> Excercise 3-4</a></li>
+</ul></li>
 <li class="chapter" data-level="3.8" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#variable---data.frame"><i class="fa fa-check"></i><b>3.8</b> Variable - data.frame</a></li>
 <li class="chapter" data-level="3.9" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#variable---list"><i class="fa fa-check"></i><b>3.9</b> Variable - list</a></li>
 <li class="chapter" data-level="3.10" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#missing-values"><i class="fa fa-check"></i><b>3.10</b> Missing values</a></li>
 <li class="chapter" data-level="3.11" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#some-useful-functions"><i class="fa fa-check"></i><b>3.11</b> Some useful functions</a>
 <ul>
-<li class="chapter" data-level="3.11.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#excercise-3-4"><i class="fa fa-check"></i><b>3.11.1</b> Excercise 3-4</a></li>
+<li class="chapter" data-level="3.11.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#excercise-3-4-1"><i class="fa fa-check"></i><b>3.11.1</b> Excercise 3-4</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html"><i class="fa fa-check"></i><b>4</b> R programming basics II</a>
@@ -403,10 +406,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb19-3"><a href="r-programming-basics-i.html#cb19-3"></a>mysub &lt;-<span class="st"> </span>mymat[,<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>mymat[,<span class="dv">1</span>] <span class="co">#7</span></span>
 <span id="cb19-4"><a href="r-programming-basics-i.html#cb19-4"></a><span class="kw">sum</span>(mysub) <span class="co">#8</span></span>
 <span id="cb19-5"><a href="r-programming-basics-i.html#cb19-5"></a><span class="kw">sum</span>(mysub<span class="op">^</span><span class="dv">2</span>) <span class="co">#8</span></span></code></pre></div>
+<div id="excercise-3-4" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> Excercise 3-4</h3>
+<p>column이 3개이고 row가 3인 0으로 채워진 m이라는 이름의 matrix를 만들고 m의 각 원소를 1로 채우시오.</p>
+<hr />
+</div>
 </div>
 <div id="variable---data.frame" class="section level2">
 <h2><span class="header-section-number">3.8</span> Variable - data.frame</h2>
-<p>데이터프레임은 변수의 모임으로 형태는 매트릭스와 같으나 <code>$</code> 기호를 이용하여 각 구성 변수를 참조할 수 있다는 점이 다릅니다. 즉 컬럼 한 줄을 변수 하나로 보고 여러 변수들을 컬럼 형태로 붙여 놓은 것이 데이터프레임이라고 볼 수 있습니다. 즉, 각 row는 샘플을 나타내고 각 column은 변수를 나타냅니다. 또한 각 변수들이 갖는 값의 개수 (vector 의 길이)는 같아야 합니다. R 기반의 데이터 분석에서는 가장 선호되는 데이터 타입이라고 볼 수 있습니다.</p>
+<p>데이터프레임은 형태는 매트릭스와 같으나 컬럼 하나가 하나의 변수로서 각 변수들이 다른 모드의 값을 저장할 수 있다는 차이가 있습니다. <code>$</code> 기호를 이용하여 각 구성 변수를 참조할 수 있습니다. 컬럼 한 줄이 하나의 변수 이므로 새로운 변수도 컬럼 형태로 붙여 넣을 수 있습니다. 즉, 각 row는 샘플을 나타내고 각 column은 변수를 나타내며 각 변수들이 갖는 샘플의 개수 (row의 길이, vector 의 길이)는 같아야 합니다. R 기반의 데이터 분석에서는 가장 선호되는 데이터 타입이라고 볼 수 있습니다.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-programming-basics-i.html#cb20-1"></a><span class="co">## data.frame</span></span>
 <span id="cb20-2"><a href="r-programming-basics-i.html#cb20-2"></a>ids &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
 <span id="cb20-3"><a href="r-programming-basics-i.html#cb20-3"></a>ids</span>
@@ -417,12 +425,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb20-8"><a href="r-programming-basics-i.html#cb20-8"></a><span class="kw">class</span>(students<span class="op">$</span>ids)</span>
 <span id="cb20-9"><a href="r-programming-basics-i.html#cb20-9"></a><span class="kw">class</span>(students<span class="op">$</span>idnames)</span>
 <span id="cb20-10"><a href="r-programming-basics-i.html#cb20-10"></a>students<span class="op">$</span>idnames</span>
-<span id="cb20-11"><a href="r-programming-basics-i.html#cb20-11"></a></span>
-<span id="cb20-12"><a href="r-programming-basics-i.html#cb20-12"></a>students &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ids, idnames, <span class="dt">stringsAsFactors =</span> F)</span>
-<span id="cb20-13"><a href="r-programming-basics-i.html#cb20-13"></a><span class="kw">class</span>(students<span class="op">$</span>idnames)</span>
-<span id="cb20-14"><a href="r-programming-basics-i.html#cb20-14"></a>students<span class="op">$</span>idnames</span>
-<span id="cb20-15"><a href="r-programming-basics-i.html#cb20-15"></a>students[<span class="dv">1</span>,]</span></code></pre></div>
-<p>데이터프레임에서도 변수 이름을 따옴표(")로 묶은 후 참조가 가능합니다.</p>
+<span id="cb20-11"><a href="r-programming-basics-i.html#cb20-11"></a><span class="kw">str</span>(students)</span>
+<span id="cb20-12"><a href="r-programming-basics-i.html#cb20-12"></a></span>
+<span id="cb20-13"><a href="r-programming-basics-i.html#cb20-13"></a>students &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ids, idnames, <span class="dt">stringsAsFactors =</span> F)</span>
+<span id="cb20-14"><a href="r-programming-basics-i.html#cb20-14"></a><span class="kw">class</span>(students<span class="op">$</span>idnames)</span>
+<span id="cb20-15"><a href="r-programming-basics-i.html#cb20-15"></a>students<span class="op">$</span>idnames</span>
+<span id="cb20-16"><a href="r-programming-basics-i.html#cb20-16"></a>students[<span class="dv">1</span>,]</span>
+<span id="cb20-17"><a href="r-programming-basics-i.html#cb20-17"></a><span class="kw">str</span>(students)</span></code></pre></div>
+<p>데이터프레임에서도 변수 이름으로 인덱싱이 가능합니다.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-programming-basics-i.html#cb21-1"></a><span class="co">## data frame indexing </span></span>
 <span id="cb21-2"><a href="r-programming-basics-i.html#cb21-2"></a>students<span class="op">$</span>ids</span>
 <span id="cb21-3"><a href="r-programming-basics-i.html#cb21-3"></a>students[,<span class="dv">1</span>]</span>
@@ -472,7 +482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-8"><a href="r-programming-basics-i.html#cb24-8"></a>digits &lt;-<span class="st"> </span><span class="kw">as.character</span>(z)</span>
 <span id="cb24-9"><a href="r-programming-basics-i.html#cb24-9"></a>n &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(digits)</span>
 <span id="cb24-10"><a href="r-programming-basics-i.html#cb24-10"></a>d &lt;-<span class="st"> </span><span class="kw">as.integer</span>(digits)</span></code></pre></div>
-<div id="excercise-3-4" class="section level3">
+<div id="excercise-3-4-1" class="section level3">
 <h3><span class="header-section-number">3.11.1</span> Excercise 3-4</h3>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
