@@ -2,81 +2,188 @@
 # R programming basics II
 
 
-## matrix (행렬)
+## Functions
 
-매트릭스는 2차원 행렬로 같은 형식의 데이터 값 (numberic, character, logical) 으로만 채워진 행렬을 말합니다. 메트릭스를 만드는 방법은 아래와 같으며 nrow와 ncol 파라메터에 행과 열의 수를 넣고 각 셀에 들어갈 값은 가장 앞에 위치한 data 파라메터에 넣어 줍니다 (?matrix로 파라메터 이름 확인). 메트릭스 인덱싱은 메트릭스 안의 값을 저장하거나 참조할때 (빼올때) 사용하는 방법입니다. 메트릭스 변수이름 바로 뒤에 대괄호를 이용해서 제어를 하며 대괄호 안에 콤마로 구분된 앞쪽은 row, 뒷쪽은 column 인덱스를 나타냅니다. row 또는 column에 해당하는 어느쪽에도 값을 넣지 않을 경우 그 row 또는 column  전체를 참조하게 됩니다. 
+함수(Function)는 프로그래밍 과정에서 사용자가 필요로하는 기능을 수행하는 명령어를 말하며 다음과 같은 포멧으로 함수를 구현할 수 있습니다. 
 
-```{r eval=FALSE}
-mymat <- matrix(0, nrow=100, ncol=3) # 1
-mymat[,1] <- 1:100 # 2
-mymat[,2] <- seq(1,200,2) # 3
-mymat[,3] <- seq(2,200,2) # 4
+```{r, eval=FALSE}
+myfunction.name <- function(para1, para2, ... ){
+  statements
+  return(object)
+}
 ```
 
-여러 row나 column을 참조할 경우 아래와 같이 combine 함수를 사용하여 묶어줘야 하며 스칼라값을 더하거나 뺄 경우 vector / matrix 연산을 기본으로 수행합니다. 
-```{r eval=FALSE}
-mymat[c(2,3,4,5),2] # 5
-mymat-1 # 6
-mysub <- mymat[,2] - mymat[,1] #7
-sum(mysub) #8
-sum(mysub^2) #8
+예를 들어 다음과 같은 ```my_sine``` 함수를 만들 수 있으며 ```x```는 parameter (매개변수)이고 ```y```는 반환값을 저장하는 지역변수 입니다.
+
+```{r, eval=FALSE}
+my_sine <- function(x){
+	y <- sin(x)
+	return(y)
+}
 ```
 
+만들어진 함수는 다음과 같이 사용할 수 있습니다. 여기서 함수로 전달되는 값 ```pi```는 argument (전달인자) 라고 합니다. 전달인자는 함수에서 정의된 매개변수의 갯수와 같은 수의 전달인자를 입력해 주어야 합니다. 
 
-
-## data.frame
-
-데이터프레임은 변수의 모임으로 형태는 매트릭스와 같으나 $ 기호를 이용하여 각 구성 변수를 참조할 수 있다는 점이 다릅니다. 또한 데이터프레임 또는 매트릭스의 row나 column에 이름이 주어져 있을 경우 이름을 따옴표(")로 묶은 후 참조가 가능합니다.  
-
-```{r eval=FALSE}
-## data.frame
-ids <- 1:10
-ids
-idnames <- paste("Name", ids, sep="")
-idnames
-students <- data.frame(ids, idnames)
-students
-class(students$ids)
-class(students$idnames)
-students$idnames
-
-students <- data.frame(ids, idnames, stringsAsFactors = F)
-class(students$idnames)
-students$idnames
-students[1,]
-
-## data frame indexing 
-students$ids
-students[,1]
-students[,"ids"]
-
+```{r, eval=F}
+my_sine(pi)
 ```
 
+- Terminology 
+  - function name: `my_sine`
+  - parameter: `x`
+  - argument: `pi`
+  - return value: `y`
 
 
-## list
+다음 코드를 보면 전역변수 ```x```, ```y```는 지역변수 ```x```, ```y```와 독립적으로 사용됨을 알 수 있습니다. 
 
-리스트는 변수들의 모임이라는 점에서 데이터프레임과 같으나 구성 변수들의 길이가 모두 같아야 하는 데이터프레임과는 달리 다른 길이의 변수를 모아둘 수 있는 점이 다릅니다. 리스트는 아래와 같이 대괄호 두 겹을 이용해 인덱싱을 합니다. 
+```{r, eval=F}
+my_half <- function(x){
+  y <- x/2
+  cat("local variable x:", x, "\n")
+  cat("local variable y:", y, "\n")
+  return(y)
+}
+y <- 100
+x <- 20
+cat("Global variable x:", x, "\n")
+cat("Global variable y:", y, "\n")
+my_half(5)
+```
 
-```{r eval=FALSE}
-## list
-parent_names <- c("Fred", "Mary")
-number_of_children <- 2
-child_ages <- c(4, 7, 9)
-data.frame(parent_names, number_of_children, child_ages)
-lst <- list(parent_names, number_of_children, child_ages)
-lst[1]
-lst[[1]]
-class(lst[1])
-class(lst[[1]])
-lst[[1]][1]
-lst[[1]][c(1,2)]
+```log```, ```sin```등의 함수들은 Built-in function으로 같은 이름의 함수를 만들지 않도록 주의합니다. 
+
+
+```{r, eval=F}
+x <- pi
+sin(x)
+sqrt(x)
+log(x)
+log(x, 10)
+x <- c(10, 20, 30)
+x + x
+mean(x)
+sum(x)/length(x)
 ```
 
 
+## Vectorized functions
+
+초기에 R이 다른 프로그래밍 언어에 비해서 경쟁력을 갖는 이유 중 하나가 바로 이 기능 이였습니다. ```vector``` 변수에 들어있는 각 원소들에 대해서 특정 함수나 연산을 적용하고 싶을 경우 전통 방식의 ```C```나 ```Java```등의 언어에서는 원소의 개수만큼 반복문을 돌면서 원하는 작업을 수행 했습니다. 그러나 R의 ```vectorization``` 기능은 별도의 반복문 없이 vector 안에 있는 원소들에 대한 함수 실행 또는 연산을 수행할 수 있습니다. 
+
+```{r, eval=F}
+x <- c(10, 20, 30)
+x + x
+sqrt(x)
+sin(x)
+log(x)
+x-mean(x)
+
+length(x)
+test_scores <- c(Alice = 87, Bob = 72, James= 99)
+names(test_scores)
+```
+
+### Exercise 4-1
+
+다음은 한 다이어트 프로그램의 수행 전 후의 다섯 명의 몸무게이다. 
+
+![](images/01/01-21.PNG)
+
+- 각각을 before 와 after 이름의 변수에 저장 후 몸무게 값의 변화량을 계산하시오. 
+  - before값들의 평균을 구하시오 (mean() 함수 사용)
+- my_mean 이라는 이름의 함수로 평균을 구하는 코드를 작성 하시오 (빌트인 함수 사용하지 않음)
+  - 함수이름: my_mean
+  - parameter: x 
+  - return 값: y 
+  - (x[1]+x[2]+x[3]+x[4]+x[5])/5
+- 빌트인 함수 sum()과 length()를 이용해 동일한 기능을 하는 함수를 작성하시오
+  - 함수이름 my_mean2
+  - sum(), length() 사용
 
 
-## File 읽기/쓰기
+
+### Excercise 4-2
+다음 네 학생이 있으며 "John","James","Sara", "Lilly" 각 나이는 다음과 같음. 21, 55, 23, 53. ages 라는 변수를 생성하고 각 나이를 저장한 후 who라는 이름의 함수를 만들어서 50살 이상인 사람의 이름을 출력하는 함수를 만드시오. 
+
+* ages라는 변수에 나이 저장, c() 함수 이용, vector 형태 저장
+* names() 함수 이용해서 각 ages 벡터의 각 요소에 이름 붙이기
+* which() 함수 사용해서 나이가 50보다 큰 인덱스 찾고 해당 인덱스 값 출력 하기
+* ages를 메개변수로 받아서 나이가 50보다 큰 인덱스 찾고 해당 인덱스의 값을 반환해 주는 who 함수 만들고 사용 
+
+```{r, eval=F, echo=F}
+ages <- c(21, 55, 23, 53)
+names(ages) <- c("John","James","Sara", "Lilly")
+
+who <- function(input){
+  greater_than_fifty_index <- which(input > 50)
+  sel_ages <- input[greater_than_fifty_index]
+  sel_names <- names(sel_ages)
+  return(sel_names)
+}
+
+who(ages)
+```
+
+
+## if statements
+
+R에서의 제어문의 사용은 다른 프로그래밍 언어와 거의 유사합니다. 먼저 `if` 는 다음과 같은 형식으로 사용되며 `()` 안에 특정 조건 판단을 위한 표현이 들어갑니다. 
+
+```{r, eval=F}
+if(condition){
+  expr_1
+}else{
+  expr_2
+}
+```
+
+특히 `condition`은 하나의 원소에 대한 조건 판단문으로 `T` 또는 `F` 값 하나만을 반환하는 문장이어야 합니다. 위 코드는 만약 `condition` 조건이 `True` 이면 expr_1를 실행하고 `False`이면 expr_2를 실행하라는 명령입니다. `condition` 안에서 사용되는 비교 연산자들은 다음과 같습니다. 
+
+![](images/04/01.PNG)
+
+
+```{r, eval=F}
+x <- 2
+if(x%%2 == 1){
+  cat("Odd")
+}else{
+  cat("Even")
+} 
+
+x <- 5
+if(x > 0 & x < 4){
+   print("Positive number less than four")
+}
+if(x > 0) print("Positive number")
+
+
+x <- -5
+if(x > 0){
+ 	print("Non-negative number")
+} else if(x <= 0 & x > -5){
+	print("Negative number greater than -5")
+} else {
+  print("Negative number less than -5")
+}
+
+if(x > 0)
+ 	print("Non-negative number")
+else
+	print("Negative number")
+
+
+```
+
+### Excercise 4-3
+
+1부터 100까지 수를 x라는 변수에 저장하고 홀수 이거나 10의 배수인 수들을 골라내는 코드를 작성 하시오 (`%%` 나머지 연산, `if`문 사용)
+
+
+## for, repeat, while
+
+
+## File read and write
 
 텍스트 파일의 경우 아래와 같이 csv 또는 txt 파일로 저장하여 메모장으로 열어 확인할 수 있으며 읽어올 경우 구분자 (sep 파라메터) 나 header를 (header 파라메터) 읽을지 읽지 않을지 등을 옵션으로 지정할 수 있습니다. 
 
@@ -99,7 +206,7 @@ plot(mydata$x, mydata$z)
 ```
 
 
-## Excel file 읽기/쓰기
+## Excel file read and write
 
 엑셀파일은 readxl 이라는 R 패키지를 활용하여 읽거나 쓸 수 있습니다. 
 
@@ -176,7 +283,7 @@ barplot(t(mean_test), ylim=c(0,1), beside=T)
 
 
 
-## Exercise 3-2 standard deviation
+### Exercise 4-3 standard deviation
 
 앞서 사용한 sd 함수는 표준편차를 구해주는 기본 제공 함수입니다. 아래는 같은 기능을 하는 함수를 만들어 보는 실습 예제 입니다. 
 
@@ -196,7 +303,7 @@ sd(x)
 ```
 
 
-## Exercise 3-3 barplot with error bars
+### Exercise 4-4 barplot with error bars
 
 앞서 그려본 막대그래프에 에러바를 넣어보는 코드 입니다. 먼저 평균과 표준편차 데이터를 apply 함수를 통해 얻어내고 barplot을 수행합니다. 에러바의 경우 arrows 함수를 사용하는데 사용되는 파라메터의 입력되는 값을 바꿔서 그림을 그려보면 그 의미를 파악하는데 도움이 되겠습니다. 
 
@@ -241,7 +348,7 @@ for(i in 1:length(control_mean)){
 
 
 
-마지막으로 실습 예제 3-5는 엑셀파일 이름을 argument로 받아서 파일 내용을 읽고 데이터를 두 그룹으로 나누어 평균을 계산한 후 plot까지 그려주는 함수를 만드는 실습 예제 입니다. 다음 시간에 이어서 합니다. 
+마지막으로 실습 예제 4-5는 엑셀파일 이름을 argument로 받아서 파일 내용을 읽고 데이터를 두 그룹으로 나누어 평균을 계산한 후 plot까지 그려주는 함수를 만드는 실습 예제 입니다. 다음 시간에 이어서 합니다. 
 
 ---
 
