@@ -324,19 +324,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-2"><a href="r-programming-basics-i.html#cb13-2"></a><span class="kw">is.numeric</span>(<span class="dv">1</span>)</span>
 <span id="cb13-3"><a href="r-programming-basics-i.html#cb13-3"></a><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)</span>
 <span id="cb13-4"><a href="r-programming-basics-i.html#cb13-4"></a></span>
-<span id="cb13-5"><a href="r-programming-basics-i.html#cb13-5"></a>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">13</span></span>
-<span id="cb13-6"><a href="r-programming-basics-i.html#cb13-6"></a>temp &lt;-<span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">13</span></span>
-<span id="cb13-7"><a href="r-programming-basics-i.html#cb13-7"></a><span class="kw">class</span>(temp)</span>
-<span id="cb13-8"><a href="r-programming-basics-i.html#cb13-8"></a></span>
-<span id="cb13-9"><a href="r-programming-basics-i.html#cb13-9"></a><span class="kw">which</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span>
-<span id="cb13-10"><a href="r-programming-basics-i.html#cb13-10"></a>i &lt;-<span class="st"> </span><span class="kw">which</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span>
-<span id="cb13-11"><a href="r-programming-basics-i.html#cb13-11"></a>ages[i]</span>
-<span id="cb13-12"><a href="r-programming-basics-i.html#cb13-12"></a><span class="kw">any</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span>
-<span id="cb13-13"><a href="r-programming-basics-i.html#cb13-13"></a><span class="kw">all</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span></code></pre></div>
+<span id="cb13-5"><a href="r-programming-basics-i.html#cb13-5"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span></span>
+<span id="cb13-6"><a href="r-programming-basics-i.html#cb13-6"></a>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">13</span></span>
+<span id="cb13-7"><a href="r-programming-basics-i.html#cb13-7"></a>temp &lt;-<span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">13</span></span>
+<span id="cb13-8"><a href="r-programming-basics-i.html#cb13-8"></a><span class="kw">class</span>(temp)</span>
+<span id="cb13-9"><a href="r-programming-basics-i.html#cb13-9"></a></span>
+<span id="cb13-10"><a href="r-programming-basics-i.html#cb13-10"></a>ages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">66</span>, <span class="dv">57</span>, <span class="dv">60</span>, <span class="dv">41</span>,  <span class="dv">6</span>, <span class="dv">85</span>, <span class="dv">48</span>, <span class="dv">34</span>, <span class="dv">61</span>, <span class="dv">12</span>)</span>
+<span id="cb13-11"><a href="r-programming-basics-i.html#cb13-11"></a>ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span></span>
+<span id="cb13-12"><a href="r-programming-basics-i.html#cb13-12"></a><span class="kw">which</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span>
+<span id="cb13-13"><a href="r-programming-basics-i.html#cb13-13"></a>i &lt;-<span class="st"> </span><span class="kw">which</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span>
+<span id="cb13-14"><a href="r-programming-basics-i.html#cb13-14"></a>ages[i]</span>
+<span id="cb13-15"><a href="r-programming-basics-i.html#cb13-15"></a><span class="kw">any</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span>
+<span id="cb13-16"><a href="r-programming-basics-i.html#cb13-16"></a><span class="kw">all</span>(ages <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>)</span></code></pre></div>
 </div>
 <div id="excercise-3-3" class="section level3">
 <h3><span class="header-section-number">3.6.3</span> Excercise 3-3</h3>
-<p>1부터 100까지의 수를 n이라는 이름의 변수에 저장하고 이 중 짝수만을 뽑아내서 출력하시오</p>
+<p>1부터 100까지의 수를 n이라는 이름의 변수에 저장하고 이 중 짝수만을 뽑아내서 출력하시오 (<code>which()</code>함수 사용)</p>
 <p>Character(문자형) 벡터의 경우 문자열을 다루는데 자주 쓰이는 <code>paste()</code> 함수의 사용법을 알아두면 편리합니다. <code>paste()</code> 함수는 서로 다른 문자열을 붙이는데 주로 사용됩니다. 참고로 문자열을 나누는 함수는 <code>strsplit()</code> 입니다. <code>paste()</code>에서 붙이는 문자 사이에 들어가는 문자를 지정하는 파라메터는 <code>sep</code> 이고 <code>strsplit()</code>함수에서 자르는 기준이 되는 문자는<code>split</code> 파라메터로 지정해 줍니다 (<code>?split</code> 또는 <code>?paste</code> 확인).</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-programming-basics-i.html#cb14-1"></a><span class="kw">paste</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>, <span class="st">&quot;Z&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;_&quot;</span>)</span>
 <span id="cb14-2"><a href="r-programming-basics-i.html#cb14-2"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;Four&quot;</span>,<span class="st">&quot;The&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;Score&quot;</span>,<span class="st">&quot;quick&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;and&quot;</span>,<span class="st">&quot;fox&quot;</span>), <span class="dt">sep=</span><span class="st">&quot;_&quot;</span>)</span>
