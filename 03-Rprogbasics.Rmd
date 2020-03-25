@@ -332,6 +332,17 @@ d <- as.integer(digits)
 ```
 
 
+### Excercise 3-5
+
+* score 라는 변수에 1부터 100까지 중 랜덤하게 선택된 20개의 수로 10 x 2 matrix를 만드시오
+* score의 row 이름을 문자형으로 Name1, Name2, ..., Name10으로 지정하시오 (`paste()`변수 사용)
+* score의 column 이름을 문자형으로 math와 eng로 지정하시오
+* 이 matrix의 첫번째 컬럼과 두 번째 컬럼의 수를 각각 더한 후 total_score라는 변수에 저장 하시오
+* total_score 오름차순 순서를 나타내는 인덱스 (`order()`함수 사용)를 o라는 변수에 저장 하시오 
+* score를 o순서로 재 배치 하고 score_ordered 변수에 저장 하시오 
+
+
+
 
 
 ---
