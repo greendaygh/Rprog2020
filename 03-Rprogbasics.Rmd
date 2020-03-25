@@ -294,6 +294,8 @@ lst[[1]][1]
 lst[[1]][c(1,2)]
 ```
 
+![](images/03/06.PNG)
+
 
 ## Missing values
 
@@ -328,9 +330,6 @@ digits <- as.character(z)
 n <- as.numeric(digits)
 d <- as.integer(digits)
 ```
-
-
-### Excercise 3-4
 
 
 
