@@ -103,7 +103,7 @@ names(test_scores)
 
 
 
-### Excercise 4-2
+### Exercise 4-2
 다음 네 학생이 있으며 "John","James","Sara", "Lilly" 각 나이는 다음과 같음. 21, 55, 23, 53. ages 라는 변수를 생성하고 각 나이를 저장한 후 who라는 이름의 함수를 만들어서 50살 이상인 사람의 이름을 출력하는 함수를 만드시오. 
 
 * ages라는 변수에 나이 저장, c() 함수 이용, vector 형태 저장
@@ -175,7 +175,7 @@ else
 
 ```
 
-### Excercise 4-3
+### Exercise 4-3
 
 1부터 100까지 수를 x라는 변수에 저장하고 홀수 이거나 10의 배수인 수들을 골라내는 코드를 작성 하시오 (`%%` 나머지 연산, `if`문 사용)
 
@@ -288,7 +288,7 @@ barplot(t(mean_test), ylim=c(0,1), beside=T)
 앞서 사용한 sd 함수는 표준편차를 구해주는 기본 제공 함수입니다. 아래는 같은 기능을 하는 함수를 만들어 보는 실습 예제 입니다. 
 
 ```{r}
-## excercise 3-2 
+## exercise 3-2 
 mysd <- function(x){
   xmean <- sum(x)/length(x)
   tmpdif <- x-xmean
