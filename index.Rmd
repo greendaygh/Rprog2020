@@ -83,5 +83,24 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 - 15주차 - Data analysis #2 
 - 16주차 - Data analysis #3  
 
+## R Lecture Link  
+
+강의 02-1  
+https://youtu.be/Fif5LnalvUE
+
+강의 02-2  
+https://youtu.be/7-qVYzrKIlU
+
+강의 02-3  
+https://youtu.be/t3-NaiMuaYs
+
+강의02-4  
+https://youtu.be/w10jHp8A128
+
+강의02-5  
+https://youtu.be/tItpzjBMeDI
+
+강의02-6  
+https://youtu.be/3AaZ0vqgNHk
 
 
