@@ -3,6 +3,10 @@
 
 ![강의02-1](https://youtu.be/Fif5LnalvUE)
 
+```{r}
+knitr::include_url("https://youtu.be/Fif5LnalvUE")
+```
+
 ![강의02-2](https://youtu.be/7-qVYzrKIlU)
 
 ![강의02-3](https://youtu.be/t3-NaiMuaYs)
