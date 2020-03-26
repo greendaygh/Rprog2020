@@ -1,4 +1,4 @@
-rmd_files: ["index.Rmd", "02-Rintro.Rmd", "03-Rprogbasics.Rmd", "04-Rprogbasics.Rmd"]
+rmd_files: ["index.Rmd", "01.Rmd", "02-Rintro.Rmd", "03-Rprogbasics.Rmd", "04-Rprogbasics.Rmd"]
 book_filename: "Rprog"
 repo: https://github.com/greendaygh/Rprog2020/
 output_dir: docs
