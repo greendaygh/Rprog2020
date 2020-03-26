@@ -294,36 +294,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>단축키 <code>Ctrl + Shift + C</code> 사용</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-basics.html#cb2-1"></a><span class="co"># x &lt;- 10</span></span>
-<span id="cb2-2"><a href="r-basics.html#cb2-2"></a><span class="co"># y &lt;- 20</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-basics.html#cb1-1"></a><span class="co"># x &lt;- 10</span></span>
+<span id="cb1-2"><a href="r-basics.html#cb1-2"></a><span class="co"># y &lt;- 20</span></span></code></pre></div>
 </div>
 <div id="set-working-directory" class="section level2">
 <h2><span class="header-section-number">3.5</span> Set working directory</h2>
 <p>시작 전 항상 작업 디렉토리 설정. 예를 들어 c: 아래 새로운 디렉토리 rprog2020 을 만들고 작업공간으로 설정</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-basics.html#cb3-1"></a><span class="kw">getwd</span>()</span>
-<span id="cb3-2"><a href="r-basics.html#cb3-2"></a><span class="kw">dir</span>()</span>
-<span id="cb3-3"><a href="r-basics.html#cb3-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">rprog2020&quot;</span>)</span>
-<span id="cb3-4"><a href="r-basics.html#cb3-4"></a><span class="kw">getwd</span>()</span>
-<span id="cb3-5"><a href="r-basics.html#cb3-5"></a><span class="kw">dir</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-basics.html#cb2-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb2-2"><a href="r-basics.html#cb2-2"></a><span class="kw">dir</span>()</span>
+<span id="cb2-3"><a href="r-basics.html#cb2-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">rprog2020&quot;</span>)</span>
+<span id="cb2-4"><a href="r-basics.html#cb2-4"></a><span class="kw">getwd</span>()</span>
+<span id="cb2-5"><a href="r-basics.html#cb2-5"></a><span class="kw">dir</span>()</span></code></pre></div>
 <p>또는 아래와 같이 RStudio 메뉴 에서 설정</p>
 <p><img src="images/01/01-12.PNG" /></p>
 </div>
 <div id="hello-world" class="section level2">
 <h2><span class="header-section-number">3.6</span> Hello world</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-basics.html#cb4-1"></a>mystring &lt;-<span class="st"> &quot;Hello </span><span class="ch">\n</span><span class="st"> world!&quot;</span></span>
-<span id="cb4-2"><a href="r-basics.html#cb4-2"></a><span class="kw">cat</span>(mystring)</span>
-<span id="cb4-3"><a href="r-basics.html#cb4-3"></a><span class="kw">print</span>(mystring)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-basics.html#cb3-1"></a>mystring &lt;-<span class="st"> &quot;Hello </span><span class="ch">\n</span><span class="st"> world!&quot;</span></span>
+<span id="cb3-2"><a href="r-basics.html#cb3-2"></a><span class="kw">cat</span>(mystring)</span>
+<span id="cb3-3"><a href="r-basics.html#cb3-3"></a><span class="kw">print</span>(mystring)</span></code></pre></div>
 </div>
 <div id="help" class="section level2">
 <h2><span class="header-section-number">3.7</span> Help</h2>
 <p>R의 장점 중 하나로 방대한 양의 도움말 페이지가 제공됩니다. <code>?</code> 명령을 사용하면 되며 구글이나 웹에서도 도움을 얻을 수 있습니다.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-basics.html#cb5-1"></a>?cat</span>
-<span id="cb5-2"><a href="r-basics.html#cb5-2"></a>?print</span>
-<span id="cb5-3"><a href="r-basics.html#cb5-3"></a>?mean</span>
-<span id="cb5-4"><a href="r-basics.html#cb5-4"></a><span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb5-5"><a href="r-basics.html#cb5-5"></a><span class="kw">example</span>(<span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb5-6"><a href="r-basics.html#cb5-6"></a><span class="kw">help.search</span>(<span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb5-7"><a href="r-basics.html#cb5-7"></a><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;MASS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-basics.html#cb4-1"></a>?cat</span>
+<span id="cb4-2"><a href="r-basics.html#cb4-2"></a>?print</span>
+<span id="cb4-3"><a href="r-basics.html#cb4-3"></a>?mean</span>
+<span id="cb4-4"><a href="r-basics.html#cb4-4"></a><span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-5"><a href="r-basics.html#cb4-5"></a><span class="kw">example</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-6"><a href="r-basics.html#cb4-6"></a><span class="kw">help.search</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-7"><a href="r-basics.html#cb4-7"></a><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;MASS&quot;</span>)</span></code></pre></div>
 </div>
 <div id="rstudio-workspace" class="section level2">
 <h2><span class="header-section-number">3.8</span> RStudio workspace</h2>
@@ -340,28 +340,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><img src="images/01/01-19.PNG" /></p>
 <p>패키지를 설치하고 사용하기 위해서는 <code>library()</code> 함수를 사용해서 미리 loading 해 두어야 합니다. 한 번 로딩으로 작업 세션이 끝날때까지 관련된 함수를 사용할 수 있으나 R 세션이나 RStudio를 재시작 할 경우 다시 로딩해야 사용할 수 있습니다.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-basics.html#cb6-1"></a><span class="kw">library</span>(UsingR)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-basics.html#cb5-1"></a><span class="kw">library</span>(UsingR)</span></code></pre></div>
 <ul>
 <li>R 설치 디렉토리</li>
 <li>R 패키지 설치 디렉토리</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1"></a><span class="kw">.libPaths</span>()</span>
-<span id="cb7-2"><a href="r-basics.html#cb7-2"></a><span class="kw">path.package</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-basics.html#cb6-1"></a><span class="kw">.libPaths</span>()</span>
+<span id="cb6-2"><a href="r-basics.html#cb6-2"></a><span class="kw">path.package</span>()</span></code></pre></div>
 <p><img src="images/01/01-20.PNG" /></p>
 </div>
 <div id="data-sets" class="section level2">
 <h2><span class="header-section-number">3.10</span> Data sets</h2>
 <p>대부분의 패키지는 함수와 함께 관련된 도움말, 예제, 그리고 데이터셋을 같이 제공해 줍니다. <code>library()</code> 함수를 사용할 때 자동으로 같이 로딩이 되며 <code>data()</code> 함수를 사용해서 사용자 작업공간에 복사본을 만들어서 사용할 수 있습니다.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-basics.html#cb8-1"></a><span class="kw">head</span>(rivers)</span>
-<span id="cb8-2"><a href="r-basics.html#cb8-2"></a><span class="kw">length</span>(rivers)</span>
-<span id="cb8-3"><a href="r-basics.html#cb8-3"></a><span class="kw">class</span>(rivers)</span>
-<span id="cb8-4"><a href="r-basics.html#cb8-4"></a><span class="kw">data</span>(rivers)</span>
-<span id="cb8-5"><a href="r-basics.html#cb8-5"></a><span class="kw">data</span>(<span class="dt">package=</span><span class="st">&quot;UsingR&quot;</span>)</span>
-<span id="cb8-6"><a href="r-basics.html#cb8-6"></a><span class="kw">library</span>(HistData)</span>
-<span id="cb8-7"><a href="r-basics.html#cb8-7"></a><span class="kw">head</span>(Cavendish)</span>
-<span id="cb8-8"><a href="r-basics.html#cb8-8"></a><span class="kw">str</span>(Cavendish)</span>
-<span id="cb8-9"><a href="r-basics.html#cb8-9"></a><span class="kw">head</span>(Cavendish<span class="op">$</span>density2)</span>
-<span id="cb8-10"><a href="r-basics.html#cb8-10"></a><span class="kw">data</span>(<span class="dt">package=</span><span class="st">&quot;HistData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1"></a><span class="kw">head</span>(rivers)</span>
+<span id="cb7-2"><a href="r-basics.html#cb7-2"></a><span class="kw">length</span>(rivers)</span>
+<span id="cb7-3"><a href="r-basics.html#cb7-3"></a><span class="kw">class</span>(rivers)</span>
+<span id="cb7-4"><a href="r-basics.html#cb7-4"></a><span class="kw">data</span>(rivers)</span>
+<span id="cb7-5"><a href="r-basics.html#cb7-5"></a><span class="kw">data</span>(<span class="dt">package=</span><span class="st">&quot;UsingR&quot;</span>)</span>
+<span id="cb7-6"><a href="r-basics.html#cb7-6"></a><span class="kw">library</span>(HistData)</span>
+<span id="cb7-7"><a href="r-basics.html#cb7-7"></a><span class="kw">head</span>(Cavendish)</span>
+<span id="cb7-8"><a href="r-basics.html#cb7-8"></a><span class="kw">str</span>(Cavendish)</span>
+<span id="cb7-9"><a href="r-basics.html#cb7-9"></a><span class="kw">head</span>(Cavendish<span class="op">$</span>density2)</span>
+<span id="cb7-10"><a href="r-basics.html#cb7-10"></a><span class="kw">data</span>(<span class="dt">package=</span><span class="st">&quot;HistData&quot;</span>)</span></code></pre></div>
 </div>
 <div id="cheatsheet" class="section level2">
 <h2><span class="header-section-number">3.11</span> Cheatsheet</h2>
