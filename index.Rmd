@@ -85,22 +85,18 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 
 ## R Lecture Link  
 
-강의 02-1  
-https://youtu.be/Fif5LnalvUE
+강의 02-1 (vector)  https://youtu.be/Fif5LnalvUE
 
-강의 02-2  
-https://youtu.be/7-qVYzrKIlU
+강의 02-2 (vector)  https://youtu.be/7-qVYzrKIlU
 
-강의 02-3  
-https://youtu.be/t3-NaiMuaYs
+강의 02-3 (matrix)  https://youtu.be/t3-NaiMuaYs
 
-강의02-4  
-https://youtu.be/w10jHp8A128
+강의02-4 (data.frame, list)  https://youtu.be/w10jHp8A128
 
-강의02-5  
-https://youtu.be/tItpzjBMeDI
+강의02-5 (missing) https://youtu.be/tItpzjBMeDI
 
-강의02-6  
-https://youtu.be/3AaZ0vqgNHk
+강의02-6 (useful functions) https://youtu.be/3AaZ0vqgNHk
+
+강의02-7 (추가, factor) https://youtu.be/Xxd38TM3XBs
 
 
