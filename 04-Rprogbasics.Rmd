@@ -1,19 +1,41 @@
 
 # R programming basics II
 
+## A script in R
+
+R 프로그래밍을 통해서 사용자가 원하는 기능을 수행하는 방법은 다음과 같이 스크립트를 만들어서 실행하는 것 입니다. 일반적으로 R을 이용한 스크립트 명령을 어떻게 실행하는지 알아보겠습니다. 다음 예제는 입력 값들의 평균을 계산해서 출력해 주는 스크립트 명령입니다. 
+
+```{r, eval=F}
+
+numbers <- c(0.452, 1.474, 0.22, 0.545, 1.205, 3.55)
+cat("Numbers are", numbers, "\n")
+numbers_mean <- mean(numbers)
+out <- paste("The average is ", numbers_mean, ".", sep="")
+cat(out)
+
+```
+
+상황에 따라 다르긴 하지만 보통 위 스크립트를 실행할 때 R 파일을 하나 만들고 `source()`라는 함수를 사용해서 파일 전체를 한번에 읽어들이고 실행을 시킵니다. 위 코드를 `myscript.R` 이라는 새로운 R 파일을 하나 만들고 저장 후 다음과 같이 실행할 수 있습니다. 참고로 위 파일은 현재 working directory와 같은 위치에 저장해야 합니다. 
+
+```{r}
+source("myscript.R")
+```
+
+그러나 위와 같은 식으로 실행할 경우 다음 몇 가지 문제가 있습니다. 하나는 입력 값이 바뀔 때마나 파일을 열어 바뀐 값을 저장해 줄 필요가 있습니다. 결과 값에 대해서 다른 처리를 하고 싶을 경우 또한 파일을 직접 수정해 주어야 합니다. 또한 모든 변수들이 전역변수로 사용되어 코드가 복잡해질 경우 변수간 간섭이 생길 가능성이 높습니다.
+
 
 ## Functions
 
-함수(Function)는 프로그래밍 과정에서 사용자가 필요로하는 기능을 수행하는 명령어를 말하며 다음과 같은 포멧으로 함수를 구현할 수 있습니다. 
+함수를 사용하면 위와같은 문제를 극복할 수 있습니다. 함수(Function)는 다음과 같은 포멧으로 구현할 수 있습니다. 
 
 ```{r, eval=FALSE}
-myfunction.name <- function(para1, para2, ... ){
+myfunction.name <- function(parameter1, parameter2, ... ){
   statements
   return(object)
 }
 ```
 
-예를 들어 다음과 같은 ```my_sine``` 함수를 만들 수 있으며 ```x```는 parameter (매개변수)이고 ```y```는 반환값을 저장하는 지역변수 입니다.
+예를 들어 다음과 같은 ```my_sine``` 함수를 만들 수 있으며 parameter (매개변수)는 ```x```이고 ```y```는 반환값을 저장하는 지역변수 입니다. 
 
 ```{r, eval=FALSE}
 my_sine <- function(x){
@@ -22,7 +44,7 @@ my_sine <- function(x){
 }
 ```
 
-만들어진 함수는 다음과 같이 사용할 수 있습니다. 여기서 함수로 전달되는 값 ```pi```는 argument (전달인자) 라고 합니다. 전달인자는 함수에서 정의된 매개변수의 갯수와 같은 수의 전달인자를 입력해 주어야 합니다. 
+만들어진 함수는 다음과 같이 사용할 수 있습니다. 만들어진 함수는 처음에 한 번 실행해 주어 실행중인 R session에 등록한 후 사용할 수 있습니다. 여기서 함수로 전달되는 값 ```pi```는 argument (전달인자) 라고 합니다. 전달인자는 함수에서 정의된 매개변수의 갯수와 같은 수의 전달인자를 입력해 주어야 합니다. 
 
 ```{r, eval=F}
 my_sine(pi)
@@ -33,6 +55,36 @@ my_sine(pi)
   - parameter: `x`
   - argument: `pi`
   - return value: `y`
+
+
+이제 위 스크립트에서 사용된 코드를 함수로 바꿔봅니다. numbers 입력값 (전달인자)를 받는 매개변수를 x로 하고 함수 이름은 `mymean` 이고 평균값 (numbers_mean)을 반환하는 합수입니다.  
+
+```{r, eval=F}
+numbers <- c(0.452, 1.474, 0.22, 0.545, 1.205, 3.55)
+
+mymean <- function(x){
+  cat("Numbers are", numbers, "\n")
+  numbers_mean <- mean(x)
+  out <- paste("The average is ", numbers_mean, ".", sep="")
+  cat(out)
+  return(numbers_mean)
+}
+
+retval <- mymean(numbers)
+cat(retval)
+
+```
+
+`myscript.R`이라는 파일을  열고 작성된 스크립트에 더해서 아래처럼 함수 코드를 만들 경우 `source()` 함수로 함수를 세션으로 읽어오고 바로 사용할 수 있습니다. 위와 같이 함수를 만들 경우 입력 값을 언제든 바꿔서 사용할 수 있고 반환값에 대한 추가적인 연산도 쉽게 수행 할 수 있습니다.
+
+```{r, eval=F}
+
+```
+
+
+### Exercise 4-1 
+
+
 
 
 다음 코드를 보면 전역변수 ```x```, ```y```는 지역변수 ```x```, ```y```와 독립적으로 사용됨을 알 수 있습니다. 
