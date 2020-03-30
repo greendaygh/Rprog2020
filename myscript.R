@@ -3,3 +3,4 @@ cat("Numbers are", numbers, "\n")
 numbers_mean <- mean(numbers)
 out <- paste("The average is ", numbers_mean, ".", sep="")
 cat(out)
+

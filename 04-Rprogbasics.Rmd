@@ -3,14 +3,14 @@
 
 ## A script in R
 
-R 프로그래밍을 통해서 사용자가 원하는 기능을 수행하는 방법은 다음과 같이 스크립트를 만들어서 실행하는 것 입니다. 일반적으로 R을 이용한 스크립트 명령을 어떻게 실행하는지 알아보겠습니다. 다음 예제는 입력 값들의 평균을 계산해서 출력해 주는 스크립트 명령입니다. 
+R 프로그래밍을 통해서 사용자가 원하는 기능을 수행하는 방법은 다음과 같이 스크립트를 만들어서 실행하는 것 입니다. 일반적으로 R을 이용한 스크립트 명령을 어떻게 실행하는지 알아보겠습니다. 다음 예제는 입력 값들의 평균을 계산해서 출력해 주는 스크립트 명령입니다. R base 패키지에서 기본으로 제공되는 `mean()`이라는 함수가 있지만 사용하지 않고 `sum()`과 `length()` 함수를 사용했습니다. 
 
 ```{r, eval=F}
 
 numbers <- c(0.452, 1.474, 0.22, 0.545, 1.205, 3.55)
-cat("Numbers are", numbers, "\n")
-numbers_mean <- mean(numbers)
-out <- paste("The average is ", numbers_mean, ".", sep="")
+cat("Input numbers are", numbers, "\n")
+numbers_mean <- sum(numbers)/length(numbers)
+out <- paste("The average is ", numbers_mean, ".\n", sep="")
 cat(out)
 
 ```
@@ -57,15 +57,15 @@ my_sine(pi)
   - return value: `y`
 
 
-이제 위 스크립트에서 사용된 코드를 함수로 바꿔봅니다. numbers 입력값 (전달인자)를 받는 매개변수를 x로 하고 함수 이름은 `mymean` 이고 평균값 (numbers_mean)을 반환하는 합수입니다.  
+이제 위 스크립트에서 사용된 코드를 함수로 바꿔봅니다. numbers (전달인자)를 받는 매개변수를 x로 하고 함수 이름은 `mymean` 이고 평균값 (numbers_mean)을 반환하는 합수입니다.  
 
 ```{r, eval=F}
 numbers <- c(0.452, 1.474, 0.22, 0.545, 1.205, 3.55)
 
 mymean <- function(x){
-  cat("Numbers are", numbers, "\n")
-  numbers_mean <- mean(x)
-  out <- paste("The average is ", numbers_mean, ".", sep="")
+  cat("Input numbers are", x, "\n")
+  numbers_mean <- sum(x)/length(x)
+  out <- paste("The average is ", numbers_mean, ".\n", sep="")
   cat(out)
   return(numbers_mean)
 }
@@ -78,11 +78,27 @@ cat(retval)
 `myscript.R`이라는 파일을  열고 작성된 스크립트에 더해서 아래처럼 함수 코드를 만들 경우 `source()` 함수로 함수를 세션으로 읽어오고 바로 사용할 수 있습니다. 위와 같이 함수를 만들 경우 입력 값을 언제든 바꿔서 사용할 수 있고 반환값에 대한 추가적인 연산도 쉽게 수행 할 수 있습니다.
 
 ```{r, eval=F}
-
+new_values <- c(1:10)
+retval <- mymean(new_values)
+retval
 ```
 
 
 ### Exercise 4-1 
+
+1) `mysd`라는 이름의 (표본)표준편차를 구하는 함수를 `myscript.R` 파일에 구현하시오 (`sd()`함수 사용 불가, 다음 표준편차 공식 이용)
+
+$ \sigma = \sqrt{\frac{\sum(x-mean(x))^2}{length(x)-1}} $
+`numbers_sd <- sqrt(((x - mymean(x))^2)/(length(x)-1))`
+
+
+2) 1부터 100까지의 값을 `x`에 저장하고 앞서 작성한 `mymean` 함수와 같이 사용하여 `x`를 표준화 하고 `y`로 저장하시오
+
+
+
+
+3) `x` 와 `y`를 갖는 `z`라는 이름의 `data.frame`을 생성하시오 
+
 
 
 
