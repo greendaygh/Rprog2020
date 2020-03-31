@@ -88,7 +88,10 @@ retval
 
 1) `mysd`라는 이름의 (표본)표준편차를 구하는 함수를 `myscript.R` 파일에 구현하시오 (`sd()`함수 사용 불가, 다음 표준편차 공식 이용)
 
-$ \sigma = \sqrt{\frac{\sum(x-mean(x))^2}{length(x)-1}} $
+$$ 
+\sigma = \sqrt{\frac{\sum(x-mean(x))^2}{length(x)-1}} 
+$$
+
 `numbers_sd <- sqrt(((x - mymean(x))^2)/(length(x)-1))`
 
 
@@ -99,7 +102,7 @@ $ \sigma = \sqrt{\frac{\sum(x-mean(x))^2}{length(x)-1}} $
 
 3) `x` 와 `y`를 갖는 `z`라는 이름의 `data.frame`을 생성하시오 
 
-
+---
 
 
 

@@ -288,12 +288,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li><code>mysd</code>라는 이름의 (표본)표준편차를 구하는 함수를 <code>myscript.R</code> 파일에 구현하시오 (<code>sd()</code>함수 사용 불가, 다음 표준편차 공식 이용)</li>
 </ol>
-<p>$ =  $
-<code>numbers_sd &lt;- sqrt(((x - mymean(x))^2)/(length(x)-1))</code></p>
+<p><span class="math display">\[ 
+\sigma = \sqrt{\frac{\sum(x-mean(x))^2}{length(x)-1}} 
+\]</span></p>
+<p><code>numbers_sd &lt;- sqrt(((x - mymean(x))^2)/(length(x)-1))</code></p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>1부터 100까지의 값을 <code>x</code>에 저장하고 앞서 작성한 <code>mymean</code> 함수와 같이 사용하여 <code>x</code>를 표준화 하고 <code>y</code>로 저장하시오</p></li>
 <li><p><code>x</code> 와 <code>y</code>를 갖는 <code>z</code>라는 이름의 <code>data.frame</code>을 생성하시오</p></li>
 </ol>
+<hr />
 <p>다음 코드를 보면 전역변수 <code>x</code>, <code>y</code>는 지역변수 <code>x</code>, <code>y</code>와 독립적으로 사용됨을 알 수 있습니다.</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-programming-basics-ii.html#cb36-1"></a>my_half &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
 <span id="cb36-2"><a href="r-programming-basics-ii.html#cb36-2"></a>  y &lt;-<span class="st"> </span>x<span class="op">/</span><span class="dv">2</span></span>
@@ -508,9 +511,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb62-9"><a href="r-programming-basics-ii.html#cb62-9"></a></span>
 <span id="cb62-10"><a href="r-programming-basics-ii.html#cb62-10"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">10</span>)</span>
 <span id="cb62-11"><a href="r-programming-basics-ii.html#cb62-11"></a><span class="kw">mysd</span>(x)</span></code></pre></div>
-<pre><code>## [1] 31.52847</code></pre>
+<pre><code>## [1] 37.19752</code></pre>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-programming-basics-ii.html#cb64-1"></a><span class="kw">sd</span>(x)</span></code></pre></div>
-<pre><code>## [1] 31.52847</code></pre>
+<pre><code>## [1] 37.19752</code></pre>
 </div>
 <div id="exercise-4-4-barplot-with-error-bars" class="section level3">
 <h3><span class="header-section-number">4.7.2</span> Exercise 4-4 barplot with error bars</h3>
