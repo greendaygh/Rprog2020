@@ -371,7 +371,7 @@ sum(hip_cost, na.rm=TRUE)
 ```
 
 
-## Some useful functions
+## Useful functions I
 
 다음은 벡터형 변수와 같이 쓰이는 유용한 함수들입니다. 
 
