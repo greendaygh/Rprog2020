@@ -61,3 +61,38 @@ levels(y) <- c(levels(y), "Gold")
 plot(y)
 levels(y) <- c("Green", "Red", "Yellow","Gold", "Blue")
 
+
+
+## ==================== lecture 4
+
+numbers <- c(0.452, 1.474, 0.22, 0.545, 1.205, 3.55)
+cat("Input numbers are", numbers, "\n")
+numbers_mean <- sum(numbers)/length(numbers)
+out <- paste("The average is ", numbers_mean, ".\n", sep="")
+cat(out)
+
+
+source("myscript.R")
+
+
+my_sine <- function(x){
+  y <- sin(x)
+  return(y)
+}
+
+x <- 10
+my_sine(x)
+
+
+numbers <- c(0.452, 1.474, 0.22, 0.545, 1.205, 3.55, 2, 10, 5, 1)
+mymean(numbers)
+
+source("myscript.R")
+
+z <- mymean(numbers)
+z
+
+mymean(1:10)
+mymean(1:20)
+
+?log
