@@ -96,3 +96,56 @@ mymean(1:10)
 mymean(1:20)
 
 ?log
+
+
+x <- 2
+x>0
+if(x%%2==1 & x>0){
+  cat("odd")
+}else{
+  cat("even")
+}
+
+
+if(x>0)
+  cat("positive")
+
+x <- 0
+if(x > 0){
+  print("Posive")
+} else if(x < 0){
+  print("Negative")
+} else {
+  print("Zero")
+}
+
+x <- c(1, 4, 5, 2, 3)
+sort(x)
+median(x)
+
+mymedian <- function(x){
+  x
+}
+
+x <- 1:10
+x
+for(i in x){
+  cat(i, "\n")
+  flush.console()
+}
+
+sum_of_i <- 0
+for(i in 1:10000){
+  sum_of_i <- sum_of_i + i
+  if(i%%100==0){
+    cat(i, " ", sum_of_i, "\n");flush.console()
+  }
+}
+
+
+
+
+
+
+
+

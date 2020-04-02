@@ -310,16 +310,36 @@ while(cond){
 `while`문을 사용할 경우 다음과 같이 `indicator`라 불리우는 변수를 하나 정해서 반복 할 때마다 값이 바뀌도록 해 주어야 합니다. 그렇지 않으면 무한 루프를 돌게 되는 문제가 발생합니다. 
 
 ```{r, eval=F}
-# Calculate 10! using a while loop
 i <- 10
 f <- 1
-while(i>1) {
-f <- i*f
-i <- i-1
-cat(i, f, "\n")
+while(i>1){
+  f <- i*f
+  i <- i-1
+  cat(i, f, "\n")
 }
 f
 factorial(10)
+```
+
+`repeat` 명령은 조건 없이 블럭 안에 있는 코드를 무조건 반복하라는 명령 입니다. 따라서 블럭 중간에 멈추기 위한 코드가 필요하고 이 명령이 `break` 입니다. 
+
+```{r, eval=F}
+repeat{
+  expressions
+  if(cond) break
+}
+
+i <- 10
+f <- 1
+repeat {
+  f <- i*f
+  i <- i-1
+  cat(i, f, "\n")
+  if(i<1) break
+}
+f
+factorial(10)
+
 ```
 
 
