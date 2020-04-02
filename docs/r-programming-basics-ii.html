@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2020-04-01" />
+<meta name="date" content="2020-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -349,28 +349,27 @@ y = \frac{x - mean(x)}{sd(x)}
 <h3><span class="header-section-number">4.3.1</span> Exercise 4-2</h3>
 <p>다음은 한 다이어트 프로그램의 수행 전 후의 다섯 명의 몸무게이다.</p>
 <p><img src="images/01/01-21.PNG" /></p>
-<ul>
-<li>각각을 before 와 after 이름의 변수에 저장 후 몸무게 값의 변화량을 계산하시오.
-<ul>
-<li>before값들의 평균을 구하시오 (mean() 함수 사용)</li>
-</ul></li>
-<li>my_mean 이라는 이름의 함수로 평균을 구하는 코드를 작성 하시오 (빌트인 함수 사용하지 않음)
+<ol style="list-style-type: decimal">
+<li><p>각각을 before 와 after 이름의 변수에 저장 후 몸무게 값의 변화량을 계산하여 diff 라는 변수에 저장하고 diff에 저장된 값들의 평균을 구하시오</p></li>
+<li><p>my_mean 이라는 이름의 함수로 평균을 구하는 코드를 작성 하시오 (빌트인 함수 사용하지 않음)</p></li>
+</ol>
 <ul>
 <li>함수이름: my_mean</li>
 <li>parameter: x</li>
 <li>return 값: y</li>
 <li>(x[1]+x[2]+x[3]+x[4]+x[5])/5</li>
-</ul></li>
-<li>빌트인 함수 sum()과 length()를 이용해 동일한 기능을 하는 함수를 작성하시오
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>빌트인 함수 sum()과 length()를 이용해 동일한 기능을 하는 함수를 작성하시오</li>
+</ol>
 <ul>
 <li>함수이름 my_mean2</li>
 <li>sum(), length() 사용</li>
-</ul></li>
 </ul>
 </div>
 <div id="exercise-4-3" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Exercise 4-3</h3>
-<p>다음 네 학생이 있으며 “John”,“James”,“Sara”, “Lilly” 각 나이는 다음과 같음. 21, 55, 23, 53. ages 라는 변수를 생성하고 각 나이를 저장한 후 who라는 이름의 함수를 만들어서 50살 이상인 사람의 이름을 출력하는 함수를 만드시오.</p>
+<p>다음 네 학생이 있으며 “John”,“James”,“Sara”, “Lilly” 각 나이는 21, 55, 23, 53 이다. ages 라는 변수를 생성하고 각 나이를 저장한 후 who라는 이름의 함수를 만들어서 50살 이상인 사람의 이름을 출력하는 함수를 만드시오.</p>
 <ul>
 <li>ages라는 변수에 나이 저장, c() 함수 이용, vector 형태 저장</li>
 <li>names() 함수 이용해서 각 ages 벡터의 각 요소에 이름 붙이기</li>
@@ -420,7 +419,7 @@ y = \frac{x - mean(x)}{sd(x)}
 <h3><span class="header-section-number">4.4.1</span> Exercise 4-4</h3>
 <ol style="list-style-type: decimal">
 <li><p>1부터 100까지 수 중 랜덤하게 1 개의 값을 골라 n 변수에 저장하고 다시 1부터 100까지 랜덤하게 n개의 수를 중복을 허용해서 골라 x 변수에 저장 하시오 (랜덤 생성: <code>sample()</code>함수 사용)</p></li>
-<li><p>다음은 median (중간값)을 구하는 공식이며 x의 길이가 (n이) 홀수일 경우와 짝수일 경우에 따라서 다른 공식이 사용된다. mymedian 이라는 이름의 함수를 만들고 입력 값들의 중간값을 구해서 반환하는 함수를 만드시오. (<code>%%</code> 나머지 연산, <code>if</code>문 사용, 아래 중간값 코드 참고)</p></li>
+<li><p>다음은 median (중간값)을 구하는 공식이며 x의 길이가 (n이) 홀수일 경우와 짝수일 경우에 따라서 다른 공식이 사용된다. 다음 공식과 코드를 이용하여 mymedian 이라는 이름의 함수를 만들고 입력 값들의 중간값을 구해서 반환하는 함수를 만드시오. (<code>%%</code> 나머지 연산, <code>if</code>문 사용, 아래 중간값 코드 참고)</p></li>
 </ol>
 <p><span class="math display">\[
 median(X) =
@@ -452,7 +451,21 @@ X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
 <span id="cb42-13"><a href="r-programming-basics-ii.html#cb42-13"></a>  sum_of_i &lt;-<span class="st"> </span>sum_of_i <span class="op">+</span><span class="st"> </span>i</span>
 <span id="cb42-14"><a href="r-programming-basics-ii.html#cb42-14"></a>  <span class="kw">cat</span>(i, <span class="st">&quot; &quot;</span>, sum_of_i, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>);<span class="kw">flush.console</span>()</span>
 <span id="cb42-15"><a href="r-programming-basics-ii.html#cb42-15"></a>}</span></code></pre></div>
-<p><code>while</code>문은</p>
+<p><code>while</code>문도 <code>for</code>문과 같이 반복적으로 특정 코드를 수행하고자 할 때 사용합니다. 사용하는 문법은 다음과 같으며 <code>cond</code>는 <code>True</code> 또는 <code>False</code> 로 반환되는 조건문을 넣고 <code>True</code> 일 경우 계속해서 반복하면서 <code>expressions</code>를 수행하며 이 반복은 <code>cond</code>가 <code>False</code>로 될 때 까지 계속됩니다.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-programming-basics-ii.html#cb43-1"></a><span class="cf">while</span>(cond){</span>
+<span id="cb43-2"><a href="r-programming-basics-ii.html#cb43-2"></a>  expression</span>
+<span id="cb43-3"><a href="r-programming-basics-ii.html#cb43-3"></a>}</span></code></pre></div>
+<p><code>while</code>문을 사용할 경우 다음과 같이 <code>indicator</code>라 불리우는 변수를 하나 정해서 반복 할 때마다 값이 바뀌도록 해 주어야 합니다. 그렇지 않으면 무한 루프를 돌게 되는 문제가 발생합니다.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-programming-basics-ii.html#cb44-1"></a><span class="co"># Calculate 10! using a while loop</span></span>
+<span id="cb44-2"><a href="r-programming-basics-ii.html#cb44-2"></a>i &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb44-3"><a href="r-programming-basics-ii.html#cb44-3"></a>f &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb44-4"><a href="r-programming-basics-ii.html#cb44-4"></a><span class="cf">while</span>(i<span class="op">&gt;</span><span class="dv">1</span>) {</span>
+<span id="cb44-5"><a href="r-programming-basics-ii.html#cb44-5"></a>f &lt;-<span class="st"> </span>i<span class="op">*</span>f</span>
+<span id="cb44-6"><a href="r-programming-basics-ii.html#cb44-6"></a>i &lt;-<span class="st"> </span>i<span class="dv">-1</span></span>
+<span id="cb44-7"><a href="r-programming-basics-ii.html#cb44-7"></a><span class="kw">cat</span>(i, f, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb44-8"><a href="r-programming-basics-ii.html#cb44-8"></a>}</span>
+<span id="cb44-9"><a href="r-programming-basics-ii.html#cb44-9"></a>f</span>
+<span id="cb44-10"><a href="r-programming-basics-ii.html#cb44-10"></a><span class="kw">factorial</span>(<span class="dv">10</span>)</span></code></pre></div>
 </div>
 <div id="object-oriented-programming-advanced" class="section level2">
 <h2><span class="header-section-number">4.6</span> Object Oriented Programming (Advanced)</h2>
@@ -460,40 +473,40 @@ X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
 </div>
 <div id="usuful-functions-ii" class="section level2">
 <h2><span class="header-section-number">4.7</span> Usuful functions II</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-programming-basics-ii.html#cb43-1"></a><span class="kw">match</span>()</span>
-<span id="cb43-2"><a href="r-programming-basics-ii.html#cb43-2"></a><span class="kw">unique</span>()</span>
-<span id="cb43-3"><a href="r-programming-basics-ii.html#cb43-3"></a><span class="kw">substr</span>()</span>
-<span id="cb43-4"><a href="r-programming-basics-ii.html#cb43-4"></a><span class="kw">grep</span>()</span>
-<span id="cb43-5"><a href="r-programming-basics-ii.html#cb43-5"></a><span class="kw">grepl</span>()</span>
-<span id="cb43-6"><a href="r-programming-basics-ii.html#cb43-6"></a><span class="kw">tolower</span>()</span>
-<span id="cb43-7"><a href="r-programming-basics-ii.html#cb43-7"></a><span class="kw">toupper</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-programming-basics-ii.html#cb45-1"></a><span class="kw">match</span>()</span>
+<span id="cb45-2"><a href="r-programming-basics-ii.html#cb45-2"></a><span class="kw">unique</span>()</span>
+<span id="cb45-3"><a href="r-programming-basics-ii.html#cb45-3"></a><span class="kw">substr</span>()</span>
+<span id="cb45-4"><a href="r-programming-basics-ii.html#cb45-4"></a><span class="kw">grep</span>()</span>
+<span id="cb45-5"><a href="r-programming-basics-ii.html#cb45-5"></a><span class="kw">grepl</span>()</span>
+<span id="cb45-6"><a href="r-programming-basics-ii.html#cb45-6"></a><span class="kw">tolower</span>()</span>
+<span id="cb45-7"><a href="r-programming-basics-ii.html#cb45-7"></a><span class="kw">toupper</span>()</span></code></pre></div>
 </div>
 <div id="file-read-and-write" class="section level2">
 <h2><span class="header-section-number">4.8</span> File read and write</h2>
 <p>텍스트 파일의 경우 아래와 같이 csv 또는 txt 파일로 저장하여 메모장으로 열어 확인할 수 있으며 읽어올 경우 구분자 (sep 파라메터) 나 header를 (header 파라메터) 읽을지 읽지 않을지 등을 옵션으로 지정할 수 있습니다.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-programming-basics-ii.html#cb44-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb44-2"><a href="r-programming-basics-ii.html#cb44-2"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)</span>
-<span id="cb44-3"><a href="r-programming-basics-ii.html#cb44-3"></a>xy&lt;-<span class="kw">data.frame</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y)</span>
-<span id="cb44-4"><a href="r-programming-basics-ii.html#cb44-4"></a></span>
-<span id="cb44-5"><a href="r-programming-basics-ii.html#cb44-5"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>)</span>
-<span id="cb44-6"><a href="r-programming-basics-ii.html#cb44-6"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="dt">quote=</span>F)</span>
-<span id="cb44-7"><a href="r-programming-basics-ii.html#cb44-7"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>F)</span>
-<span id="cb44-8"><a href="r-programming-basics-ii.html#cb44-8"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>F, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</span>
-<span id="cb44-9"><a href="r-programming-basics-ii.html#cb44-9"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>F, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</span>
-<span id="cb44-10"><a href="r-programming-basics-ii.html#cb44-10"></a></span>
-<span id="cb44-11"><a href="r-programming-basics-ii.html#cb44-11"></a>mydata&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>)</span>
-<span id="cb44-12"><a href="r-programming-basics-ii.html#cb44-12"></a>mydata&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</span>
-<span id="cb44-13"><a href="r-programming-basics-ii.html#cb44-13"></a>mydata&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header=</span>T)</span>
-<span id="cb44-14"><a href="r-programming-basics-ii.html#cb44-14"></a><span class="kw">plot</span>(mydata<span class="op">$</span>x, mydata<span class="op">$</span>z)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-programming-basics-ii.html#cb46-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb46-2"><a href="r-programming-basics-ii.html#cb46-2"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)</span>
+<span id="cb46-3"><a href="r-programming-basics-ii.html#cb46-3"></a>xy&lt;-<span class="kw">data.frame</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y)</span>
+<span id="cb46-4"><a href="r-programming-basics-ii.html#cb46-4"></a></span>
+<span id="cb46-5"><a href="r-programming-basics-ii.html#cb46-5"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>)</span>
+<span id="cb46-6"><a href="r-programming-basics-ii.html#cb46-6"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="dt">quote=</span>F)</span>
+<span id="cb46-7"><a href="r-programming-basics-ii.html#cb46-7"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>F)</span>
+<span id="cb46-8"><a href="r-programming-basics-ii.html#cb46-8"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.txt&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>F, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb46-9"><a href="r-programming-basics-ii.html#cb46-9"></a><span class="kw">write.table</span>(xy, <span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>F, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb46-10"><a href="r-programming-basics-ii.html#cb46-10"></a></span>
+<span id="cb46-11"><a href="r-programming-basics-ii.html#cb46-11"></a>mydata&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>)</span>
+<span id="cb46-12"><a href="r-programming-basics-ii.html#cb46-12"></a>mydata&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb46-13"><a href="r-programming-basics-ii.html#cb46-13"></a>mydata&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;table_write.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header=</span>T)</span>
+<span id="cb46-14"><a href="r-programming-basics-ii.html#cb46-14"></a><span class="kw">plot</span>(mydata<span class="op">$</span>x, mydata<span class="op">$</span>z)</span></code></pre></div>
 </div>
 <div id="excel-file-read-and-write" class="section level2">
 <h2><span class="header-section-number">4.9</span> Excel file read and write</h2>
 <p>엑셀파일은 readxl 이라는 R 패키지를 활용하여 읽거나 쓸 수 있습니다.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-programming-basics-ii.html#cb45-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-programming-basics-ii.html#cb47-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
 <p>실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 <a href="https://github.com/greendaygh/2019-R-programming/blob/master/Rprog04-fl.xls">Rprog04-fl.xls</a> 에서 다운로드 받을 수 있습니다. read_excel 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다. tibble에 익숙해지는 것이 좋으나 본 강의에서는 직관적인 진행을 위하여 data.frame으로 전환하여 사용하겠습니다.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-programming-basics-ii.html#cb46-1"></a><span class="kw">library</span>(readxl)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-programming-basics-ii.html#cb48-1"></a><span class="kw">library</span>(readxl)</span></code></pre></div>
 <pre><code>## Warning: package &#39;readxl&#39; was built under R version 3.5.3</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-programming-basics-ii.html#cb48-1"></a>mydata &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Rprog04-fl.xls&quot;</span>, <span class="dt">sheet=</span><span class="dv">2</span>, <span class="dt">skip =</span> <span class="dv">6</span>, <span class="dt">col_names=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-programming-basics-ii.html#cb50-1"></a>mydata &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Rprog04-fl.xls&quot;</span>, <span class="dt">sheet=</span><span class="dv">2</span>, <span class="dt">skip =</span> <span class="dv">6</span>, <span class="dt">col_names=</span>F)</span></code></pre></div>
 <pre><code>## New names:
 ## * `` -&gt; ...1
 ## * `` -&gt; ...2
@@ -501,106 +514,106 @@ X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
 ## * `` -&gt; ...4
 ## * `` -&gt; ...5
 ## * ... and 7 more problems</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-programming-basics-ii.html#cb50-1"></a>myod &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mydata[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, ])</span>
-<span id="cb50-2"><a href="r-programming-basics-ii.html#cb50-2"></a>mygfp &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mydata[<span class="dv">12</span><span class="op">:</span><span class="dv">21</span>, ])</span></code></pre></div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-programming-basics-ii.html#cb51-1"></a><span class="kw">class</span>(myod[,<span class="dv">1</span>])</span>
-<span id="cb51-2"><a href="r-programming-basics-ii.html#cb51-2"></a><span class="kw">class</span>(myod[,<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-programming-basics-ii.html#cb52-1"></a>myod &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mydata[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, ])</span>
+<span id="cb52-2"><a href="r-programming-basics-ii.html#cb52-2"></a>mygfp &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mydata[<span class="dv">12</span><span class="op">:</span><span class="dv">21</span>, ])</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-programming-basics-ii.html#cb53-1"></a><span class="kw">class</span>(myod[,<span class="dv">1</span>])</span>
+<span id="cb53-2"><a href="r-programming-basics-ii.html#cb53-2"></a><span class="kw">class</span>(myod[,<span class="dv">2</span>])</span></code></pre></div>
 <p>엑셀파일에는 두 종류의 (OD600nm, fluorescence) 데이터가 저장되어 있으며 각각을 위에서 1~8 row 그리고 12~21 row 값들을 모두 myod와 mygfp로 저장했습니다. 그러나 엑셀파일을 보면 첫번째 컬럼에 관측값 외에 다른 정보들에 대한 텍스트가 적혀 있으며 이로 인해 행렬의 가장 첫 컬럼의 데이터 타입이 character가 되고 나머지 컬럼은 numeric으로 자동 전환 되어 data.frame 오브젝트인 mydata에 저장되게 됩니다. 따라서 아래와 같이 문자형을 숫자형으로 전환하여 추후 연산을 진행하게 됩니다.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-programming-basics-ii.html#cb52-1"></a>myod[,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(myod[,<span class="dv">1</span>])</span>
-<span id="cb52-2"><a href="r-programming-basics-ii.html#cb52-2"></a>mygfp[,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(mygfp[,<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-programming-basics-ii.html#cb54-1"></a>myod[,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(myod[,<span class="dv">1</span>])</span>
+<span id="cb54-2"><a href="r-programming-basics-ii.html#cb54-2"></a>mygfp[,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(mygfp[,<span class="dv">1</span>])</span></code></pre></div>
 <p>수행한 실험의 디자인에 따라서 두 그룹으로 나누고 적절한 이름을 저장합니다.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-programming-basics-ii.html#cb53-1"></a>myod_treat &lt;-<span class="st"> </span>myod[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>,]</span>
-<span id="cb53-2"><a href="r-programming-basics-ii.html#cb53-2"></a>myod_control &lt;-<span class="st"> </span>myod[<span class="dv">5</span><span class="op">:</span><span class="dv">7</span>,]</span>
-<span id="cb53-3"><a href="r-programming-basics-ii.html#cb53-3"></a></span>
-<span id="cb53-4"><a href="r-programming-basics-ii.html#cb53-4"></a>sample_names &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Sample&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>), <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb53-5"><a href="r-programming-basics-ii.html#cb53-5"></a>replicate_labels &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Rep&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb53-6"><a href="r-programming-basics-ii.html#cb53-6"></a></span>
-<span id="cb53-7"><a href="r-programming-basics-ii.html#cb53-7"></a><span class="kw">rownames</span>(myod_treat) &lt;-<span class="st"> </span>replicate_labels</span>
-<span id="cb53-8"><a href="r-programming-basics-ii.html#cb53-8"></a><span class="kw">colnames</span>(myod_treat) &lt;-<span class="st"> </span>sample_names</span>
-<span id="cb53-9"><a href="r-programming-basics-ii.html#cb53-9"></a><span class="kw">rownames</span>(myod_control) &lt;-<span class="st"> </span>replicate_labels </span>
-<span id="cb53-10"><a href="r-programming-basics-ii.html#cb53-10"></a><span class="kw">colnames</span>(myod_control) &lt;-<span class="st"> </span>sample_names</span>
-<span id="cb53-11"><a href="r-programming-basics-ii.html#cb53-11"></a></span>
-<span id="cb53-12"><a href="r-programming-basics-ii.html#cb53-12"></a>mean_treat &lt;-<span class="st"> </span><span class="kw">colMeans</span>(myod_treat)</span>
-<span id="cb53-13"><a href="r-programming-basics-ii.html#cb53-13"></a>mean_control &lt;-<span class="st"> </span><span class="kw">colMeans</span>(myod_control)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-programming-basics-ii.html#cb55-1"></a>myod_treat &lt;-<span class="st"> </span>myod[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>,]</span>
+<span id="cb55-2"><a href="r-programming-basics-ii.html#cb55-2"></a>myod_control &lt;-<span class="st"> </span>myod[<span class="dv">5</span><span class="op">:</span><span class="dv">7</span>,]</span>
+<span id="cb55-3"><a href="r-programming-basics-ii.html#cb55-3"></a></span>
+<span id="cb55-4"><a href="r-programming-basics-ii.html#cb55-4"></a>sample_names &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Sample&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>), <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb55-5"><a href="r-programming-basics-ii.html#cb55-5"></a>replicate_labels &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Rep&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb55-6"><a href="r-programming-basics-ii.html#cb55-6"></a></span>
+<span id="cb55-7"><a href="r-programming-basics-ii.html#cb55-7"></a><span class="kw">rownames</span>(myod_treat) &lt;-<span class="st"> </span>replicate_labels</span>
+<span id="cb55-8"><a href="r-programming-basics-ii.html#cb55-8"></a><span class="kw">colnames</span>(myod_treat) &lt;-<span class="st"> </span>sample_names</span>
+<span id="cb55-9"><a href="r-programming-basics-ii.html#cb55-9"></a><span class="kw">rownames</span>(myod_control) &lt;-<span class="st"> </span>replicate_labels </span>
+<span id="cb55-10"><a href="r-programming-basics-ii.html#cb55-10"></a><span class="kw">colnames</span>(myod_control) &lt;-<span class="st"> </span>sample_names</span>
+<span id="cb55-11"><a href="r-programming-basics-ii.html#cb55-11"></a></span>
+<span id="cb55-12"><a href="r-programming-basics-ii.html#cb55-12"></a>mean_treat &lt;-<span class="st"> </span><span class="kw">colMeans</span>(myod_treat)</span>
+<span id="cb55-13"><a href="r-programming-basics-ii.html#cb55-13"></a>mean_control &lt;-<span class="st"> </span><span class="kw">colMeans</span>(myod_control)</span></code></pre></div>
 <p>위 예제의 colMean 과 같은 함수는 column 또는 row 단위로 해당하는 모든 값들에 대해 연산을 수행해주는 함수로 colMean은 평균을 계산하는 함수이고 일반적으로는 다음과 같이 apply 함수와 mean 함수를 이용해서 같은 기능을 수행할 수 있습니다. mean 함수 외 임의의 원하는 함수를 만들어 사용할 수 도 있습니다. 참고로 sd는 표준편차를 구해주는 함수 입니다.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-programming-basics-ii.html#cb54-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">1</span>, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-programming-basics-ii.html#cb56-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">1</span>, mean)</span></code></pre></div>
 <pre><code>##      Rep1      Rep2      Rep3 
 ## 0.8069922 0.7706701 0.7873404</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-programming-basics-ii.html#cb56-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-programming-basics-ii.html#cb58-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, mean)</span></code></pre></div>
 <pre><code>##   Sample1   Sample2   Sample3   Sample4   Sample5   Sample6   Sample7   Sample8 
 ## 0.7757480 0.7807732 0.7628736 0.7472908 0.7034527 0.6963549 0.8094640 0.8145531 
 ##   Sample9  Sample10  Sample11  Sample12 
 ## 0.8301742 0.8390556 0.8447189 0.8555517</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-programming-basics-ii.html#cb58-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, <span class="cf">function</span>(x){ </span>
-<span id="cb58-2"><a href="r-programming-basics-ii.html#cb58-2"></a>  xmean &lt;-<span class="st"> </span><span class="kw">mean</span>(x) </span>
-<span id="cb58-3"><a href="r-programming-basics-ii.html#cb58-3"></a>  <span class="kw">return</span>(xmean)</span>
-<span id="cb58-4"><a href="r-programming-basics-ii.html#cb58-4"></a>  })</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="r-programming-basics-ii.html#cb60-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, <span class="cf">function</span>(x){ </span>
+<span id="cb60-2"><a href="r-programming-basics-ii.html#cb60-2"></a>  xmean &lt;-<span class="st"> </span><span class="kw">mean</span>(x) </span>
+<span id="cb60-3"><a href="r-programming-basics-ii.html#cb60-3"></a>  <span class="kw">return</span>(xmean)</span>
+<span id="cb60-4"><a href="r-programming-basics-ii.html#cb60-4"></a>  })</span></code></pre></div>
 <pre><code>##   Sample1   Sample2   Sample3   Sample4   Sample5   Sample6   Sample7   Sample8 
 ## 0.7757480 0.7807732 0.7628736 0.7472908 0.7034527 0.6963549 0.8094640 0.8145531 
 ##   Sample9  Sample10  Sample11  Sample12 
 ## 0.8301742 0.8390556 0.8447189 0.8555517</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="r-programming-basics-ii.html#cb60-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, sd)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-programming-basics-ii.html#cb62-1"></a><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, sd)</span></code></pre></div>
 <pre><code>##     Sample1     Sample2     Sample3     Sample4     Sample5     Sample6 
 ## 0.015981356 0.023394455 0.032168135 0.034528460 0.035805916 0.014999636 
 ##     Sample7     Sample8     Sample9    Sample10    Sample11    Sample12 
 ## 0.017801936 0.017947840 0.010253370 0.006202754 0.022386592 0.012685731</code></pre>
 <p>본 실습에서는 각 그룹의 평균을 비교하는 막대그래프를 그려보겠습니다.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-programming-basics-ii.html#cb62-1"></a><span class="kw">plot</span>(mean_treat, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)</span></code></pre></div>
-<p><img src="Rprog_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="r-programming-basics-ii.html#cb63-1"></a><span class="kw">barplot</span>(mean_treat, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="Rprog_files/figure-html/unnamed-chunk-52-2.png" width="672" /></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-programming-basics-ii.html#cb64-1"></a>mean_test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(mean_treat, mean_control)</span>
-<span id="cb64-2"><a href="r-programming-basics-ii.html#cb64-2"></a><span class="kw">barplot</span>(<span class="kw">t</span>(mean_test), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">beside=</span>T)</span></code></pre></div>
-<p><img src="Rprog_files/figure-html/unnamed-chunk-52-3.png" width="672" /></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-programming-basics-ii.html#cb64-1"></a><span class="kw">plot</span>(mean_treat, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)</span></code></pre></div>
+<p><img src="Rprog_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-programming-basics-ii.html#cb65-1"></a><span class="kw">barplot</span>(mean_treat, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="Rprog_files/figure-html/unnamed-chunk-54-2.png" width="672" /></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-programming-basics-ii.html#cb66-1"></a>mean_test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(mean_treat, mean_control)</span>
+<span id="cb66-2"><a href="r-programming-basics-ii.html#cb66-2"></a><span class="kw">barplot</span>(<span class="kw">t</span>(mean_test), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">beside=</span>T)</span></code></pre></div>
+<p><img src="Rprog_files/figure-html/unnamed-chunk-54-3.png" width="672" /></p>
 <div id="exercise-4-3-standard-deviation" class="section level3">
 <h3><span class="header-section-number">4.9.1</span> Exercise 4-3 standard deviation</h3>
 <p>앞서 사용한 sd 함수는 표준편차를 구해주는 기본 제공 함수입니다. 아래는 같은 기능을 하는 함수를 만들어 보는 실습 예제 입니다.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-programming-basics-ii.html#cb65-1"></a><span class="co">## exercise 3-2 </span></span>
-<span id="cb65-2"><a href="r-programming-basics-ii.html#cb65-2"></a>mysd &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb65-3"><a href="r-programming-basics-ii.html#cb65-3"></a>  xmean &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)</span>
-<span id="cb65-4"><a href="r-programming-basics-ii.html#cb65-4"></a>  tmpdif &lt;-<span class="st"> </span>x<span class="op">-</span>xmean</span>
-<span id="cb65-5"><a href="r-programming-basics-ii.html#cb65-5"></a>  xvar &lt;-<span class="st"> </span><span class="kw">sum</span>(tmpdif<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>(<span class="kw">length</span>(x)<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb65-6"><a href="r-programming-basics-ii.html#cb65-6"></a>  xsd &lt;-<span class="st"> </span><span class="kw">sqrt</span>(xvar)</span>
-<span id="cb65-7"><a href="r-programming-basics-ii.html#cb65-7"></a>  <span class="kw">return</span>(xsd)</span>
-<span id="cb65-8"><a href="r-programming-basics-ii.html#cb65-8"></a>}</span>
-<span id="cb65-9"><a href="r-programming-basics-ii.html#cb65-9"></a></span>
-<span id="cb65-10"><a href="r-programming-basics-ii.html#cb65-10"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">10</span>)</span>
-<span id="cb65-11"><a href="r-programming-basics-ii.html#cb65-11"></a><span class="kw">mysd</span>(x)</span></code></pre></div>
-<pre><code>## [1] 29.99926</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-programming-basics-ii.html#cb67-1"></a><span class="kw">sd</span>(x)</span></code></pre></div>
-<pre><code>## [1] 29.99926</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-programming-basics-ii.html#cb67-1"></a><span class="co">## exercise 3-2 </span></span>
+<span id="cb67-2"><a href="r-programming-basics-ii.html#cb67-2"></a>mysd &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb67-3"><a href="r-programming-basics-ii.html#cb67-3"></a>  xmean &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)</span>
+<span id="cb67-4"><a href="r-programming-basics-ii.html#cb67-4"></a>  tmpdif &lt;-<span class="st"> </span>x<span class="op">-</span>xmean</span>
+<span id="cb67-5"><a href="r-programming-basics-ii.html#cb67-5"></a>  xvar &lt;-<span class="st"> </span><span class="kw">sum</span>(tmpdif<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>(<span class="kw">length</span>(x)<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb67-6"><a href="r-programming-basics-ii.html#cb67-6"></a>  xsd &lt;-<span class="st"> </span><span class="kw">sqrt</span>(xvar)</span>
+<span id="cb67-7"><a href="r-programming-basics-ii.html#cb67-7"></a>  <span class="kw">return</span>(xsd)</span>
+<span id="cb67-8"><a href="r-programming-basics-ii.html#cb67-8"></a>}</span>
+<span id="cb67-9"><a href="r-programming-basics-ii.html#cb67-9"></a></span>
+<span id="cb67-10"><a href="r-programming-basics-ii.html#cb67-10"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">10</span>)</span>
+<span id="cb67-11"><a href="r-programming-basics-ii.html#cb67-11"></a><span class="kw">mysd</span>(x)</span></code></pre></div>
+<pre><code>## [1] 27.97638</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-programming-basics-ii.html#cb69-1"></a><span class="kw">sd</span>(x)</span></code></pre></div>
+<pre><code>## [1] 27.97638</code></pre>
 </div>
 <div id="exercise-4-4-barplot-with-error-bars" class="section level3">
 <h3><span class="header-section-number">4.9.2</span> Exercise 4-4 barplot with error bars</h3>
 <p>앞서 그려본 막대그래프에 에러바를 넣어보는 코드 입니다. 먼저 평균과 표준편차 데이터를 apply 함수를 통해 얻어내고 barplot을 수행합니다. 에러바의 경우 arrows 함수를 사용하는데 사용되는 파라메터의 입력되는 값을 바꿔서 그림을 그려보면 그 의미를 파악하는데 도움이 되겠습니다.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-programming-basics-ii.html#cb69-1"></a><span class="co">## Exercise 3-3) barplot with sd</span></span>
-<span id="cb69-2"><a href="r-programming-basics-ii.html#cb69-2"></a></span>
-<span id="cb69-3"><a href="r-programming-basics-ii.html#cb69-3"></a>control_mean &lt;-<span class="st"> </span><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="kw">mean</span>(x)})</span>
-<span id="cb69-4"><a href="r-programming-basics-ii.html#cb69-4"></a>control_sd &lt;-<span class="st"> </span><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, mysd)</span>
-<span id="cb69-5"><a href="r-programming-basics-ii.html#cb69-5"></a></span>
-<span id="cb69-6"><a href="r-programming-basics-ii.html#cb69-6"></a><span class="kw">barplot</span>(control_mean, <span class="dt">width=</span><span class="fl">0.83</span>, <span class="dt">space=</span><span class="fl">0.2</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb69-7"><a href="r-programming-basics-ii.html#cb69-7"></a></span>
-<span id="cb69-8"><a href="r-programming-basics-ii.html#cb69-8"></a><span class="kw">arrows</span>(<span class="fl">0.5</span>, control_mean[<span class="dv">1</span>], <span class="fl">0.5</span>, control_mean[<span class="dv">1</span>]<span class="op">+</span>control_sd[<span class="dv">1</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
-<span id="cb69-9"><a href="r-programming-basics-ii.html#cb69-9"></a><span class="kw">arrows</span>(<span class="fl">0.5</span>, control_mean[<span class="dv">1</span>], <span class="fl">0.5</span>, control_mean[<span class="dv">1</span>]<span class="op">-</span>control_sd[<span class="dv">1</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
-<span id="cb69-10"><a href="r-programming-basics-ii.html#cb69-10"></a>lab &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;SD:&quot;</span>, <span class="kw">round</span>(control_mean[<span class="dv">1</span>]<span class="op">+</span>control_sd[<span class="dv">1</span>],<span class="dv">1</span>))</span>
-<span id="cb69-11"><a href="r-programming-basics-ii.html#cb69-11"></a><span class="kw">text</span>(<span class="fl">0.5</span>, control_mean[<span class="dv">1</span>]<span class="op">+</span>control_sd[<span class="dv">1</span>]<span class="op">+</span><span class="fl">0.05</span>, <span class="dt">labels =</span> lab)</span>
-<span id="cb69-12"><a href="r-programming-basics-ii.html#cb69-12"></a></span>
-<span id="cb69-13"><a href="r-programming-basics-ii.html#cb69-13"></a><span class="kw">arrows</span>(<span class="fl">1.5</span>, control_mean[<span class="dv">2</span>], <span class="fl">1.5</span>, control_mean[<span class="dv">2</span>]<span class="op">+</span>control_sd[<span class="dv">2</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
-<span id="cb69-14"><a href="r-programming-basics-ii.html#cb69-14"></a><span class="kw">arrows</span>(<span class="fl">1.5</span>, control_mean[<span class="dv">2</span>], <span class="fl">1.5</span>, control_mean[<span class="dv">2</span>]<span class="op">-</span>control_sd[<span class="dv">2</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
-<span id="cb69-15"><a href="r-programming-basics-ii.html#cb69-15"></a>lab &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;SD:&quot;</span>, <span class="kw">round</span>(control_mean[<span class="dv">2</span>]<span class="op">+</span>control_sd[<span class="dv">2</span>],<span class="dv">1</span>))</span>
-<span id="cb69-16"><a href="r-programming-basics-ii.html#cb69-16"></a><span class="kw">text</span>(<span class="fl">1.5</span>, control_mean[<span class="dv">2</span>]<span class="op">+</span>control_sd[<span class="dv">2</span>]<span class="op">+</span><span class="fl">0.05</span>, <span class="dt">labels =</span> lab)</span></code></pre></div>
-<p><img src="Rprog_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-programming-basics-ii.html#cb71-1"></a><span class="co">## Exercise 3-3) barplot with sd</span></span>
+<span id="cb71-2"><a href="r-programming-basics-ii.html#cb71-2"></a></span>
+<span id="cb71-3"><a href="r-programming-basics-ii.html#cb71-3"></a>control_mean &lt;-<span class="st"> </span><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="kw">mean</span>(x)})</span>
+<span id="cb71-4"><a href="r-programming-basics-ii.html#cb71-4"></a>control_sd &lt;-<span class="st"> </span><span class="kw">apply</span>(myod_control, <span class="dv">2</span>, mysd)</span>
+<span id="cb71-5"><a href="r-programming-basics-ii.html#cb71-5"></a></span>
+<span id="cb71-6"><a href="r-programming-basics-ii.html#cb71-6"></a><span class="kw">barplot</span>(control_mean, <span class="dt">width=</span><span class="fl">0.83</span>, <span class="dt">space=</span><span class="fl">0.2</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb71-7"><a href="r-programming-basics-ii.html#cb71-7"></a></span>
+<span id="cb71-8"><a href="r-programming-basics-ii.html#cb71-8"></a><span class="kw">arrows</span>(<span class="fl">0.5</span>, control_mean[<span class="dv">1</span>], <span class="fl">0.5</span>, control_mean[<span class="dv">1</span>]<span class="op">+</span>control_sd[<span class="dv">1</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
+<span id="cb71-9"><a href="r-programming-basics-ii.html#cb71-9"></a><span class="kw">arrows</span>(<span class="fl">0.5</span>, control_mean[<span class="dv">1</span>], <span class="fl">0.5</span>, control_mean[<span class="dv">1</span>]<span class="op">-</span>control_sd[<span class="dv">1</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
+<span id="cb71-10"><a href="r-programming-basics-ii.html#cb71-10"></a>lab &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;SD:&quot;</span>, <span class="kw">round</span>(control_mean[<span class="dv">1</span>]<span class="op">+</span>control_sd[<span class="dv">1</span>],<span class="dv">1</span>))</span>
+<span id="cb71-11"><a href="r-programming-basics-ii.html#cb71-11"></a><span class="kw">text</span>(<span class="fl">0.5</span>, control_mean[<span class="dv">1</span>]<span class="op">+</span>control_sd[<span class="dv">1</span>]<span class="op">+</span><span class="fl">0.05</span>, <span class="dt">labels =</span> lab)</span>
+<span id="cb71-12"><a href="r-programming-basics-ii.html#cb71-12"></a></span>
+<span id="cb71-13"><a href="r-programming-basics-ii.html#cb71-13"></a><span class="kw">arrows</span>(<span class="fl">1.5</span>, control_mean[<span class="dv">2</span>], <span class="fl">1.5</span>, control_mean[<span class="dv">2</span>]<span class="op">+</span>control_sd[<span class="dv">2</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
+<span id="cb71-14"><a href="r-programming-basics-ii.html#cb71-14"></a><span class="kw">arrows</span>(<span class="fl">1.5</span>, control_mean[<span class="dv">2</span>], <span class="fl">1.5</span>, control_mean[<span class="dv">2</span>]<span class="op">-</span>control_sd[<span class="dv">2</span>], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
+<span id="cb71-15"><a href="r-programming-basics-ii.html#cb71-15"></a>lab &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;SD:&quot;</span>, <span class="kw">round</span>(control_mean[<span class="dv">2</span>]<span class="op">+</span>control_sd[<span class="dv">2</span>],<span class="dv">1</span>))</span>
+<span id="cb71-16"><a href="r-programming-basics-ii.html#cb71-16"></a><span class="kw">text</span>(<span class="fl">1.5</span>, control_mean[<span class="dv">2</span>]<span class="op">+</span>control_sd[<span class="dv">2</span>]<span class="op">+</span><span class="fl">0.05</span>, <span class="dt">labels =</span> lab)</span></code></pre></div>
+<p><img src="Rprog_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <p>그러나 위 12개의 bar 모두에 대해서 arrows 함수를 그리기 보다는 <strong>for 문을 이용한 반복 실행을</strong> 수행하는 것이 효율적 입니다. for 문의 사용 형식과 반복 횟수 그리고 반복하며 변화되는 값을 갖는 변수에 대한 의미를 파악하고 사용하는 것이 중요합니다. for문의 사용법은 <a href="https://github.com/greendaygh/2019-R-programming/blob/master/03-Rprog.pdf">강의노트</a> 를 참고하세요.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="r-programming-basics-ii.html#cb70-1"></a><span class="co">## Exercise 3-4) barplot with sd using for</span></span>
-<span id="cb70-2"><a href="r-programming-basics-ii.html#cb70-2"></a><span class="kw">barplot</span>(control_mean, <span class="dt">width=</span><span class="fl">0.83</span>, <span class="dt">space=</span><span class="fl">0.2</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb70-3"><a href="r-programming-basics-ii.html#cb70-3"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(control_mean)){</span>
-<span id="cb70-4"><a href="r-programming-basics-ii.html#cb70-4"></a>  xpos &lt;-<span class="st"> </span><span class="fl">0.5</span><span class="op">+</span>i<span class="dv">-1</span></span>
-<span id="cb70-5"><a href="r-programming-basics-ii.html#cb70-5"></a>  <span class="kw">arrows</span>(xpos, control_mean[i], xpos, control_mean[i]<span class="op">+</span>control_sd[i], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
-<span id="cb70-6"><a href="r-programming-basics-ii.html#cb70-6"></a>  <span class="kw">arrows</span>(xpos, control_mean[i], xpos, control_mean[i]<span class="op">-</span>control_sd[i], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
-<span id="cb70-7"><a href="r-programming-basics-ii.html#cb70-7"></a>  lab &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;SD:&quot;</span>, <span class="kw">round</span>(control_mean[i]<span class="op">+</span>control_sd[i],<span class="dv">1</span>))</span>
-<span id="cb70-8"><a href="r-programming-basics-ii.html#cb70-8"></a>  <span class="kw">text</span>(xpos, control_mean[i]<span class="op">+</span>control_sd[i]<span class="op">+</span><span class="fl">0.05</span>, <span class="dt">labels =</span> lab)</span>
-<span id="cb70-9"><a href="r-programming-basics-ii.html#cb70-9"></a>}</span></code></pre></div>
-<p><img src="Rprog_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="r-programming-basics-ii.html#cb72-1"></a><span class="co">## Exercise 3-4) barplot with sd using for</span></span>
+<span id="cb72-2"><a href="r-programming-basics-ii.html#cb72-2"></a><span class="kw">barplot</span>(control_mean, <span class="dt">width=</span><span class="fl">0.83</span>, <span class="dt">space=</span><span class="fl">0.2</span>, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb72-3"><a href="r-programming-basics-ii.html#cb72-3"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(control_mean)){</span>
+<span id="cb72-4"><a href="r-programming-basics-ii.html#cb72-4"></a>  xpos &lt;-<span class="st"> </span><span class="fl">0.5</span><span class="op">+</span>i<span class="dv">-1</span></span>
+<span id="cb72-5"><a href="r-programming-basics-ii.html#cb72-5"></a>  <span class="kw">arrows</span>(xpos, control_mean[i], xpos, control_mean[i]<span class="op">+</span>control_sd[i], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
+<span id="cb72-6"><a href="r-programming-basics-ii.html#cb72-6"></a>  <span class="kw">arrows</span>(xpos, control_mean[i], xpos, control_mean[i]<span class="op">-</span>control_sd[i], <span class="dt">length=</span><span class="fl">0.1</span>, <span class="dt">angle=</span><span class="dv">90</span>)</span>
+<span id="cb72-7"><a href="r-programming-basics-ii.html#cb72-7"></a>  lab &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;SD:&quot;</span>, <span class="kw">round</span>(control_mean[i]<span class="op">+</span>control_sd[i],<span class="dv">1</span>))</span>
+<span id="cb72-8"><a href="r-programming-basics-ii.html#cb72-8"></a>  <span class="kw">text</span>(xpos, control_mean[i]<span class="op">+</span>control_sd[i]<span class="op">+</span><span class="fl">0.05</span>, <span class="dt">labels =</span> lab)</span>
+<span id="cb72-9"><a href="r-programming-basics-ii.html#cb72-9"></a>}</span></code></pre></div>
+<p><img src="Rprog_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <p>마지막으로 실습 예제 4-5는 엑셀파일 이름을 argument로 받아서 파일 내용을 읽고 데이터를 두 그룹으로 나누어 평균을 계산한 후 plot까지 그려주는 함수를 만드는 실습 예제 입니다. 다음 시간에 이어서 합니다.</p>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
