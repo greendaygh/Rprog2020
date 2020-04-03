@@ -83,7 +83,7 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 - 15주차 - Data analysis #2 
 - 16주차 - Data analysis #3  
 
-## R Lecture Link  
+## R Lecture Youtube Link  
 
 ### Lecture Chapter 3
 * 강의 Chapter 3-1 (vector)  https://youtu.be/Fif5LnalvUE
@@ -98,4 +98,9 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 ### Lecture Chapter 4
 * 강의 Chapter 4-1 (function) https://youtu.be/NrGe3V_UpAc 
 * 강의 Chapter 4-2 (function) https://youtu.be/vfaqzso883k
+* 강의 Chapter 4-3 (function) https://youtu.be/SMHFFYi7Akc
+* 강의 Chapter 4-4 (function) https://youtu.be/I9BZqbQCTiE
+* 강의 Chapter 4-5 (function) https://youtu.be/fZj0ZAm2TPk
+* 강의 Chapter 4-6 (function) https://youtu.be/CYQO_k4qcU4
+
 

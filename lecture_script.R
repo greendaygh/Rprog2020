@@ -142,11 +142,73 @@ for(i in 1:10000){
   }
 }
 
+i <- 10
+f <- 1
+while(i>1){
+  f <- i*f
+  i <- i-1
+  cat(i, f, "\n")
+}
+f
+factorial(10)
 
+x <- 1:1E7
+sum(x)
+system.time(sum(x))
 
+st <- proc.time()
+total <- 0
+for(i in 1:length(x)){
+  total <- total + x[i]
+}
+ed <- proc.time()
+ed-st
 
+x <- 1:10
+y <- 5:15
+i <- na.omit(match(x, y))
+y[i]
 
+i <- which(x %in% y)
+x[i]
 
+intersect(x, y)
+
+z <- c(x, y)
+unique(z)
+
+x <- "Factors, raw vectors, and lists, are converted"
+substr(x, 1, 6)
+grep("raw", x)
+grepl("raw", x)
+
+x <- paste(LETTERS, 1:100, sep="")
+grep("A", x)
+x[grep("A", x)]
+
+grepl("A", x)
+r <- grepl("A", x)
+sum(r)
+if(4){
+  cat("Yes, I found A")
+}else{
+  cat("No A")
+}
+
+x <- c("Factors, raw vectors, and lists, are converted", "vectors, or for, strings with")
+y <- strsplit(x, split=", ")
+unlist(y)
+
+y <- strsplit(x, split="")
+ychar <- unlist(y)
+ycharup <- toupper(ychar)
+ycount <- table(ycharup)
+ycount_sort <- sort(ycount)
+ycount_sort <- sort(ycount, decreasing = T)
+ycount_top <- ycount_sort[1:5]
+ycount_top_char <- names(ycount_top)
+
+toupper(ycount_top_char)
 
 
 
