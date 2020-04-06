@@ -463,6 +463,11 @@ plot(mydata$x, mydata$z)
 ```
 
 
+### Exercise 4-6
+
+`iris` 데이터셋을 `iris.csv`에 `,`를 구분 기호로 저장하고 myiris 라는 변수로 다시 읽어 들이시오 
+
+
 ## Excel file read and write
 
 엑셀파일은 readxl 이라는 R 패키지를 활용하여 읽거나 쓸 수 있습니다. 
@@ -471,51 +476,47 @@ plot(mydata$x, mydata$z)
 install.packages("readxl")
 ```
 
-실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 [Rprog04-fl.xls](https://github.com/greendaygh/2019-R-programming/blob/master/Rprog04-fl.xls) 에서 다운로드 받을 수 있습니다. read_excel 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다. tibble에 익숙해지는 것이 좋으나 본 강의에서는 직관적인 진행을 위하여 data.frame으로 전환하여 사용하겠습니다. 
+실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 [Rprog04-fl.xls](https://github.com/greendaygh/Rprog2020/blob/master/Rprog04-fl.xls) 에서 다운로드 받을 수 있습니다. read_excel 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다. tibble에 익숙해지는 것이 좋으나 본 강의에서는 직관적인 진행을 위하여 data.frame으로 전환하여 사용하겠습니다. 
 
-```{r}
+```{r, eval=F}
 library(readxl)
-mydata <- read_excel("Rprog04-fl.xls", sheet=2, skip = 6, col_names=F)
+mydata <- read_excel("Rprog04-fl.xls", sheet=1, skip = 0, col_names=T)
 
-myod <- as.data.frame(mydata[1:8, ])
-mygfp <- as.data.frame(mydata[12:21, ])
 ```
 
-```{r eval=FALSE}
-class(myod[,1])
-class(myod[,2])
+엑셀파일에는 두 종류의 (OD600nm, fluorescence) 데이터가 저장되어 있습니다. 첫 번째 sheet에는 다음처럼 wide형 데이터가 저장되어 있습니다 (참고로 wide형 데이터는 일반적인 `data.frame` 형태의 데이터로 column은 변수, row는 샘플이 저장된 형태로 새로운 변수가 추가 되면 column 오른쪽에 붙어 wide하게 확장되는 것을 말합니다. long 형 데이터는 추후 강의에서 설명 드리겠습니다). 
+
+![](images/04/excelfile01.PNG)
+
+
+`str` 함수를 이용해서 데이터의 구조를 보면 8개의 변수가 있고 각 변수의 이름과 값의 타입 (mode of storage type) 그리고 실제 데이터들의 일부를 보여 줍니다. 이제 관심있는 변수만 뽑아서 가공을 해보겠습니다. 관심있는 변수는 594nm 으로 시작하는 OD 데이터와 EGFP로 시작하는 형광 데이터 그리고 well plate의 위치에 대한 label이 되겠습니다. 
+
+
+```{r, eval=F}
+str(mydata)
 ```
 
-엑셀파일에는 두 종류의 (OD600nm, fluorescence) 데이터가 저장되어 있으며 각각을 위에서 1~8 row 그리고 12~21 row 값들을 모두 myod와 mygfp로 저장했습니다. 그러나 엑셀파일을 보면 첫번째 컬럼에 관측값 외에 다른 정보들에 대한 텍스트가 적혀 있으며 이로 인해 행렬의 가장 첫 컬럼의 데이터 타입이 character가 되고 나머지 컬럼은 numeric으로 자동 전환 되어 data.frame 오브젝트인 mydata에 저장되게 됩니다. 따라서 아래와 같이 문자형을 숫자형으로 전환하여 추후 연산을 진행하게 됩니다. 
 
-```{r}
-myod[,1] <- as.numeric(myod[,1])
-mygfp[,1] <- as.numeric(mygfp[,1])
+
+```{r, eval=F}
+mydf <- data.frame(well=mydata$Well, od=mydata$`595nm_kk (A)`, gfp=mydata$`EGFP_sulim (Counts)`)
+head(mydf)
 ```
 
-수행한 실험의 디자인에 따라서 두 그룹으로 나누고 적절한 이름을 저장합니다. 
 
-```{r}
-myod_treat <- myod[2:4,]
-myod_control <- myod[5:7,]
+아래 그림은 96 well plate의 각 well 마다 해당되는 위치와 label 값을 보여줍니다. 우리가 측정한 데이터의 구조는 각 컬럼은 다른 종류의 cell 이고 row에 특정 화학물질의 농도별 측정 값을 나타냅니다. 
 
-sample_names <- paste("Sample", c(1:12), sep="")
-replicate_labels <- paste("Rep", c(1:3), sep="")
 
-rownames(myod_treat) <- replicate_labels
-colnames(myod_treat) <- sample_names
-rownames(myod_control) <- replicate_labels 
-colnames(myod_control) <- sample_names
+![](images/04/excelfile02.PNG)
 
-mean_treat <- colMeans(myod_treat)
-mean_control <- colMeans(myod_control)
-```
+
+
 
 
 위 예제의 colMean 과 같은 함수는 column 또는 row 단위로 해당하는 모든 값들에 대해 연산을 수행해주는 함수로 colMean은 평균을 계산하는 함수이고 일반적으로는 다음과 같이 apply 함수와 mean 함수를 이용해서 같은 기능을 수행할 수 있습니다. mean 함수 외 임의의 원하는 함수를 만들어 사용할 수 도 있습니다. 참고로 sd는 표준편차를 구해주는 함수 입니다. 
 
 
-```{r}
+```{r, eval=F}
 apply(myod_control, 1, mean)
 apply(myod_control, 2, mean)
 
@@ -531,7 +532,7 @@ apply(myod_control, 2, sd)
 
 본 실습에서는 각 그룹의 평균을 비교하는 막대그래프를 그려보겠습니다. 
 
-```{r}
+```{r, eval=F}
 plot(mean_treat, type="h")
 barplot(mean_treat, ylim=c(0,1))
 mean_test <- data.frame(mean_treat, mean_control)
@@ -544,7 +545,7 @@ barplot(t(mean_test), ylim=c(0,1), beside=T)
 
 앞서 사용한 sd 함수는 표준편차를 구해주는 기본 제공 함수입니다. 아래는 같은 기능을 하는 함수를 만들어 보는 실습 예제 입니다. 
 
-```{r eval=F}
+```{r, eval=F}
 mysd <- function(x){
   xmean <- sum(x)/length(x)
   tmpdif <- x-xmean
