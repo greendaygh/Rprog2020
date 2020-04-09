@@ -104,6 +104,8 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 * 강의 Chapter 4-6 (functions2) https://youtu.be/CYQO_k4qcU4
 * 강의 Chapter 4-7 (read write) https://youtu.be/I9BZqbQCTiE
 * 강의 Chapter 4-8 (readxl) https://youtu.be/_6ZzjvotTww
-* 강의 Chapter 4-9 (readxl2) https://youtu.be/4mLwN2YsCC8
+* 강의 Chapter 4-9 (readxl2) https://youtu.be/7YLNrq5vFiw
+* 강의 Chapter 4-10 (readxl3) https://youtu.be/_1X3AGhCsCw
+
 
 
