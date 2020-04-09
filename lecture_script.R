@@ -211,12 +211,47 @@ ycount_top_char <- names(ycount_top)
 toupper(ycount_top_char)
 
 
+x <- c(1,2,3,4)
+y <- c(5,6,7,8)
+xy <- data.frame(x, y)
+write.table(xy, file="table_write.txt")
+write.table(xy, file="table_write.txt", quote=F, row.names=F, sep=",")
 
+mydata<-read.table(file="table_write.txt")
+mydata<-read.table(file="table_write.txt", sep=",")
+mydata<-read.table(file="table_write.txt", sep=",", header = T)
 
+plot(x=mydata$x, y=mydata$y)
+plot(mydata$x, mydata$y, col="red")
 
+iris
+library(readxl)
+mydata <- read_excel("Rprog04-fl.xls", sheet=1, skip = 0, col_names=T)
+mydf <- data.frame(well=mydata$Well, od=mydata$`595nm_kk (A)`, gfp=mydata$`EGFP_sulim (Counts)`)
+head(mydf)
+mydf$well
+str(mydf)
+well_labels <- as.character(mydf$well)
+strsplit(well_labels, split="")
+well_concentration <- substr(well_labels, 1, 1)
+cell_number <- substr(well_labels, 2, 3)
+mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp)
+str(mydf2)
+mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp, stringsAsFactors = F)
 
+idx <- which(mydf2$cell_number == "01")
+mydf2_01 <- mydf2[idx,]
+mydf2_01$mydf.gfp
 
+plot(mydf2_01$mydf.gfp)
+barplot(mydf2_01$mydf.gfp)
+barplot(mydf2_01$mydf.gfp, names.arg = mydf2_01$well_concentration)
 
+barplot(sample1df$sample_means, names.arg=sample1df$conc, ylim=c(0, 80000))
+arrows(0.7, sample_means[1], 0.7, sample_means[1]+sample_std[1], length=0.1, angle=90)
+arrows(0.7, sample_means[1], 0.7, sample_means[1]-sample_std[1], length=0.1, angle=90)
+lab <- paste("SD:", round(sample_means[1]+sample_std[1],1))
+text(0.5, sample_means[1]+sample_std[1]*2, labels = lab)
 
 
 
