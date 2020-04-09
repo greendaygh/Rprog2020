@@ -561,6 +561,7 @@ text(0.5, sample_means[1]+sample_std[1]*2, labels = lab)
 
 앞서 그려본 막대그래프의 B, C, D, E, F, G 모두에 에러바를 넣으시오 (for 문 사용) 
 
+---
 
 ```{r, eval=F, echo=F}
 ##  barplot with sd using for

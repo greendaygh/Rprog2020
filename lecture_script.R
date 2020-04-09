@@ -229,36 +229,39 @@ library(readxl)
 mydata <- read_excel("Rprog04-fl.xls", sheet=1, skip = 0, col_names=T)
 mydf <- data.frame(well=mydata$Well, od=mydata$`595nm_kk (A)`, gfp=mydata$`EGFP_sulim (Counts)`)
 head(mydf)
-mydf$well
-str(mydf)
-well_labels <- as.character(mydf$well)
-strsplit(well_labels, split="")
-well_concentration <- substr(well_labels, 1, 1)
+
+well_labels  <- as.character(mydf$well)
+substr(well_labels[1], 2, 3)
 cell_number <- substr(well_labels, 2, 3)
 mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp)
 str(mydf2)
 mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp, stringsAsFactors = F)
+str(mydf2)
 
-idx <- which(mydf2$cell_number == "01")
+idx <- which(mydf2$cell_number=="01")
 mydf2_01 <- mydf2[idx,]
-mydf2_01$mydf.gfp
 
 plot(mydf2_01$mydf.gfp)
 barplot(mydf2_01$mydf.gfp)
 barplot(mydf2_01$mydf.gfp, names.arg = mydf2_01$well_concentration)
 
+
+idx <- which(mydf2$cell_number=="01")
+sample1 <- mydf2[idx,]
+idx <- which(mydf2$cell_number=="02")
+sample2 <- mydf2[idx,]
+
+sample_means <- (sample1$mydf.gfp + sample2$mydf.gfp)/2
+sample_std <- sqrt(((sample1$mydf.gfp-sample_means)^2+(sample2$mydf.gfp-sample_means)^2)/(2-1))
+sd(c(sample1$mydf.gfp[1], sample2$mydf.gfp[1]))
+sample1df <- data.frame(conc=sample1$well_concentration, sample_means, sample_std)
+sample1df
+
 barplot(sample1df$sample_means, names.arg=sample1df$conc, ylim=c(0, 80000))
 arrows(0.7, sample_means[1], 0.7, sample_means[1]+sample_std[1], length=0.1, angle=90)
 arrows(0.7, sample_means[1], 0.7, sample_means[1]-sample_std[1], length=0.1, angle=90)
-lab <- paste("SD:", round(sample_means[1]+sample_std[1],1))
-text(0.5, sample_means[1]+sample_std[1]*2, labels = lab)
-
-
-
-
-
-
-
+lab <- paste("SD:", round(sample_means[1],1))
+text(0.5, sample_means[1]+sample_std[1]*2, labels = lab, adj = 0)
 
 
 
