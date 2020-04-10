@@ -264,5 +264,34 @@ lab <- paste("SD:", round(sample_means[1],1))
 text(0.5, sample_means[1]+sample_std[1]*2, labels = lab, adj = 0)
 
 
+x <- 1:100
+y <- x*2 + rnorm(100)
+myxy <- data.frame(x,y )
+plot(myxy)
+plot(x=x, y=y)
+rm(x, y)
+plot(y~x)
+plot(y~x, data=myxy)
+
+z <- 100:1
+points(x=x, y=z)
+points(x=x, y=z, col="red")
+
+?par
+x <- rnorm(100)
+hist(x, br=20, xlim=c(-3,3), main="Main text", xlab="X label")
 
 
+x <- rnorm(100)
+boxplot(x)
+boxplot(myxy)
+
+x <- sample(1:12, 200, replace = T)
+tab_x <- table(x)
+y <- sample(1:12, 200, replace = T)
+tab_y <- table(y)
+barplot(tab_x)
+tab_xy <- rbind(tab_x, tab_y)
+barplot(tab_xy)
+
+barplot(tab_xy, beside = T, col=c("darkblue","red"), xlab="Month")
