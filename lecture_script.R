@@ -295,3 +295,14 @@ tab_xy <- rbind(tab_x, tab_y)
 barplot(tab_xy)
 
 barplot(tab_xy, beside = T, col=c("darkblue","red"), xlab="Month")
+
+
+
+
+
+
+
+
+
+
+
