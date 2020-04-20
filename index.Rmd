@@ -110,4 +110,4 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 
 ### Lecture Chapter 5
 * 강의 Chapter 5-1 (plot) https://youtu.be/KdlAqVVFxoI 
-
+* 강의 Chapter 5-2 (graphics) https://youtu.be/NXZlV-xnRTY
