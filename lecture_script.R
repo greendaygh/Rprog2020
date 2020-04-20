@@ -297,12 +297,28 @@ barplot(tab_xy)
 barplot(tab_xy, beside = T, col=c("darkblue","red"), xlab="Month")
 
 
+### ================= 
+
+x <- rnorm(500, 0, 1)
+hist(x, br=100)
+y <- 2*x + rnorm(500, 5, 1)
+hist(y, br=100)
+z <- c(x, y)
+hist(z, br=100)
+zd <- density(z)
+lines(zd)
+
+hist(z, br=100, probability = T)
+lines(zd)
+plot(x=zd$x, y=zd$y)
+plot(x=zd$x, y=zd$y, type="l")
 
 
-
-
-
-
-
-
-
+plot(x, y, xlim=c(-5, 5), ylim=c(-5, 15), pch=3)
+idx <- which(x<0)
+points(x=x[idx], y=y[idx], pch=3, col="red")
+plot(x, y, xlim=c(-5, 5), ylim=c(-5, 15), pch=3)
+points(x=x[idx], y=y[idx], pch=15, col="blue")
+fit <- lm(y~x)
+abline(fit)
+fit

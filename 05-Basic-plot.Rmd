@@ -131,7 +131,7 @@ points(x=xcoord[idx], y=ycoord[idx], col="red", pch=19)
 - 앞서 문제와 같은 plot에 원점으로부터 거리가 50 이하인 좌표들을 green closed circle로 표현 하시오 
 
 
-```{r, eval=F}
+```{r, eval=F, echo=F}
 xcoord <- sample(1:100, 1000, T)
 ycoord <- sample(1:100, 1000, T)
 plot(x=xcoord, y=ycoord, xlim=c(-10,110), ylim=c(-10,110))
