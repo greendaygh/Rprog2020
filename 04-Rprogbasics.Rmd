@@ -476,11 +476,11 @@ plot(mydata$x, mydata$z)
 install.packages("readxl")
 ```
 
-실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 [Rprog04-fl.xls](https://github.com/greendaygh/Rprog2020/blob/master/Rprog04-fl.xls) 에서 다운로드 받을 수 있습니다. read_excel 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다. 
+실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 [Exp_data.xls](https://github.com/greendaygh/Rprog2020/blob/master/Exp_data.xls) 에서 다운로드 받을 수 있습니다. read_excel 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다. 
 
 ```{r, eval=F}
 library(readxl)
-mydata <- read_excel("Rprog04-fl.xls", sheet=1, skip = 0, col_names=T)
+mydata <- read_excel("Exp_data.xls", sheet=1, skip = 0, col_names=T)
 
 ```
 

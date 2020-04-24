@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2020-04-20" />
+<meta name="date" content="2020-04-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -233,6 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.5.1" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#exercise-5-2"><i class="fa fa-check"></i><b>5.5.1</b> Exercise 5-2</a></li>
 </ul></li>
+<li class="chapter" data-level="5.6" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#barplot-for-multiplate-reader-data"><i class="fa fa-check"></i><b>5.6</b> Barplot for multiplate reader data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -613,9 +614,9 @@ X[\frac{n+1}{2}] &amp; \mbox{if } n \mbox{ is odd}
 <h2><span class="header-section-number">4.10</span> Excel file read and data plotting</h2>
 <p>엑셀파일은 readxl 이라는 R 패키지를 활용하여 읽거나 쓸 수 있습니다.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-programming-basics-ii.html#cb49-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
-<p>실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 <a href="https://github.com/greendaygh/Rprog2020/blob/master/Rprog04-fl.xls">Rprog04-fl.xls</a> 에서 다운로드 받을 수 있습니다. read_excel 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다.</p>
+<p>실습 파일은 형광 세포를 배양하여 형광리더기를 이용해 얻어진 실제 데이터이며 <a href="https://github.com/greendaygh/Rprog2020/blob/master/Exp_data.xls">Exp_data.xls</a> 에서 다운로드 받을 수 있습니다. read_excel 함수를 이용하여 파일의 내용을 읽어오면 기본 자료형이 tibble 입니다. tibble은 최근 많이 쓰이는 R object로 data.frame과 유사하나 입력값의 type, name, rowname을 임으로 바꿀 수 없다는 점이 다릅니다.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-programming-basics-ii.html#cb50-1"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb50-2"><a href="r-programming-basics-ii.html#cb50-2"></a>mydata &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Rprog04-fl.xls&quot;</span>, <span class="dt">sheet=</span><span class="dv">1</span>, <span class="dt">skip =</span> <span class="dv">0</span>, <span class="dt">col_names=</span>T)</span></code></pre></div>
+<span id="cb50-2"><a href="r-programming-basics-ii.html#cb50-2"></a>mydata &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Exp_data.xls&quot;</span>, <span class="dt">sheet=</span><span class="dv">1</span>, <span class="dt">skip =</span> <span class="dv">0</span>, <span class="dt">col_names=</span>T)</span></code></pre></div>
 <p>엑셀파일에는 두 종류의 (OD600nm, fluorescence) 데이터가 저장되어 있습니다. 첫 번째 sheet에는 다음처럼 wide형 데이터가 저장되어 있습니다 (참고로 wide형 데이터는 일반적인 <code>data.frame</code> 형태의 데이터로 column은 변수, row는 샘플이 저장된 형태로 새로운 변수가 추가 되면 column 오른쪽에 붙어 wide하게 확장되는 것을 말합니다. long 형 데이터는 추후 강의에서 설명 드리겠습니다).</p>
 <p><img src="images/04/excelfile01.PNG" /></p>
 <p><code>str</code> 함수를 이용해서 데이터의 구조를 보면 8개의 변수가 있고 각 변수의 이름과 값의 타입 (mode of storage type) 그리고 실제 데이터들의 일부를 보여 줍니다. 이제 관심있는 변수만 뽑아서 가공을 해보겠습니다. 관심있는 변수는 594nm 으로 시작하는 OD 데이터와 EGFP로 시작하는 형광 데이터 그리고 well plate의 위치에 대한 label이 되겠습니다.</p>

@@ -144,6 +144,47 @@ idx3 <- which(sqrt(xcoord^2+ycoord^2)<50)
 points(x=xcoord[idx3], y=ycoord[idx3], col="green", pch=19)
 ```
 
+## Barplot for multiplate reader data 
+
+이번에는 지난 4장에서 사용했던 엑셀 파일의 데이터를 읽어 들여서 barplot을 그리고 추가로 에러바까지 그려보는 실습을 진행해 보겠습니다. 데이터 설명은 지난 4.10절을 참고하시면 되겠습니다. 우선 아래와 같이 데이터를 읽어들이고 필요한 변수들을 뽑아서 새로운 데이터프레임을 만듭니다. 
+
+
+```{r, eval=F}
+library(readxl)
+mydata <- read_excel("Exp_data.xls", sheet=1, skip = 0, col_names=T)
+mydf <- data.frame(well=mydata$Well, od=mydata$`595nm_kk (A)`, gfp=mydata$`EGFP_sulim (Counts)`)
+head(mydf)
+
+```
+
+데이터 설명은 4장을 다시 참고하시면 되겠습니다. 우리가 원하는 그림은 다음 배치의 샘플들에 대해서 농도별로 bar graph를 그리는 것 입니다. 그런데 위 `mydf` 데이터에는 아래 그림에서 보이는 샘플 이름이나 처리 약물의 농도와 같은 정보는 없습니다. 보통 이러한 정보는 실험을 계획할 단계에서 만들어 집니다. 따라서 본 강의에서는 이러한 정보도 엑셀 파일로 읽어 오는 것으로 합니다. 포멧은 `샘플이름`;`반복횟수`;`처리약물`;`농도` 입니다.    
+
+![](images/05/02.png)
+
+```{r, eval=F}
+mydf$well
+class(mydf$well)
+well_labels <- as.character(mydf$well)
+strsplit(well_labels, split="")
+well_concentration <- substr(well_labels, 1, 1)
+cell_number <- substr(well_labels, 2, 3)
+mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp)
+str(mydf2)
+mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp, stringsAsFactors = F)
+str(mydf2)
+
+mydf2$cell_number=="01"
+idx <- mydf2$cell_number=="01"
+mydf2_01 <- mydf2[idx,]
+mydf2_01$mydf.gfp
+
+plot(mydf2_01$mydf.gfp)
+barplot(mydf2_01$mydf.gfp)
+barplot(mydf2_01$mydf.gfp, names.arg = mydf2_01$well_concentration)
+
+```
+
+
 
 ---
 

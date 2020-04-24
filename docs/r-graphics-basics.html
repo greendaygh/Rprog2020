@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2020-04-20" />
+<meta name="date" content="2020-04-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -233,6 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.5.1" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#exercise-5-2"><i class="fa fa-check"></i><b>5.5.1</b> Exercise 5-2</a></li>
 </ul></li>
+<li class="chapter" data-level="5.6" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#barplot-for-multiplate-reader-data"><i class="fa fa-check"></i><b>5.6</b> Barplot for multiplate reader data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -349,10 +350,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>앞서 문제와 같은 plot에 x가 50보다 작고 y가 50보다 큰 곳에 있는 좌표들에 blue closed circle로 표현하시오 (which, points, pch parameter 등 이용)</li>
 <li>앞서 문제와 같은 plot에 원점으로부터 거리가 50 이하인 좌표들을 green closed circle로 표현 하시오</li>
 </ul>
+</div>
+</div>
+<div id="barplot-for-multiplate-reader-data" class="section level2">
+<h2><span class="header-section-number">5.6</span> Barplot for multiplate reader data</h2>
+<p>이번에는 지난 4장에서 사용했던 엑셀 파일의 데이터를 읽어 들여서 barplot을 그리고 추가로 에러바까지 그려보는 실습을 진행해 보겠습니다. 데이터 설명은 지난 4.10절을 참고하시면 되겠습니다. 우선 아래와 같이 데이터를 읽어들이고 필요한 변수들을 뽑아서 새로운 데이터프레임을 만듭니다.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-graphics-basics.html#cb64-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb64-2"><a href="r-graphics-basics.html#cb64-2"></a>mydata &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Exp_data.xls&quot;</span>, <span class="dt">sheet=</span><span class="dv">1</span>, <span class="dt">skip =</span> <span class="dv">0</span>, <span class="dt">col_names=</span>T)</span>
+<span id="cb64-3"><a href="r-graphics-basics.html#cb64-3"></a>mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">well=</span>mydata<span class="op">$</span>Well, <span class="dt">od=</span>mydata<span class="op">$</span><span class="st">`</span><span class="dt">595nm_kk (A)</span><span class="st">`</span>, <span class="dt">gfp=</span>mydata<span class="op">$</span><span class="st">`</span><span class="dt">EGFP_sulim (Counts)</span><span class="st">`</span>)</span>
+<span id="cb64-4"><a href="r-graphics-basics.html#cb64-4"></a><span class="kw">head</span>(mydf)</span></code></pre></div>
+<p>데이터 설명은 4장을 다시 참고하시면 되겠습니다. 우리가 원하는 그림은 다음 배치의 샘플들에 대해서 농도별로 bar graph를 그리는 것 입니다. 그런데 위 <code>mydf</code> 데이터에는 아래 그림에서 보이는 샘플 이름이나 처리 약물의 농도와 같은 정보는 없습니다. 보통 이러한 정보는 실험을 계획할 단계에서 만들어 집니다. 따라서 본 강의에서는 이러한 정보도 엑셀 파일로 읽어 오는 것으로 합니다. 포멧은 <code>샘플이름</code>;<code>반복횟수</code>;<code>처리약물</code>;<code>농도</code> 입니다.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-graphics-basics.html#cb65-1"></a>mydf<span class="op">$</span>well</span>
+<span id="cb65-2"><a href="r-graphics-basics.html#cb65-2"></a><span class="kw">class</span>(mydf<span class="op">$</span>well)</span>
+<span id="cb65-3"><a href="r-graphics-basics.html#cb65-3"></a>well_labels &lt;-<span class="st"> </span><span class="kw">as.character</span>(mydf<span class="op">$</span>well)</span>
+<span id="cb65-4"><a href="r-graphics-basics.html#cb65-4"></a><span class="kw">strsplit</span>(well_labels, <span class="dt">split=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb65-5"><a href="r-graphics-basics.html#cb65-5"></a>well_concentration &lt;-<span class="st"> </span><span class="kw">substr</span>(well_labels, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb65-6"><a href="r-graphics-basics.html#cb65-6"></a>cell_number &lt;-<span class="st"> </span><span class="kw">substr</span>(well_labels, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb65-7"><a href="r-graphics-basics.html#cb65-7"></a>mydf2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(well_concentration, cell_number, mydf<span class="op">$</span>od, mydf<span class="op">$</span>gfp)</span>
+<span id="cb65-8"><a href="r-graphics-basics.html#cb65-8"></a><span class="kw">str</span>(mydf2)</span>
+<span id="cb65-9"><a href="r-graphics-basics.html#cb65-9"></a>mydf2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(well_concentration, cell_number, mydf<span class="op">$</span>od, mydf<span class="op">$</span>gfp, <span class="dt">stringsAsFactors =</span> F)</span>
+<span id="cb65-10"><a href="r-graphics-basics.html#cb65-10"></a><span class="kw">str</span>(mydf2)</span>
+<span id="cb65-11"><a href="r-graphics-basics.html#cb65-11"></a></span>
+<span id="cb65-12"><a href="r-graphics-basics.html#cb65-12"></a>mydf2<span class="op">$</span>cell_number<span class="op">==</span><span class="st">&quot;01&quot;</span></span>
+<span id="cb65-13"><a href="r-graphics-basics.html#cb65-13"></a>idx &lt;-<span class="st"> </span>mydf2<span class="op">$</span>cell_number<span class="op">==</span><span class="st">&quot;01&quot;</span></span>
+<span id="cb65-14"><a href="r-graphics-basics.html#cb65-14"></a>mydf2_<span class="dv">01</span> &lt;-<span class="st"> </span>mydf2[idx,]</span>
+<span id="cb65-15"><a href="r-graphics-basics.html#cb65-15"></a>mydf2_<span class="dv">01</span><span class="op">$</span>mydf.gfp</span>
+<span id="cb65-16"><a href="r-graphics-basics.html#cb65-16"></a></span>
+<span id="cb65-17"><a href="r-graphics-basics.html#cb65-17"></a><span class="kw">plot</span>(mydf2_<span class="dv">01</span><span class="op">$</span>mydf.gfp)</span>
+<span id="cb65-18"><a href="r-graphics-basics.html#cb65-18"></a><span class="kw">barplot</span>(mydf2_<span class="dv">01</span><span class="op">$</span>mydf.gfp)</span>
+<span id="cb65-19"><a href="r-graphics-basics.html#cb65-19"></a><span class="kw">barplot</span>(mydf2_<span class="dv">01</span><span class="op">$</span>mydf.gfp, <span class="dt">names.arg =</span> mydf2_<span class="dv">01</span><span class="op">$</span>well_concentration)</span></code></pre></div>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
-</div>
 </div>
 </div>
             </section>
