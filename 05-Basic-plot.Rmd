@@ -246,7 +246,10 @@ colnames(mydf2_merge) <- c("Conc", "mean", "sd")
 barplot(mydf2_merge$mean, names.arg=mydf2_merge$Conc, ylim=c(0, 80000))
 ```
 
-그런데 샘플 A 뿐만 아니라 모든 샘플에 대해서 한 눈에 들어오는 그래프를 그릴 필요가 있습니다. 
+![](images/05/03.png)
+
+그런데 샘플 A 뿐만 아니라 모든 샘플에 대해서 한 눈에 들어오는 그래프를 그릴 필요가 있습니다. 본격적인 그래프 실습은 `ggplot2` 패키지를 이용해서 진행하기로 하고 지금은 우선 `barplot` 함수를 이용해서 간단하게 평균을 모두 그려보는 실습을 하겠습니다. 
+
 
 ```{r, eval=F}
 mydf_mean <- aggregate(mydf2$gfp, by=list(mydf2$Name, mydf2$Conc), FUN=mean)
@@ -254,6 +257,7 @@ colnames(mydf_mean) <- c("Name", "Conc", "mean")
 mydf_mean
 ```
 
+위와 같이 `aggregate` 함수를 사용해서 Name과 Conc를 기준으로 모든 데이터에 대한 평균을 구할 수 있습니다. 그런데 위 데이터는 long형 데이터로서 ggplot에서 사용되는 데이터 형식이고 barplot을 사용하기 위해서는 wide형 데이터로 변환해 줄 필요가 있습니다. 
 
 ```{r, eval=F}
 tmpdf <- rbind(mydf_mean[1:6,"mean"], 
@@ -274,12 +278,12 @@ mydf_mean_wide <- reshape(mydf_mean, idvar = "Name", timevar = "Conc", direction
 head(mydf_mean_wide)
 ```
 
-
+위와 같은 wide형 데이터에 대해서 barplot 함수를 사용 할 경우 아래와 같이 두 개의 그룹을 갖는 데이터를 비교할 수 있는 막대그래프를 그릴 수 있습니다. 
 
 ```{r, eval=F}
-barplot(tmpdf, beside = T, col=1:6)
+barplot(tmpdf, beside = T)
 ```
-
+![](images/05/04.png)
 
 
 ```{r, eval=F}
@@ -287,10 +291,10 @@ library(RColorBrewer)
 display.brewer.all()
 mycol <- brewer.pal(6, "RdBu")
 barplot(tmpdf, beside = T, col=mycol)
-legend('topleft', title = 'group', legend = rownames(tmpdf), fill=mycol, bty="n") 
+legend('topleft', title = 'Conc', legend = rownames(tmpdf), fill=mycol, bty="n") 
 ```
 
-
+![](images/05/05.png)
 
 ---
 
