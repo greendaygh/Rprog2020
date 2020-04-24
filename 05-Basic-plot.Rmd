@@ -77,6 +77,27 @@ barplot(tab_xy, beside = T, col=c("darkblue","red"), xlab="Month", horiz=TRUE)
 4) `iris` 데이터에서 꽃받침과 꽃잎의 넓이의 분포를 그리시오 (`boxplot` 사용) 
 5) `iris` 데이터에서 품종별 꽃받침 길이의 분포를 그리시오 (`boxplot` 사용)
 
+```{r, eval=F, echo=F}
+# 5-1-1
+
+# 1. indexing
+setosa=iris[iris$Species=="setosa","Sepal.Length"]
+versicolor=iris[iris$Species=="versicolor","Sepal.Length"]
+virginica=iris[iris$Species=="virginica","Sepal.Length"]
+mydf <- data.frame(setosa, versicolor, virginica)
+boxplot(mydf)
+
+# 2. subset 
+setosa <- subset(iris, Species=="setosa")$Sepal.Length
+virginica <- subset(iris, Species=="virginica")$Sepal.Length
+versicolor <- subset(iris, Species=="versicolor")$Sepal.Length
+boxplot(data.frame(setosa,virginica,versicolor))
+
+# 3. formula 
+boxplot(Sepal.Length~Species, data=iris)
+```
+
+
 ## Draw multiple graphs in the same plot
 
 위 예제들에서 사용한 high level function들을 low level function (`lines`, `points`, `ablines`, `axis` 등)들과 함께 사용함으로써 원하는 도표 대부분을 그려낼 수 있습니다. 최근 널리 사용되는 `ggplot2` 패키지를 이용한 그래프 사용법 강의에서는 오늘 배우는 그래픽 명령어는 거의 사용하지 않습니다. 그러나 위 함수들은 R의 기본 그래프 함수들로서 단순한 도표에서부터 복잡한 그래픽까지 구현할 수 있는 다양한 유연성을 제공하므로 기본적인 사용법을 정확히 이해하는 것이 좋습니다.
@@ -157,31 +178,116 @@ head(mydf)
 
 ```
 
-데이터 설명은 4장을 다시 참고하시면 되겠습니다. 우리가 원하는 그림은 다음 배치의 샘플들에 대해서 농도별로 bar graph를 그리는 것 입니다. 그런데 위 `mydf` 데이터에는 아래 그림에서 보이는 샘플 이름이나 처리 약물의 농도와 같은 정보는 없습니다. 보통 이러한 정보는 실험을 계획할 단계에서 만들어 집니다. 따라서 본 강의에서는 이러한 정보도 엑셀 파일로 읽어 오는 것으로 합니다. 포멧은 `샘플이름`;`반복횟수`;`처리약물`;`농도` 입니다.    
+데이터 설명은 4장을 다시 참고하시면 되겠습니다. 우리가 원하는 그림은 다음 배치의 샘플들에 대해서 농도별로 bar graph를 그리는 것 입니다. 그런데 위 `mydf` 데이터에는 아래 그림에서 보이는 샘플 이름이나 처리 약물의 농도와 같은 정보는 없습니다. 보통 이러한 정보는 실험을 계획할 단계에서 만들어 집니다. 따라서 본 강의에서는 이러한 정보도 엑셀 파일로 읽어 오는 것으로 합니다. [Exp_design.xlsx](https://github.com/greendaygh/Rprog2020/blob/master/Exp_design.xlsx) 포멧은 `샘플이름`;`반복횟수`;`처리약물`;`농도` 입니다.    
 
-![](images/05/02.png)
+![](images/05/02.PNG)
 
 ```{r, eval=F}
-mydf$well
-class(mydf$well)
-well_labels <- as.character(mydf$well)
-strsplit(well_labels, split="")
-well_concentration <- substr(well_labels, 1, 1)
-cell_number <- substr(well_labels, 2, 3)
-mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp)
-str(mydf2)
-mydf2 <- data.frame(well_concentration, cell_number, mydf$od, mydf$gfp, stringsAsFactors = F)
-str(mydf2)
 
-mydf2$cell_number=="01"
-idx <- mydf2$cell_number=="01"
-mydf2_01 <- mydf2[idx,]
-mydf2_01$mydf.gfp
+designdata <- read_excel("Exp_design.xlsx", sheet=1, skip = 0, col_names=F)
+designdata
+```
 
-plot(mydf2_01$mydf.gfp)
-barplot(mydf2_01$mydf.gfp)
-barplot(mydf2_01$mydf.gfp, names.arg = mydf2_01$well_concentration)
+우리가 할 일은 mydf 데이터의 각 샘플(row)에 맞는 이름, 반복횟수, 약물 농도 등을 붙여 넣는 것입니다. 각 well의 position은 row가 A~H까지 column은 1~12 이고 이 well들의 label이 위 `mydf`에 well이라는 변수로 저장되어 있습니다. 우선 위 designdata 의 값들을 일렬로 나열하고 각 well 이름을 붙여놓은 데이터프레임을 만들어 봅니다. 여기서 새로 사용된 함수는 `melt` 입니다. `reshape2` 패키지를 설치해야 합니다. 이 함수를 이용하면 (wide형) 데이터를 (long형) 데이터로 쉽게 변환할 수 있습니다. 
 
+
+```{r, eval=F}
+library(reshape2)
+labeldat <- melt(designdata, measure.vars=1:12)
+labnum <- formatC(rep(1:12, each=8), width=2, format="d", flag="0")
+## add a new variable
+labeldat$well <- paste(LETTERS[1:8], labnum, sep="")
+labeldat
+```
+
+그런데 위 'value' 변수에 있는 값들은 문자열로서 `;` 기준으로 문자열을 나눠주어야 의미가 있습니다. 즉, 문자열 값들을 '이름', '반복', '약물', '농도' 순서로 분해해서 각각을 하나의 변수로 만들어야 합니다.    
+
+```{r, eval=F}
+## remove "-"
+labeldat_sel <- labeldat[labeldat$value!="-",]
+## split
+labeldat_sel$value[2]
+strsplit(labeldat_sel$value[2], split=";")
+mylab_list <- strsplit(labeldat_sel$value, split=";")
+## convert list to data.frame
+## rbind(x[[1]], x[[2]], ...)
+mylab_df <- do.call(rbind, mylab_list) 
+head(mylab_df)
+colnames(mylab_df) <- c("Name", "Rep", "Chem", "Conc")
+## binding, selection
+mylab_df2 <- data.frame(well = labeldat_sel$well, mylab_df, stringsAsFactors = F)
+str(mylab_df2)
+```
+
+이제 `mydf`와 `mylab_df2`를 합할 차례 입니다. `mydf`의 well 값과 `labeldat`의 well 값이 같은 것 끼리 묶이면 좋을 것 같습니다. 이런 경우 innerjoin 방법으로 `merge` 함수를 사용하면 됩니다. 
+
+```{r, eval=F}
+## merge 
+mydf2 <- merge(mydf, mylab_df2, by='well')
+```
+
+
+이제 그래프를 그리기 위한 데이터가 준비 되었습니다. 지난 4장의 마지막 부분에서 그려 보았던 barplot을 그려 봅니다. A샘플의 평균과 표준편차를 이용한 막대그래프 입니다. 
+
+```{r, eval=F}
+## subset
+mydf2_sub <- subset(mydf2, Name=="A")
+## mean, sd for each group
+a_mean <- aggregate(mydf2_sub$gfp, by=list(mydf2_sub$Conc), FUN=mean)
+a_sd <-  aggregate(mydf2_sub$gfp, by=list(mydf2_sub$Conc), FUN=sd)
+mydf2_merge <- merge(a_mean, a_sd, by="Group.1")
+colnames(mydf2_merge) <- c("Conc", "mean", "sd")
+```
+
+위와 같이 `subset`, `aggregate`, 그리고 `merge` 함수를 이용해서 원하는 데이터를 손쉽게 추출할 수 있고 아래와 같은 막대 그래프를 그릴 수 있습니다. 4장에서 수행한 코드들과 비교해 보면 간결하고 직관적으로 바뀐 것을 알 수 있습니다. 
+
+
+```{r, eval=F}
+barplot(mydf2_merge$mean, names.arg=mydf2_merge$Conc, ylim=c(0, 80000))
+```
+
+그런데 샘플 A 뿐만 아니라 모든 샘플에 대해서 한 눈에 들어오는 그래프를 그릴 필요가 있습니다. 
+
+```{r, eval=F}
+mydf_mean <- aggregate(mydf2$gfp, by=list(mydf2$Name, mydf2$Conc), FUN=mean)
+colnames(mydf_mean) <- c("Name", "Conc", "mean")
+mydf_mean
+```
+
+
+```{r, eval=F}
+tmpdf <- rbind(mydf_mean[1:6,"mean"], 
+               mydf_mean[7:12,"mean"], 
+               mydf_mean[13:18,"mean"],
+               mydf_mean[19:24,"mean"],
+               mydf_mean[25:30,"mean"],
+               mydf_mean[31:36,"mean"]
+               )
+colnames(tmpdf) <- c("A", "B", "C", "D", "E", "F")
+rownames(tmpdf) <- c("0", "0.1", "1", "10", "100", "1000")
+tmpdf
+```
+
+
+```{r, eval=F, echo=F}
+mydf_mean_wide <- reshape(mydf_mean, idvar = "Name", timevar = "Conc", direction = "wide")
+head(mydf_mean_wide)
+```
+
+
+
+```{r, eval=F}
+barplot(tmpdf, beside = T, col=1:6)
+```
+
+
+
+```{r, eval=F}
+library(RColorBrewer)
+display.brewer.all()
+mycol <- brewer.pal(6, "RdBu")
+barplot(tmpdf, beside = T, col=mycol)
+legend('topleft', title = 'group', legend = rownames(tmpdf), fill=mycol, bty="n") 
 ```
 
 
