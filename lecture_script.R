@@ -322,3 +322,80 @@ points(x=x[idx], y=y[idx], pch=15, col="blue")
 fit <- lm(y~x)
 abline(fit)
 fit
+
+
+
+
+
+
+
+
+library(readxl)
+mydata <- read_excel("Exp_data.xls", sheet=1, skip = 0, col_names=T)
+mydf <- data.frame(well=mydata$Well, 
+                   od=mydata$`595nm_kk (A)`, 
+                   gfp=mydata$`EGFP_sulim (Counts)`)
+head(mydf)
+
+designdata <- read_excel("Exp_design.xlsx", sheet=1, 
+                         skip = 0, col_names=F)
+designdata
+
+
+library(reshape2)
+labeldat <- melt(designdata, measure.vars=1:12)
+labnum <- formatC(rep(1:12, each=8), width=2, format="d", flag="0")
+## add a new variable
+labeldat$well <- paste(LETTERS[1:8], labnum, sep="")
+labeldat
+
+labeldat_sel <- labeldat[labeldat$value!="-",]
+
+labeldat_sel$value[2]
+strsplit(labeldat_sel$value[2], split=";")
+mylab_list <- strsplit(labeldat_sel$value, split=";")
+
+mylab_df <- do.call(rbind, mylab_list) 
+colnames(mylab_df) <- c("Name", "Rep", "Chem", "Conc")
+## binding, selection
+mylab_df2 <- data.frame(well = labeldat_sel$well, 
+                        mylab_df, stringsAsFactors = F)
+str(mylab_df2)
+head(mylab_df2)
+head(mydf)
+
+mydf2 <- merge(mydf, mylab_df2, by='well')
+mydf2_sub <- subset(mydf2, Name=="A")
+a_mean <- aggregate(mydf2_sub$gfp, by=list(mydf2_sub$Conc), FUN=mean)
+a_sd <-  aggregate(mydf2_sub$gfp, by=list(mydf2_sub$Conc), FUN=sd)
+mydf2_merge <- merge(a_mean, a_sd, by="Group.1")
+colnames(mydf2_merge) <- c("Conc", "mean", "sd")
+barplot(mydf2_merge$mean, names.arg = mydf2_merge$Conc)
+
+mydf_mean <- aggregate(mydf2$gfp, 
+                       by=list(mydf2$Name, mydf2$Conc), 
+                       FUN=mean)
+colnames(mydf_mean) <- c("Name", "Conc", "mean")
+mydf_mean
+
+
+tmpdf <- rbind(mydf_mean[1:6,"mean"], 
+               mydf_mean[7:12,"mean"], 
+               mydf_mean[13:18,"mean"],
+               mydf_mean[19:24,"mean"],
+               mydf_mean[25:30,"mean"],
+               mydf_mean[31:36,"mean"]
+)
+colnames(tmpdf) <- c("A", "B", "C", "D", "E", "F")
+rownames(tmpdf) <- c("0", "0.1", "1", "10", "100", "1000")
+tmpdf
+barplot(tmpdf, beside = T)
+
+library(RColorBrewer)
+display.brewer.all()
+mycol <- brewer.pal(6, "RdBu")
+barplot(tmpdf, beside = T, col=mycol)
+legend('topleft', 
+       title = 'Conc', 
+       legend = rownames(tmpdf), 
+       fill=mycol, bty="n") 
