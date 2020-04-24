@@ -167,13 +167,15 @@ points(x=xcoord[idx3], y=ycoord[idx3], col="green", pch=19)
 
 ## Barplot for multiplate reader data 
 
-이번에는 지난 4장에서 사용했던 엑셀 파일의 데이터를 읽어 들여서 barplot을 그리고 추가로 에러바까지 그려보는 실습을 진행해 보겠습니다. 데이터 설명은 지난 4.10절을 참고하시면 되겠습니다. 우선 아래와 같이 데이터를 읽어들이고 필요한 변수들을 뽑아서 새로운 데이터프레임을 만듭니다. 
+이번에는 지난 4장에서 사용했던 엑셀 파일의 [Exp_data.xls](https://github.com/greendaygh/Rprog2020/blob/master/Exp_data.xls) 데이터를 읽어 들여서 barplot을 그리는 또 다른 방법을 알아보겠습니다. 데이터 설명은 지난 4.10절을 참고하시면 되겠습니다. 우선 아래와 같이 데이터를 읽어들이고 필요한 변수들을 뽑아서 새로운 데이터프레임을 만듭니다. 
 
 
 ```{r, eval=F}
 library(readxl)
 mydata <- read_excel("Exp_data.xls", sheet=1, skip = 0, col_names=T)
-mydf <- data.frame(well=mydata$Well, od=mydata$`595nm_kk (A)`, gfp=mydata$`EGFP_sulim (Counts)`)
+mydf <- data.frame(well=mydata$Well, 
+                   od=mydata$`595nm_kk (A)`, 
+                   gfp=mydata$`EGFP_sulim (Counts)`)
 head(mydf)
 
 ```
@@ -184,7 +186,8 @@ head(mydf)
 
 ```{r, eval=F}
 
-designdata <- read_excel("Exp_design.xlsx", sheet=1, skip = 0, col_names=F)
+designdata <- read_excel("Exp_design.xlsx", sheet=1, 
+                         skip = 0, col_names=F)
 designdata
 ```
 
@@ -215,7 +218,8 @@ mylab_df <- do.call(rbind, mylab_list)
 head(mylab_df)
 colnames(mylab_df) <- c("Name", "Rep", "Chem", "Conc")
 ## binding, selection
-mylab_df2 <- data.frame(well = labeldat_sel$well, mylab_df, stringsAsFactors = F)
+mylab_df2 <- data.frame(well = labeldat_sel$well, 
+                        mylab_df, stringsAsFactors = F)
 str(mylab_df2)
 ```
 
@@ -243,7 +247,9 @@ colnames(mydf2_merge) <- c("Conc", "mean", "sd")
 
 
 ```{r, eval=F}
-barplot(mydf2_merge$mean, names.arg=mydf2_merge$Conc, ylim=c(0, 80000))
+barplot(mydf2_merge$mean, 
+        names.arg=mydf2_merge$Conc, 
+        ylim=c(0, 80000))
 ```
 
 ![](images/05/03.png)
@@ -252,7 +258,9 @@ barplot(mydf2_merge$mean, names.arg=mydf2_merge$Conc, ylim=c(0, 80000))
 
 
 ```{r, eval=F}
-mydf_mean <- aggregate(mydf2$gfp, by=list(mydf2$Name, mydf2$Conc), FUN=mean)
+mydf_mean <- aggregate(mydf2$gfp, 
+                       by=list(mydf2$Name, mydf2$Conc), 
+                       FUN=mean)
 colnames(mydf_mean) <- c("Name", "Conc", "mean")
 mydf_mean
 ```
@@ -291,7 +299,10 @@ library(RColorBrewer)
 display.brewer.all()
 mycol <- brewer.pal(6, "RdBu")
 barplot(tmpdf, beside = T, col=mycol)
-legend('topleft', title = 'Conc', legend = rownames(tmpdf), fill=mycol, bty="n") 
+legend('topleft', 
+       title = 'Conc', 
+       legend = rownames(tmpdf), 
+       fill=mycol, bty="n") 
 ```
 
 ![](images/05/05.png)
