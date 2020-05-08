@@ -237,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html"><i class="fa fa-check"></i><b>6</b> R graphics ggplot2</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#simple-ggplots"><i class="fa fa-check"></i><b>6.1</b> Simple ggplots</a></li>
+<li class="chapter" data-level="6.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#ggplot-basics"><i class="fa fa-check"></i><b>6.1</b> ggplot basics</a></li>
 <li class="chapter" data-level="6.2" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#ggplot-facets"><i class="fa fa-check"></i><b>6.2</b> ggplot facets</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.1"><i class="fa fa-check"></i><b>6.2.1</b> Exercise 6.1</a></li>
@@ -266,8 +266,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-graphics-ggplot2" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> R graphics ggplot2</h1>
 <p>지난 5장에서는 R에서 기본으로 제공되는 그래프 함수를 알아보았습니다. 이번에는 <code>ggplot2</code>를 이용한 시각화에 대해서 알아봅니다. 데이터를 분석할 때 실제 데이터를 눈으로 확인하는 것은 중요합니다. 가능하면 raw 데이터를 보면서 크기 비교나 분포를 대략적으로 예측한다면 tool을 사용해서 나오는 결과를 가늠하는 척도가 될 수도 있습니다. 그러나 데이터가 커질경우 그래프를 이용해서 분포나 패턴을 확인하게되고 이를 위한 시각화 패키지 중 가장 많이 쓰이는 도구가 <code>ggplot2</code> 입니다. <code>ggplot2</code> (<a href="https://ggplot2.tidyverse.org/)는" class="uri">https://ggplot2.tidyverse.org/)는</a> 해들리위컴이 (Hadley Wickham) 만든 데이터 시각화 패키지입니다. <code>ggplot2</code>는 <code>tidyverse</code>의 (데이터 분석을 위한 패키지모음) 핵심 패키지 중 하나로서 <code>tidyverse</code>에는 <code>ggplot2</code> 외에도 다음에 배울 <code>dplyr</code> 등의 데이터 사이언스를 위한 유용한 패키지들이 함께 관리되고 있습니다. 본 강의는 <a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a> 의 내용을 참고하여 작성되었습니다.</p>
-<div id="simple-ggplots" class="section level2">
-<h2><span class="header-section-number">6.1</span> Simple ggplots</h2>
+<div id="ggplot-basics" class="section level2">
+<h2><span class="header-section-number">6.1</span> ggplot basics</h2>
 <p><code>iris</code> 데이터를 이용해서 간단하게 barplot을 그려봅니다. <code>iris</code> 데이터는 3가지 품종별 꽃잎과 꽃받침의 길이와 넓이를 측정한 데이터 입니다. 다음은 꽃잎의 길이와 넓이의 관계를 볼 수 있는 산점도 입니다.</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="r-graphics-ggplot2.html#cb75-1"></a><span class="kw">library</span>(ggplot2)</span>
 <span id="cb75-2"><a href="r-graphics-ggplot2.html#cb75-2"></a><span class="kw">head</span>(iris)</span>
