@@ -241,6 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#ggplot-facets"><i class="fa fa-check"></i><b>6.2</b> ggplot facets</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.1"><i class="fa fa-check"></i><b>6.2.1</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="6.2.2" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.2"><i class="fa fa-check"></i><b>6.2.2</b> Exercise 6.2</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -328,11 +329,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb83-11"><a href="r-graphics-ggplot2.html#cb83-11"></a><span class="st">  </span><span class="kw">facet_grid</span>(.<span class="op">~</span>Species)</span></code></pre></div>
 <div id="exercise-6.1" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Exercise 6.1</h3>
-<p>값에 대해서 count를 보여주므로 mydata의 GFP 즉 y 값은 count 데이터가 아니므로 에러<code>Error: stat_count() must not be used with a y aesthetic</code> 를 보여줍니다.</p>
-<p>따라서 <code>stat</code>을 <code>identity</code>로 명시하고 그릴 경우 정상적으로 막대그래프가 그려지게 됩니다.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="r-graphics-ggplot2.html#cb84-1"></a><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x=</span>Species, <span class="dt">y=</span>Petal.Width)) <span class="op">+</span><span class="st">  </span></span>
-<span id="cb84-2"><a href="r-graphics-ggplot2.html#cb84-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p>위 그림은 반복이나 농도 등을 고려하지 않고 모두 한 위치 (예를 들어 1번 샘플의 반복 및 다른 농도 값들 모두 첫 번째 위치)에 그려지게 됩니다. 따라서 아래와 같이 각 농도를 다른 색으로 채우고 <code>fill=concentration</code>, 위치도 다르게 <code>"position=dodge"</code> 그려줄 수 있습니다.</p>
+<p><code>Orange</code> 데이터셋은 다섯 그루의 오랜지 나무에 대한 시간에(age-days) 따른 성장을(circumference) 기록한 데이터임.</p>
+<ol style="list-style-type: decimal">
+<li>age와 circumference 를 각각 x와 y축으로 하는 산점도를 그리는 코드를 작성하시오 (ggplot 이용, 나무별로 다른 색 사용)</li>
+</ol>
+<p><img src="Rprog_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>나무별로 다른 켄버스에 age와 circumference를 x와 y축으로 하는 산점도를 그리는 코드를 작성하시오 (ggplot, facet_grid이용)</li>
+</ol>
+<p><img src="Rprog_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+</div>
+<div id="exercise-6.2" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Exercise 6.2</h3>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="r-graphics-ggplot2.html#cb84-1"></a>InsectSprays</span></code></pre></div>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
