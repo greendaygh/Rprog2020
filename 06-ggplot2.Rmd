@@ -4,7 +4,7 @@
 지난 5장에서는 R에서 기본으로 제공되는 그래프 함수를 알아보았습니다. 이번에는 `ggplot2`를 이용한 시각화에 대해서 알아봅니다. 데이터를 분석할 때 실제 데이터를 눈으로 확인하는 것은 중요합니다. 가능하면 raw 데이터를 보면서 크기 비교나 분포를 대략적으로 예측한다면 tool을 사용해서 나오는 결과를 가늠하는 척도가 될 수도 있습니다. 그러나 데이터가 커질경우 그래프를 이용해서 분포나 패턴을 확인하게되고 이를 위한 시각화 패키지 중 가장  많이 쓰이는 도구가 `ggplot2` 입니다.  `ggplot2` (https://ggplot2.tidyverse.org/)는 해들리위컴이 (Hadley Wickham) 만든 데이터 시각화 패키지입니다. `ggplot2`는 `tidyverse`의 (데이터 분석을 위한 패키지모음) 핵심 패키지 중 하나로서 `tidyverse`에는 `ggplot2` 외에도 다음에 배울 `dplyr` 등의 데이터 사이언스를 위한 유용한 패키지들이 함께 관리되고 있습니다. 본 강의는 https://r4ds.had.co.nz/data-visualisation.html 의 내용을 참고하여 작성되었습니다.  
 
 
-## A simple ggplot
+## Simple ggplots
 
 `iris` 데이터를 이용해서 간단하게 barplot을 그려봅니다. `iris` 데이터는 3가지 품종별 꽃잎과 꽃받침의 길이와 넓이를 측정한 데이터 입니다. 다음은 꽃잎의 길이와 넓이의 관계를 볼 수 있는 산점도 입니다. 
 
@@ -50,27 +50,80 @@ ggplot(iris, aes(x=Petal.Length, y=Petal.Width)) +
 ```
 
 
+
+
+
+위 산점도들의 `stat`은 `identity` 입니다. 즉, 따로 통계량을 계산할 필요 없이 값 그 자체를 사용하겠다는 것 입니다. 히스토그램의 경우 `geom_bar()` 함수로 막대그래프를 그릴 수 있습니다. `geom_bar`의 help페이지를 보면 `stat="count"`로 설정되어 있는 것을 알 수 있습니다. 꽃잎의 넓이에 대한 분포를 예로 구해봅니다. 히스토그램을 그릴경우 변수 한 개의 데이터만 필요하고 y축에는 자동으로 빈도수가 들어가게 되므로 `aes`에서 x만 mapping 해 주면 됩니다. 
+
+
 ```{r, eval=F}
+ggplot(iris, aes(x=Petal.Width)) +  
+  geom_bar()
+```
+
+## ggplot facets
+
+다시 산점도의 예에서 위와 같이 다른 색이나 모양으로 그리기 보다는 종 별로 다른 켄버스에 별도의 산점도를 그려야 할 경우가 있습니다. 이럴때 사용하는 함수가 `facet_wrap()`이나 `facet_grid()` 입니다. 보통 범주형 자료에 대해서 적용할 수 있으며 위 붓꽃 예에서는 3가지 종을 나타내는 변수 `Species`를 이용하면 되겠습니다. `facet_wrap()`함수에는 `~`를 이용한 formula를 사용합니다. 
+
+```{r, eval=F}
+
 ggplot(iris, aes(x=Petal.Length, y=Petal.Width)) + 
-  geom_point() 
+  geom_point(aes(color=Species, shape=Species)) +
+  facet_wrap(~Species, nrow=2)
+
 ```
 
 
+만약 두 개의 범주형 변수에 대해서 x, y축 각각으로 나누고 싶을 때는 `facet_grid()`를 사용할 수 있습니다.  `iris` 데이터는 하나의 범주형 변수와 네 개의 숫자형 변수로 구성되어 있습니다 (`str(iris)` 확인). 여기에 랜덤하게 0과 1을 갖는 범주형 변수 하나를 추가해 보겠습니다. 
 
-
-```+``` 로 레이어를 추가하면서 `geom_bar()` 함수로 막대그래프를 그린다고 명시를 하면 되지만 `geom_bar`의 기본 `stat`은  `count`로 mydata의 GFP 즉 y 값은 count 데이터가 아니므로 에러`Error: stat_count() must not be used with a y aesthetic` 를 보여줍니다. 
 
 ```{r, eval=F}
-ggplot(iris, aes(x=Petal.Length, y=Petal.Width)) +  
-  geom_point()
+str(iris)
+mycate <- sample(c(0,1), nrow(iris), replace=T)
+myiris <- data.frame(iris, mycate)
+str(myiris)
 ```
 
+이제 mycate와 Species 두 범주형 변수에 대해서 facet 그래프를 그려보면 다음과 같습니다. `facet_grid()`함수를 사용하면 되며 x와 y축의 변수는 `~`를 활용한 formula를 사용합니다. 즉 `~` 왼편의 변수는 y축 오른편의 변수는 x축으로 구성되어집니다. 새로운 `myiris`라는 데이터를 만들었으므로 iris 대신 myiris를 사용합니다. 
+
+
+```{r, eval=F}
+ggplot(myiris, aes(x=Petal.Length, y=Petal.Width)) + 
+  geom_point(aes(color=Species, shape=Species)) +
+  facet_grid(Species~mycate)
+```
+
+
+만약 하나의 변수에 대해서 x축이나 y축 하나에만 나열하고 싶은 경우 다음처럼 `.` 을 사용하면 됩니다. 
+
+
+```{r, eval=F}
+ggplot(myiris, aes(x=Petal.Length, y=Petal.Width)) + 
+  geom_point(aes(color=Species, shape=Species)) +
+  facet_grid(.~mycate)
+
+ggplot(myiris, aes(x=Petal.Length, y=Petal.Width)) + 
+  geom_point(aes(color=Species, shape=Species)) +
+  facet_grid(Species~.)
+
+ggplot(myiris, aes(x=Petal.Length, y=Petal.Width)) + 
+  geom_point(aes(color=Species, shape=Species)) +
+  facet_grid(.~Species)
+
+```
+
+
+### Exercise 6.1
+
+값에 대해서 count를 보여주므로  mydata의 GFP 즉 y 값은 count 데이터가 아니므로 에러`Error: stat_count() must not be used with a y aesthetic` 를 보여줍니다. 
+ 
 따라서 `stat`을 `identity`로 명시하고 그릴 경우 정상적으로 막대그래프가 그려지게 됩니다.
 
 ```{r, eval=F}
-ggplot(iris, aes(x=Petal.Length, y=Petal.Width)) +  
+ggplot(iris, aes(x=Species, y=Petal.Width)) +  
   geom_bar(stat="identity")
 ```
+
 
 위 그림은 반복이나 농도 등을 고려하지 않고 모두 한 위치 (예를 들어 1번 샘플의 반복 및 다른 농도 값들 모두 첫 번째 위치)에 그려지게 됩니다. 따라서 아래와 같이 각 농도를 다른 색으로 채우고 ```fill=concentration```, 위치도 다르게 ```"position=dodge"``` 그려줄 수 있습니다.   
 
