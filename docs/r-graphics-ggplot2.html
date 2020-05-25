@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2020-05-09" />
+<meta name="date" content="2020-05-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -238,18 +238,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html"><i class="fa fa-check"></i><b>6</b> R graphics ggplot2</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#ggplot-basics"><i class="fa fa-check"></i><b>6.1</b> ggplot basics</a></li>
-<li class="chapter" data-level="6.2" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#ggplot-facets"><i class="fa fa-check"></i><b>6.2</b> ggplot facets</a>
+<li class="chapter" data-level="6.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#basics"><i class="fa fa-check"></i><b>6.1</b> Basics</a></li>
+<li class="chapter" data-level="6.2" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#facets"><i class="fa fa-check"></i><b>6.2</b> Facets</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.1"><i class="fa fa-check"></i><b>6.2.1</b> Exercise 6.1</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#bar-graph-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Bar graph with ggplot</a>
+<li class="chapter" data-level="6.3" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#bar-graph"><i class="fa fa-check"></i><b>6.3</b> Bar graph</a>
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.2"><i class="fa fa-check"></i><b>6.3.1</b> Exercise 6.2</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#line-graph-with-ggplot"><i class="fa fa-check"></i><b>6.4</b> Line graph with ggplot</a>
+<li class="chapter" data-level="6.4" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#line-graph"><i class="fa fa-check"></i><b>6.4</b> Line graph</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.3"><i class="fa fa-check"></i><b>6.4.1</b> Exercise 6.3</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#smoothing"><i class="fa fa-check"></i><b>6.5</b> Smoothing</a></li>
+<li class="chapter" data-level="6.6" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#statstics-and-position"><i class="fa fa-check"></i><b>6.6</b> Statstics and position</a></li>
+<li class="chapter" data-level="6.7" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#themes-labels-and-scales"><i class="fa fa-check"></i><b>6.7</b> Themes, Labels, and Scales</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.4"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 6.4</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -275,9 +281,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-graphics-ggplot2" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> R graphics ggplot2</h1>
 <p>지난 5장에서는 R에서 기본으로 제공되는 그래프 함수를 알아보았습니다. 이번에는 <code>ggplot2</code>를 이용한 시각화에 대해서 알아봅니다. 데이터를 분석할 때 실제 데이터를 눈으로 확인하는 것은 중요합니다. 가능하면 raw 데이터를 보면서 크기 비교나 분포를 대략적으로 예측한다면 tool을 사용해서 나오는 결과를 가늠하는 척도가 될 수도 있습니다. 그러나 데이터가 커질경우 그래프를 이용해서 분포나 패턴을 확인하게되고 이를 위한 시각화 패키지 중 가장 많이 쓰이는 도구가 <code>ggplot2</code> 입니다.</p>
-<p><code>ggplot2</code> (<a href="https://ggplot2.tidyverse.org/)는" class="uri">https://ggplot2.tidyverse.org/)는</a> 해들리위컴이 (Hadley Wickham) 만든 데이터 시각화 패키지입니다. <code>ggplot2</code>는 <code>tidyverse</code>의 (데이터 분석을 위한 패키지모음) 핵심 패키지 중 하나로서 <code>tidyverse</code>에는 <code>ggplot2</code> 외에도 다음에 배울 <code>dplyr</code> 등의 데이터 사이언스를 위한 유용한 패키지들이 함께 관리되고 있습니다.</p>
-<div id="ggplot-basics" class="section level2">
-<h2><span class="header-section-number">6.1</span> ggplot basics</h2>
+<p><code>ggplot2</code> ( <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a> )는 해들리위컴이 (Hadley Wickham) 만든 데이터 시각화 패키지입니다. <code>ggplot2</code>는 <code>tidyverse</code>의 (데이터 분석을 위한 패키지모음) 핵심 패키지 중 하나로서 <code>tidyverse</code>에는 <code>ggplot2</code> 외에도 다음에 배울 <code>dplyr</code> 등의 데이터 사이언스를 위한 유용한 패키지들이 함께 관리되고 있습니다.</p>
+<div id="basics" class="section level2">
+<h2><span class="header-section-number">6.1</span> Basics</h2>
 <p><code>iris</code> 데이터를 이용해서 간단하게 barplot을 그려봅니다. <code>iris</code> 데이터는 3가지 품종별 꽃잎과 꽃받침의 길이와 넓이를 측정한 데이터 입니다. 다음은 꽃잎의 길이와 넓이의 관계를 볼 수 있는 산점도 입니다.</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="r-graphics-ggplot2.html#cb75-1"></a><span class="kw">library</span>(ggplot2)</span>
 <span id="cb75-2"><a href="r-graphics-ggplot2.html#cb75-2"></a><span class="kw">head</span>(iris)</span>
@@ -316,8 +322,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="r-graphics-ggplot2.html#cb79-1"></a><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x=</span>Petal.Width)) <span class="op">+</span><span class="st">  </span></span>
 <span id="cb79-2"><a href="r-graphics-ggplot2.html#cb79-2"></a><span class="st">  </span><span class="kw">geom_bar</span>()</span></code></pre></div>
 </div>
-<div id="ggplot-facets" class="section level2">
-<h2><span class="header-section-number">6.2</span> ggplot facets</h2>
+<div id="facets" class="section level2">
+<h2><span class="header-section-number">6.2</span> Facets</h2>
 <p>다시 산점도의 예에서 위와 같이 다른 색이나 모양으로 그리기 보다는 종 별로 다른 켄버스에 별도의 산점도를 그려야 할 경우가 있습니다. 이럴때 사용하는 함수가 <code>facet_wrap()</code>이나 <code>facet_grid()</code> 입니다. 보통 범주형 자료에 대해서 적용할 수 있으며 위 붓꽃 예에서는 3가지 종을 나타내는 변수 <code>Species</code>를 이용하면 되겠습니다. <code>facet_wrap()</code>함수에는 <code>~</code>를 이용한 formula를 사용합니다.</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="r-graphics-ggplot2.html#cb80-1"></a><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">x=</span>Petal.Length, <span class="dt">y=</span>Petal.Width)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb80-2"><a href="r-graphics-ggplot2.html#cb80-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Species, <span class="dt">shape=</span>Species)) <span class="op">+</span></span>
@@ -356,8 +362,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Rprog_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 </div>
 </div>
-<div id="bar-graph-with-ggplot" class="section level2">
-<h2><span class="header-section-number">6.3</span> Bar graph with ggplot</h2>
+<div id="bar-graph" class="section level2">
+<h2><span class="header-section-number">6.3</span> Bar graph</h2>
 <p>ggplot을 이용한 막대그래프 그리는 방법에 대해서 좀 더 알아보겠습니다. 앞서와 같이 ggplot 함수로 먼저 데이터와 aes로 x축 y축 등을 명시하고 <code>+</code> 오퍼레이터를 사용하여 필요한 레이어를 차례로 추가하면서 그래프를 그릴 수 있습니다. <code>geom_bar()</code> 함수의 경우 x가 연속형일 경우는 아래와 같이 히스토그램을 그려주기 어렵습니다 (위 iris 예제에서 <code>geom_bar()</code> 그래프에서는 실제 꽃받침의 width 값은 연속형이 맞으나 관측된 iris 데이터들이 같은 값들이 많은 범주형처럼 되어 있어 히스토그램 그림이 그려졌습니다) 이럴 경우 stat을 <code>bin</code>으로 바꿔주면 해당 범위 안에 있는 값들의 빈도수를 계산하여 히스토그램을 그릴 수 있습니다.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="r-graphics-ggplot2.html#cb84-1"></a>dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x1=</span><span class="kw">rnorm</span>(<span class="dv">100</span>))</span>
 <span id="cb84-2"><a href="r-graphics-ggplot2.html#cb84-2"></a><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x=</span>x1)) <span class="op">+</span></span>
@@ -406,8 +412,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Rprog_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 </div>
 </div>
-<div id="line-graph-with-ggplot" class="section level2">
-<h2><span class="header-section-number">6.4</span> Line graph with ggplot</h2>
+<div id="line-graph" class="section level2">
+<h2><span class="header-section-number">6.4</span> Line graph</h2>
 <p>다음으로 ggplot을 이용한 line graph를 그리는 방법을 알아 봅니다. Line graph는 geom_line이라는 함수를 사용해서 그릴 수 있으며 stat의 사용법은 앞서 bar graph와 같습니다.</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="r-graphics-ggplot2.html#cb90-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">21</span>, <span class="dv">40</span>)</span>
 <span id="cb90-2"><a href="r-graphics-ggplot2.html#cb90-2"></a>x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">33</span>, <span class="dv">10</span>, <span class="dv">82</span>)</span>
@@ -447,6 +453,151 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.4.1</span> Exercise 6.3</h3>
 <p>위 exercise 6.1의 2)에서 그려진 나무별 산점도에 다음과 같이 선분을 추가한 그래프를 그리는 코드를 작성 하시오</p>
 <p><img src="Rprog_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+</div>
+</div>
+<div id="smoothing" class="section level2">
+<h2><span class="header-section-number">6.5</span> Smoothing</h2>
+<p>산포도는 앞서와 같이 데이터를 점으로 표현한 그래프입니다. Smoothing은 관측된 데이터를 이용하여 모형을 추정하는데 사용되는 통계적 방법입니다. 예를 들어 몸무게와 키라는 두 변수의 관계를 알아보고자 할 때 산포도를 그리고 Smoothing을 통해 점들의 평균값을 이어주는 방법으로 모형을 추정할 수 있습니다. 본 절에서는 이렇게 찾아진 모형을 그래프로 그리는 방법을 알아봅니다.</p>
+<p><code>mtcars</code> 데이터는 1974년 미국 자동차 잡지에서 추출한 데이터로서 당시 다양한 모델의 자동차에대한 성능을 저장하고 있습니다 (<code>?mtcars</code>로 자세한 정보를 볼 수 있음). 이 데이터를 이용해서 연비와 마력 (horsepower) 두 변수의 관계를 그래프로 그려보겠습니다. 직관적으로 생각하면 두 변수는 반비례 할 것으로 기대됩니다. 그 정도를 알기 위해서 <code>ggplot</code>을 활용해서 두 변수의 산포도를 그리고 smoothing을 수행해 보도록 하겠습니다.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="r-graphics-ggplot2.html#cb94-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb94-2"><a href="r-graphics-ggplot2.html#cb94-2"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x=</span>mpg, <span class="dt">y=</span>hp)) <span class="op">+</span></span>
+<span id="cb94-3"><a href="r-graphics-ggplot2.html#cb94-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<p>위와 같이 <code>mtcars</code>는 <code>data.frame</code>이므로 <code>ggplot</code>으로 바로 받아서 x축과 y축 mapping에 필요한 변수들 이름을 직접 할당하고 <code>geom_point</code>함수를 이용해서 간단히 산포도를 그릴 수 있습니다. 이 산포도만으로도 mpg와 hp 두 변수간의 관계가 역함수 관계임을 알 수 있고 또한 선형이 아닌 것도 알 수 있습니다. 이제 위 그림에 <code>geom_smooth()</code>함수를 이용해서 (모형) 적합 곡선 (또는 추세선)을 그려봅니다.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="r-graphics-ggplot2.html#cb95-1"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x=</span>mpg, <span class="dt">y=</span>hp)) <span class="op">+</span></span>
+<span id="cb95-2"><a href="r-graphics-ggplot2.html#cb95-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb95-3"><a href="r-graphics-ggplot2.html#cb95-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>()</span></code></pre></div>
+<p>간단히 한 줄을 추가하여 추세선을 그렸으며 경고 메세지에서 볼 수 있듯이 알고리즘은 <code>loess</code>, 모형은 (formula는) <code>y~x</code>로, 즉 y축 변수를 반응변수로 x축 변수를 설명변수로 설정하여 그려졌습니다. 직선의 공식 <code>y=ax+b</code>를 생각해 보시면 무슨 의미인지 이해가 더 쉬울듯 합니다. <code>?geom_smooth</code>로 보면 알 수 있듯이 모형을 적합하는 method 옵션을 <code>lm</code>, <code>glm</code>, <code>loess</code> 등 다양하게 설정할 수 있으며 <code>auto</code>는 데이터의 크기나 형식에 맞춰서 방법을 자동으로 선택해서 그려주게 됩니다. <code>se</code> 옵션은 기본적으로 <code>TRUE</code> 값을 가지며 위 그림에서 볼 수 있는 선분 주위의 회색 구간으로 신뢰구간을 그려주는 옵션 입니다. <code>span</code> 옵션은 loess 모형의 smoothing 정도를 조절할 수 있는데 이는 직접 바꿔가면서 실습을 해보면 이해에 도움이 되겠습니다.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="r-graphics-ggplot2.html#cb96-1"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x=</span>mpg, <span class="dt">y=</span>hp)) <span class="op">+</span></span>
+<span id="cb96-2"><a href="r-graphics-ggplot2.html#cb96-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb96-3"><a href="r-graphics-ggplot2.html#cb96-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">se=</span><span class="ot">FALSE</span>, <span class="dt">span=</span><span class="fl">0.2</span>)</span></code></pre></div>
+<p>위와 같이 <code>span</code> 옵션을 작게 설정할 수록 관측된 데이터(점)에 선분(모형)이 가까이 붙게 됩니다. 이를 과대적합 (overfitting)이라고 하며 간단히 설명하면 관측된 데이터에만 너무 잘맞는 모형을 만드는 경우를 말합니다. 이럴 경우 새롭게 관측된 데이터는 모형의 예측값과 잘 맞지 않게 됩니다.</p>
+<p>이번에는 모의 데이터를 생성해서 그래프를 그려보겠습니다. 네 개 학급에 있는 학생들의 키와 몸무게를 저장한 데이터를 만들어 봅니다. 이 경우 몇 개의 변수가 필요할지 생각해 보시기 바랍니다. 키와 몸무게 그리고 학급을 나타내는 변수 3개가 필요하며 키와 몸무게는 정수형, 그룹을 나타내는 변수는 문자형이나 factor형으로 나타내면 되겠습니다. 각 학급의 학생수는 50명으로 총 200명의 학생이 있는 것으로 하며 각 그룹별로 키나 몸무게의 차이는 없고 키가 큰 사람은 몸무게가 많이 나가는 것으로 합니다. 키와 몸무게 사이에는 다음과 같은 연관성을 만들어 줍니다. <span class="math inline">\(height= weight + N(100, 10)\)</span></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="r-graphics-ggplot2.html#cb97-1"></a>weights &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">200</span>, <span class="dv">75</span>, <span class="dv">5</span>)</span>
+<span id="cb97-2"><a href="r-graphics-ggplot2.html#cb97-2"></a>heights &lt;-<span class="st"> </span>weights <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">200</span>, <span class="dv">100</span>, <span class="dv">5</span>)</span>
+<span id="cb97-3"><a href="r-graphics-ggplot2.html#cb97-3"></a>classes &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dt">size=</span><span class="kw">length</span>(heights), <span class="dt">replace =</span> T)</span>
+<span id="cb97-4"><a href="r-graphics-ggplot2.html#cb97-4"></a>mydata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(heights, weights, classes)</span>
+<span id="cb97-5"><a href="r-graphics-ggplot2.html#cb97-5"></a><span class="kw">str</span>(mydata)</span></code></pre></div>
+<p>이제 위 데이터를 이용해서 몸무게와 키의 산포도와 추세선을 그려보고 추가로 그룹별로 다른 색의 점으로 표현해 보겠습니다.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="r-graphics-ggplot2.html#cb98-1"></a><span class="kw">ggplot</span>(mydata, <span class="kw">aes</span>(<span class="dt">x=</span>weights, <span class="dt">y=</span>heights, <span class="dt">color=</span>classes)) <span class="op">+</span></span>
+<span id="cb98-2"><a href="r-graphics-ggplot2.html#cb98-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb98-3"><a href="r-graphics-ggplot2.html#cb98-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>()</span></code></pre></div>
+<p>그런데 위와 같은 코드를 실행하면 그룹마다 다른 점과 smooth 선분이 그려집니다. 우리가 원하는 그림은 단지 점만 그룹별로 다른 색으로 표현하고 추세선은 전체 학생들에 대해서 하나의 선분만 그려지길 원합니다. 이제 우리가 알아야할 부분은 각 레이어마다 mapping을 지정할 수 있다는 것이고 이 원리를 이해한다면 다음과 같이 <code>geom_point</code>에서는 <code>color</code>를 mapping해 주고 <code>geom_smooth</code>에서는 지정해주지 않으면 됩니다.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="r-graphics-ggplot2.html#cb99-1"></a><span class="kw">ggplot</span>(mydata) <span class="op">+</span></span>
+<span id="cb99-2"><a href="r-graphics-ggplot2.html#cb99-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weights, <span class="dt">y=</span>heights, <span class="dt">color=</span>classes)) <span class="op">+</span></span>
+<span id="cb99-3"><a href="r-graphics-ggplot2.html#cb99-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weights, <span class="dt">y=</span>heights))</span></code></pre></div>
+<p>그리고 중복되는 부분을 줄여줄 수도 있습니다. 즉, ggplot에서 지정하는 mapping은 하위 layer에 모두 적용이 되며 각 layer마다 다른 mapping 특성을 부여하고 싶을 경우 해당 layer의 mapping 함수 (aes)를 이용하여 설정할 수 있다는 점을 기억하시기 바랍니다.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="r-graphics-ggplot2.html#cb100-1"></a><span class="kw">ggplot</span>(mydata, <span class="kw">aes</span>(<span class="dt">x=</span>weights, <span class="dt">y=</span>heights)) <span class="op">+</span></span>
+<span id="cb100-2"><a href="r-graphics-ggplot2.html#cb100-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>classes)) <span class="op">+</span></span>
+<span id="cb100-3"><a href="r-graphics-ggplot2.html#cb100-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>()</span></code></pre></div>
+</div>
+<div id="statstics-and-position" class="section level2">
+<h2><span class="header-section-number">6.6</span> Statstics and position</h2>
+<p>앞서 smoothing 곡선은 실제 데이터에서 관측된 값이 아닌 계산된 값을 그래프에 표현한 것 입니다. 또한 6.3절의 bargraph에서도 y축 count 값은 관측된 값이 아닌 빈도수를 계산한 값이고 boxplot의 경우도 중간값 1,3사분위수 등 통계량을 표현해 주는 그래프 입니다. 이는 통계 분석용 소프트웨어에서 제공해주는 공통적인 기능이며 <code>ggplot2</code>에서도 각 geom 레이어에 <code>stat</code>이라는 옵션을 통해 이러한 통계량을 그래프로 표현할 수 있습니다. 예를 들어 앞서 생성한 키, 몸무게 데이터에서 키의 분포를 보기 위한 히스토그램을 그리면 <code>geom_histogram</code>을 사용할 수 있고 이 레이어의 <code>stat</code> 옵션의 기본값은 “bin” 입니다 (?geom_histogram 참고).</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="r-graphics-ggplot2.html#cb101-1"></a><span class="kw">ggplot</span>(mydata, <span class="kw">aes</span>(<span class="dt">x=</span>heights)) <span class="op">+</span></span>
+<span id="cb101-2"><a href="r-graphics-ggplot2.html#cb101-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<p>경고 문구의 <code>bins=30</code>은 기본 <code>stat</code>옵션이 <code>bin</code>인데 <code>bins</code>옵션은 null로 되어 있기 때문에 경고가 발생한 것이고 30으로 강제 할당해서 그린다는 메세지 입니다. bins 옵션을 다르게 해서 테스트 해보시기 바랍니다. 또한 앞서 6.3절의 bargraph 에서 <code>stat="identity"</code>로 그래프를 그린 경우도 상기해 보시기 바랍니다.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="r-graphics-ggplot2.html#cb102-1"></a><span class="kw">ggplot</span>(mydata, <span class="kw">aes</span>(<span class="dt">x=</span>heights)) <span class="op">+</span></span>
+<span id="cb102-2"><a href="r-graphics-ggplot2.html#cb102-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">20</span>)</span></code></pre></div>
+<p>또 다른 예를위해 앞서 키 몸무게 데이터에 혈액형 변수를 추가해 보겠습니다. 혈액형은 위 4개 학급에 관계 없이 A, B, O, AB 네 그룹으로 나눌 수 있으며 200명의 학생들에게 랜덤하게 할당하도록 합니다.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="r-graphics-ggplot2.html#cb103-1"></a>bloodtype &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;O&quot;</span>, <span class="st">&quot;AB&quot;</span>), <span class="kw">nrow</span>(mydata), <span class="dt">replace=</span>T)</span>
+<span id="cb103-2"><a href="r-graphics-ggplot2.html#cb103-2"></a>mynewdata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(mydata, bloodtype)</span>
+<span id="cb103-3"><a href="r-graphics-ggplot2.html#cb103-3"></a><span class="kw">str</span>(mynewdata)</span></code></pre></div>
+<p>위와 같이 새로운 변수 bloodtype 이 <code>factor</code>형으로 추가되어 새로운 <code>data.frame</code>을 생성하도록 했습니다. 이제 각 학급별로 몇 명의 혈액형 타입을 갖는 학생들이 있는지를 막대그래프로 표현해 보도록 하겠습니다. 혈액형의 타입별로 다른 색으로 막대를 칠하도록 해봅니다. 막대그래프의 색은 <code>fill</code>옵션으로 채울수 있고 막대그래프는 <code>geom_bar</code>그리고 이 레이어의 <code>stat</code>은 기본값이 <code>count</code>이므로 다음과 같이 코드를 작성하면 되겠다.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="r-graphics-ggplot2.html#cb104-1"></a><span class="kw">ggplot</span>(mynewdata, <span class="kw">aes</span>(<span class="dt">x=</span>classes, <span class="dt">fill=</span>bloodtype)) <span class="op">+</span></span>
+<span id="cb104-2"><a href="r-graphics-ggplot2.html#cb104-2"></a><span class="st">  </span><span class="kw">geom_bar</span>()</span></code></pre></div>
+<p>그런데 위와같이 그래프가 위로 쌓여서 보입니다. 이는 <code>geom_bar</code>의 <code>position</code>이 <code>stack</code>으로 되어있어서 보이는 현상입니다 (<code>?geom_bar</code>참고). 옆으로 나란히 막대를 위치시킨 후 크기를 비교하기 위해서 <code>position</code>을 <code>dodge</code>를 사용합니다. 또한 막대그래프에 칠해지는 색의 투명도를 <code>alpha</code> 옵션을 사용해 변경할 수 있습니다.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="r-graphics-ggplot2.html#cb105-1"></a><span class="kw">ggplot</span>(mynewdata, <span class="kw">aes</span>(<span class="dt">x=</span>classes, <span class="dt">fill=</span>bloodtype)) <span class="op">+</span></span>
+<span id="cb105-2"><a href="r-graphics-ggplot2.html#cb105-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">alpha=</span><span class="fl">0.5</span>, <span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p>다음과 같이 간단히 한 줄만 추가하여 위 막대그래프의 위치를 가로로 전환하거나 Coxcomb chart로 그릴수도 있습니다.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="r-graphics-ggplot2.html#cb106-1"></a><span class="kw">ggplot</span>(mynewdata, <span class="kw">aes</span>(<span class="dt">x=</span>classes, <span class="dt">fill=</span>bloodtype)) <span class="op">+</span></span>
+<span id="cb106-2"><a href="r-graphics-ggplot2.html#cb106-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
+<span id="cb106-3"><a href="r-graphics-ggplot2.html#cb106-3"></a><span class="st">  </span><span class="kw">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="r-graphics-ggplot2.html#cb107-1"></a><span class="kw">ggplot</span>(mynewdata, <span class="kw">aes</span>(<span class="dt">x=</span>classes, <span class="dt">fill=</span>bloodtype)) <span class="op">+</span></span>
+<span id="cb107-2"><a href="r-graphics-ggplot2.html#cb107-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
+<span id="cb107-3"><a href="r-graphics-ggplot2.html#cb107-3"></a><span class="st">  </span><span class="kw">coord_polar</span>()</span></code></pre></div>
+<p>참고로 위 Coxcomb 그래프의 경우는 해석이 어렵거나 x, y축의 라벨링에 혼돈이 올수 있으니 정보 전달이 좀 더 명확하도록 그래프의 옵션들을 추가하거나 용도에 맞게 사용할 필요가 있습니다.</p>
+</div>
+<div id="themes-labels-and-scales" class="section level2">
+<h2><span class="header-section-number">6.7</span> Themes, Labels, and Scales</h2>
+<p>Theme은 data관련 요소들 외의 것들에 대한 설정을 위해서 사용됩니다. 즉, 제목이나 라벨, 배경, 범례 등의 옵션들을 설정하는데 사용합니다. 주의할 부분은 해당 택스트 등 데이터를 설정하는 것이 아니고 보여지는 모습을 바꾸는 옵션을 설정한다는 것 입니다. 택스트 설정은 <code>Labels</code>를 사용합니다. 예제를 가지고 몇 가지 실습을 해 보겠습니다. 먼저 <code>labs</code>라는 명령어로 x축, y축, Title 등을 설정할 수 있습니다. 참고로 <code>xlab</code>, <code>ylab</code> 등도 x축, y축 라벨을 설정하는데 사용될 수 있지만 여기서는 <code>labs</code>만을 사용하도록 합니다.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="r-graphics-ggplot2.html#cb108-1"></a><span class="kw">ggplot</span>(mynewdata, <span class="kw">aes</span>(<span class="dt">x=</span>classes, <span class="dt">fill=</span>bloodtype)) <span class="op">+</span></span>
+<span id="cb108-2"><a href="r-graphics-ggplot2.html#cb108-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
+<span id="cb108-3"><a href="r-graphics-ggplot2.html#cb108-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Four classes&#39;</span>,</span>
+<span id="cb108-4"><a href="r-graphics-ggplot2.html#cb108-4"></a>       <span class="dt">y=</span><span class="st">&#39;Number of students&#39;</span>,</span>
+<span id="cb108-5"><a href="r-graphics-ggplot2.html#cb108-5"></a>       <span class="dt">title=</span><span class="st">&#39;Blood type distribution&#39;</span>,</span>
+<span id="cb108-6"><a href="r-graphics-ggplot2.html#cb108-6"></a>       <span class="dt">subtitle =</span> <span class="st">&#39;Blood type distribution from the 200 students&#39;</span>,</span>
+<span id="cb108-7"><a href="r-graphics-ggplot2.html#cb108-7"></a>       <span class="dt">fill=</span><span class="st">&#39;Blood Types&#39;</span>) </span></code></pre></div>
+<p>위 코드에서 <code>labs</code>에서 설정할 수 있는 옵션은 <code>title</code>, <code>subtitle</code>과 x축, y축 라벨 그리고 범례의 title까지 가능합니다. 특히 범례의 title은 <code>aes(fill=bloodtype)</code>이 사용되었으므로 <code>fill="Blood types"</code> 해야하며 만약 <code>aes(color=bloodtype)</code>으로 사용되었을 경우에는 <code>color="Blood types"</code>으로 설정해야 합니다. 참고로 범례의 label을 설정하는 방법은 <code>scale_fill_discrete</code> 함수의 <code>labels</code> 옵션을 사용하면 됩니다. <code>element_blank()</code>는 택스트를 공백으로 설정할 때 사용합니다. 아래 나올 <code>scale</code> 관련 내용과 함께 이해하시면 좋습니다.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="r-graphics-ggplot2.html#cb109-1"></a><span class="kw">ggplot</span>(mynewdata, <span class="kw">aes</span>(<span class="dt">x=</span>classes, <span class="dt">fill=</span>bloodtype)) <span class="op">+</span></span>
+<span id="cb109-2"><a href="r-graphics-ggplot2.html#cb109-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
+<span id="cb109-3"><a href="r-graphics-ggplot2.html#cb109-3"></a><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name=</span><span class="kw">element_blank</span>(), <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A type&quot;</span>, <span class="st">&quot;AB type&quot;</span>, <span class="st">&quot;B type&quot;</span>, <span class="st">&quot;O type&quot;</span>))</span></code></pre></div>
+<p>이제 본격적으로 Theme으로 그래프를 장식해 보도록 합니다. <code>Theme</code> 관련된 옵션들은 <a href="https://ggplot2.tidyverse.org/reference/theme.html" class="uri">https://ggplot2.tidyverse.org/reference/theme.html</a> 이곳을 참고하시기 바랍니다. Theme을 사용해서 배경을 바꿔봅니다. 여기서 보여지는 모양만을 바꿔가면서 확인하는 작업이 반복되므로 다음과 같이 <code>myplot</code>이라는 변수에 기본이 되는 ggplot 코드를 저장하고 이후 <code>+</code> 연산자를 사용해서 옵션을 바꿔가며 편리하게 코드를 재사용 할 수도 있습니다.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="r-graphics-ggplot2.html#cb110-1"></a>myplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mynewdata, <span class="kw">aes</span>(<span class="dt">x=</span>classes, <span class="dt">fill=</span>bloodtype)) <span class="op">+</span></span>
+<span id="cb110-2"><a href="r-graphics-ggplot2.html#cb110-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
+<span id="cb110-3"><a href="r-graphics-ggplot2.html#cb110-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Four classes&#39;</span>,</span>
+<span id="cb110-4"><a href="r-graphics-ggplot2.html#cb110-4"></a>       <span class="dt">y=</span><span class="st">&#39;Number of students&#39;</span>,</span>
+<span id="cb110-5"><a href="r-graphics-ggplot2.html#cb110-5"></a>       <span class="dt">title=</span><span class="st">&#39;Blood type distribution&#39;</span>,</span>
+<span id="cb110-6"><a href="r-graphics-ggplot2.html#cb110-6"></a>       <span class="dt">subtitle =</span> <span class="st">&#39;Blood type distribution from the 200 students&#39;</span>,</span>
+<span id="cb110-7"><a href="r-graphics-ggplot2.html#cb110-7"></a>       <span class="dt">fill=</span><span class="st">&#39;Blood Types&#39;</span>) </span>
+<span id="cb110-8"><a href="r-graphics-ggplot2.html#cb110-8"></a>myplot <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p>위 <code>theme_bw()</code> 함수는 theme의 세부 사항 몇 가지를 미리 설정해 놓아서 (배경을 white 색, 눈금을 회색으로 바꾸는 등) theme 설정을 위한 일련의 과정을 한번에 수행하도록 만든 함수 입니다. theme을 이용한 설정은 plot, axis, legend, panel, facet 등에 적용할 수 있으며 따라서 다음 코드와 같이 해당하는 요소를 참고할 때 <code>.</code> 기호로 구분된 옵션 이름을 사용하며 값을 지정할 때에는 <code>element_xxx</code>의 패턴으로 이루어진 함수를 사용합니다. 다음은 각각 plot과 panel 배경색을 바꾸는 코드 입니다.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="r-graphics-ggplot2.html#cb111-1"></a>myplot <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill=</span><span class="st">&quot;gray&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="r-graphics-ggplot2.html#cb112-1"></a>myplot <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill=</span><span class="st">&quot;gray&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="r-graphics-ggplot2.html#cb113-1"></a>myplot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb113-2"><a href="r-graphics-ggplot2.html#cb113-2"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb113-3"><a href="r-graphics-ggplot2.html#cb113-3"></a>    <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill=</span><span class="st">&quot;gray&quot;</span>),</span>
+<span id="cb113-4"><a href="r-graphics-ggplot2.html#cb113-4"></a>    <span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb113-5"><a href="r-graphics-ggplot2.html#cb113-5"></a>    )</span></code></pre></div>
+<p>또한 축이나 라벨 택스트의 모양도 바꿀 수 있습니다.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="r-graphics-ggplot2.html#cb114-1"></a>myplot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb114-2"><a href="r-graphics-ggplot2.html#cb114-2"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb114-3"><a href="r-graphics-ggplot2.html#cb114-3"></a>    <span class="dt">axis.line =</span> <span class="kw">element_line</span>(<span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">angle =</span> <span class="dv">15</span>, <span class="dt">length =</span> <span class="kw">unit</span>(.<span class="dv">15</span>,<span class="st">&quot;inches&quot;</span>))),</span>
+<span id="cb114-4"><a href="r-graphics-ggplot2.html#cb114-4"></a>    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">size =</span> <span class="dv">12</span>, <span class="dt">angle =</span> <span class="dv">30</span>),</span>
+<span id="cb114-5"><a href="r-graphics-ggplot2.html#cb114-5"></a>    <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">color=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">size=</span><span class="dv">18</span>)</span>
+<span id="cb114-6"><a href="r-graphics-ggplot2.html#cb114-6"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="r-graphics-ggplot2.html#cb115-1"></a>myplot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb115-2"><a href="r-graphics-ggplot2.html#cb115-2"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb115-3"><a href="r-graphics-ggplot2.html#cb115-3"></a>    <span class="dt">plot.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>, <span class="dt">hjust=</span><span class="fl">0.5</span>),</span>
+<span id="cb115-4"><a href="r-graphics-ggplot2.html#cb115-4"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">color=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb115-5"><a href="r-graphics-ggplot2.html#cb115-5"></a>    )</span></code></pre></div>
+<p>위 예제 외에도 다양한 그래프를 그릴 수 있으며 모든 사용법을 외워서 사용하기 보다는 사용할 때 마다 필요한 함수와 옵션을 찾아서 사용하다 보면 점차 익숙해질 것 입니다. 가장 정확한 참고 자료는 공식 reference 페이지를 참고하면 좋으며 <a href="https://ggplot2.tidyverse.org/reference/index.html" class="uri">https://ggplot2.tidyverse.org/reference/index.html</a> 이 외에도 다른 사람들이 만들어 놓은 그래프를 <a href="https://exts.ggplot2.tidyverse.org/" class="uri">https://exts.ggplot2.tidyverse.org/</a> 참고해서 원하는 목적에 맞는 코드를 가져다 사용할 수 있습니다.</p>
+<p>본 장에서 마지막으로 소개할 내용은 <code>Scale</code> 입니다. 앞서 어떤 데이터를 x축, y축 또는 group이나 color로 맵핑할지를 결정하는 함수가 <code>aes</code>였다면 scale은 어떻게 (위치, 색상, 크기, 모양 등) 맵핑할 것인가를 설정하는 방법입니다. 함수 형태는 <code>scale_&lt;aesthetic&gt;_&lt;type&gt;</code> 이며 <code>&lt;aesthetic&gt;</code>과 <code>&lt;type&gt;</code>에 해당하는 (미리 지정된) 단어를 넣어주면 되겠습니다. 예를 들어 앞서 예제에서 <code>fill=bloodtype</code>로 혈액형 데이터를 막대그래프의 색을 칠하는데 사용했다면 <code>scale_fill_manual</code> 함수로 어떤 색을 칠할지를 정해주는 방식입니다. 다음 몇 가지 예를 실습해 보고 이해해 봅니다.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="r-graphics-ggplot2.html#cb116-1"></a>myplot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb116-2"><a href="r-graphics-ggplot2.html#cb116-2"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;skyblue&quot;</span>, <span class="st">&quot;royalblue&quot;</span>, <span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb116-3"><a href="r-graphics-ggplot2.html#cb116-3"></a></span>
+<span id="cb116-4"><a href="r-graphics-ggplot2.html#cb116-4"></a>myplot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb116-5"><a href="r-graphics-ggplot2.html#cb116-5"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;BrBG&quot;</span>)</span></code></pre></div>
+<p>두 번째 <code>scale_fill_brewer</code>의 경우는 <code>brewer</code>라는 (<a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a>) 미리 지정된 색의 조합을 가져와 사용하는 방식입니다. <code>?scale_fill_brewer</code>의 Palettes 섹션을 보시면 사용 가능한 팔레트의 이름이 나와 있으며 위 예제 에서는 BrBG라는 이름의 팔레트를 사용했습니다. 아래는 viridis 라는 이름의 팔레트이며 (<a href="https://bids.github.io/colormap/" class="uri">https://bids.github.io/colormap/</a>) 이러한 팔레트는 R 뿐만 아니라 python, Matlab 등의 다른 프로그래밍 언어에서도 사용할 수 있도록 라이브러리를 제공하고 있습니다.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="r-graphics-ggplot2.html#cb117-1"></a>myplot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb117-2"><a href="r-graphics-ggplot2.html#cb117-2"></a><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>()</span></code></pre></div>
+<p>참고로 앞서 설명한 바와 같이 <code>aes(fill=bloodtype)</code>이 사용되었으므로 <code>scale_fill_viridis_d</code>을 사용했으며 만약 <code>aes(color=bloodtype)</code>으로 사용되었을 경우에는 이에 맞는 <code>scale_fill_viridis_d</code>으로 설정해야 합니다. 맵핑된 데이터가 연속형일 경우에는 (위 학급 예제의 혈액형은 4개의 혈액형으로 나뉘는 범주형 데이터임) <code>scale_fill_gradient</code>, <code>scale_fill_distiller</code> 등의 연속형 데이터에 맞는 scale 함수를 사용해야 합니다. 또한 데이터의 스케일이 log나 지수 단위일 경우에도 일 때에도 <code>scale_x_log10()</code> 등의 함수를 이용해서 x축 또는 y축의 스케일을 변경해줄 수 있습니다. 다음은 간단한 형태의 로그 분포 데이터를 생성하고 히스토그램을 그리는 코드입니다.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="r-graphics-ggplot2.html#cb118-1"></a>mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rlnorm</span>(<span class="dv">1000</span>, <span class="kw">log</span>(<span class="dv">10</span>), <span class="kw">log</span>(<span class="fl">2.5</span>)))</span>
+<span id="cb118-2"><a href="r-graphics-ggplot2.html#cb118-2"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mydf, <span class="kw">aes</span>(<span class="dt">x=</span>x)) <span class="op">+</span></span>
+<span id="cb118-3"><a href="r-graphics-ggplot2.html#cb118-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>()</span>
+<span id="cb118-4"><a href="r-graphics-ggplot2.html#cb118-4"></a>p</span></code></pre></div>
+<p>위 히스토그램의 x축을 로그 스케일로 전환하고자 할 때 다음과 같이 <code>scale_x_log10()</code> 함수를 추가하면 됩니다.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="r-graphics-ggplot2.html#cb119-1"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>()</span></code></pre></div>
+<div id="exercise-6.4" class="section level3">
+<h3><span class="header-section-number">6.7.1</span> Exercise 6.4</h3>
+<p><code>mpg</code> 데이터셋은 38종 자동차의 연비 데이터임. 이 데이터셋을 이용하여 다음 그래프를 그리시오</p>
+<ol style="list-style-type: decimal">
+<li><p>엔진 배기량과 (displ) 도심연비 (cty)를 비교하는 산포도를 그리고 어떤 연관성이 있는지 설명하시오</p></li>
+<li><p>위 산포도의 점들은 실제로는 한 개 이상의 데이터가 겹쳐셔 표현된 경우가 많음. ggplot2에서는 이러한 문제를 극복하기 위해서 <code>position="jitter"</code> 라는 옵션을 사용할 수 있음. 이 옵션을 적용한 코드를 작성하시오.</p></li>
+<li><p>위 그래프에 배기량과 (displ) 고속도로연비 (hwy) 산포도를 추가하여 다음과 같이 <code>scale_color_manual()</code> 함수를 사용해서 “red”와 “blue”로 점들을 표현한 그래프를 그리시오. (참고로 이를 위해서 먼저 다음과 같이 mydf 라는 새로운 데이터프레임을 displ, cty, hwy로 만들고 <code>reshape2</code> 패키지의 <code>melt</code> 함수를 이용해서 다음과 같이 <code>mydf_mlt</code> 데이터를 만들어서 사용합니다. melt 함수에 대한 내용은 다음 장에서 설명될 예정입니다. 아래 코드의 mydf_mlt 데이터의 구조와 이들 데이터가 ggplot에서 어떻게 mapping이 이루어 지는지 이해 필요)</p></li>
+</ol>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="r-graphics-ggplot2.html#cb120-1"></a><span class="kw">library</span>(reshape2)</span>
+<span id="cb120-2"><a href="r-graphics-ggplot2.html#cb120-2"></a>mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">displ=</span>mpg<span class="op">$</span>displ, <span class="dt">cty=</span>mpg<span class="op">$</span>cty, <span class="dt">hwy=</span>mpg<span class="op">$</span>hwy)</span>
+<span id="cb120-3"><a href="r-graphics-ggplot2.html#cb120-3"></a>mydf_mlt &lt;-<span class="st"> </span><span class="kw">melt</span>(mydf, <span class="dt">id.vars=</span><span class="st">&quot;displ&quot;</span>)</span>
+<span id="cb120-4"><a href="r-graphics-ggplot2.html#cb120-4"></a><span class="kw">str</span>(mydf_mlt)</span></code></pre></div>
+<p><img src="images/06/ex6-4-2.png" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>다음과 같이 배기량과 고속도로/도심 연비의 관계를 나타내는 추세선을 추가하시오 (<code>geom_smooth</code> 이용)</li>
+</ol>
+<p><img src="images/06/ex6-4-4.png" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>아래 그림과 같이 Theme을 <code>theme_bw()</code>를 사용하고 추가로 Title, subtitle, x축, y축 라벨, 그리고 범례의 Title을 변경하시오. (범례의 라벨 설정은 <code>scale_color_manual</code>에서 <code>labels=c("City MPG", "Highway MPG")</code>으로 설정, 범례의 title을 지울때는 <code>name=element_blank()</code>, Title의 택스트 크기는 20, x축, y축의 라벨 텍스트 크기는 18로 설정)</li>
+</ol>
+<p><img src="images/06/ex6-4-5.png" /></p>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
