@@ -1,0 +1,16 @@
+
+# Data transformation 
+
+일반적인 데이터 분석은 데이터 전처리(변환), 가시화, 모델링(통계량비교)의  반복적인 수행으로 진행될 수 있습니다. R에서는 `data.frame` 형식의 데이터 타입이 주로 사용되며 (최근 `tibble`형식도 많이 사용됨) 따라서 `data.frame` 기반의 데이터를 다루기 위한 다양한 함수를 익힐 필요가 있습니다. 앞서 설명한 `ggplot2` 패키지는 가시화에 사용되는 대표적인 패키지이고 본 장에서는 `data.frame` 데이터의 전처리나 변환을 위한 패키지로 `dplyr`을 다루겠습니다. `dplyr` (https://dplyr.tidyverse.org/) 역시 해들리위컴이 (Hadley Wickham) 중심이 되어 만들어 졌으며 `ggplot2`와 함께 `tidyverse`의 (https://www.tidyverse.org/) 핵심 패키지 입니다.  
+
+## Long and wide data structure with reshape2
+
+
+
+
+
+---
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
+
