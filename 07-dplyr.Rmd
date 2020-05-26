@@ -15,6 +15,9 @@ long 형 데이터의 경우 id, variable, value 세가지 변수만 기억하�
 
 ![](images/07/04.png)
 
+
+https://www.theanalysisfactor.com/wide-and-long-data/
+
 -->
 
 ---

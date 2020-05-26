@@ -117,6 +117,11 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 
 
 ### Lecture Chapter 6
-* 강의 Chapter 6-1 (ggplot2) https://youtu.be/551gss8ffuI
-* 강의 Chapter 6-2 (ggplot2) https://youtu.be/DdiXq9juBpQ
-* 강의 Chapter 6-3 (ggplot2) https://youtu.be/mCF-iU6XZxw
+* 강의 Chapter 6-1 (ggplot2 basics) https://youtu.be/551gss8ffuI
+* 강의 Chapter 6-2 (ggplot2 facet and barplot) https://youtu.be/DdiXq9juBpQ
+* 강의 Chapter 6-3 (ggplot2 bar and line graph) https://youtu.be/mCF-iU6XZxw
+* 강의 Chapter 6-4 (ggplot2 smoothing) https://youtu.be/ACvVxKJ1mOc 
+* 강의 Chapter 6-5 (ggplot2 statistics and positions) https://youtu.be/NCQdwLrhlkI 
+* 강의 Chapter 6-6 (ggplot2 theme) https://youtu.be/u-XcIHSFu9Q
+* 강의 Chapter 6-7 (ggplot2 theme and ex) https://youtu.be/NTAjYPVVH1c
+

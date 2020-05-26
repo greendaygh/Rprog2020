@@ -79,3 +79,12 @@ ggplot(dat, aes(x=x1, y=y1, group=1)) +
   xlab("Discrete cases") + ylab("Value") +
   ylim(c(0,100))+
   ggtitle("Line plot for x:discrete and y:continuous")
+
+
+
+
+
+
+
+
+
