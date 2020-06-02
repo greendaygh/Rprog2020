@@ -14,18 +14,13 @@ R에서 데이터 저장은 `data.frame`이나 `matrix` 타입을 일반적으�
 
 
 ```{r, eval=F}
-is.na(airquality$ozone)
-ozone_complete1 <- airquality[!is.na(airquality$ozone),]
-ozone_complete2 <- filter(airquality, !is.na(ozone))
+is.na(airquality$Ozone)
+ozone_complete1 <- airquality[!is.na(airquality$Ozone),]
+ozone_complete2 <- filter(airquality, !is.na(airquality$Ozone))
+ozone_complete3 <- subset(airquality, !is.na(Ozone))
 ```
 
-위 ozone_complete1와 ozone_complete2는 같은 결과를 보입니다. 그러나 ozone_complete1보다는 ozone_complete2 코드가 훨씬 직관적이고 가독성이 높습니다. 특히 첫 번째는 `airquality$ozone` 로 `$`를 사용하여 변수에 접근한 반면 두 번째는 바로 `ozone`이라는 변수 이름을 사용해서 접근함으로써 코드의 간결성과 가독성을 유지할 수 있습니다. 다음과 같이 `filter` 대신 `subset`을 사용할 수도 있습니다. 
-
-```{r, eval=F}
-ozone_complete3 <- subset(airquality, !is.na(ozone))
-```
-
-또한 `subset`의 `select` 옵션을 이용해서 변수를 선택할 수도 있으며 `$`(AND)와 `|`(OR) 연산자를 사용해서 조건을 두 개 이상 설정할 수 있습니다. 아래 `select` 옵션에서 `-`는 해당 변수를 제외한다는 의미 입니다. 
+위 ozone_complete1와 ozone_complete2, ozone_complete3는 같은 결과를 보입니다. 그러나 ozone_complete1, 2보다는 ozone_complete3 코드가 훨씬 직관적이고 가독성이 높습니다. 특히 `airquality$ozone` 로 `$`를 사용하여 변수에 접근한 반면 subset 함수는 `Ozone`이라는 변수 이름을 사용해서 접근함으로써 코드의 간결성과 가독성을 유지할 수 있습니다. 또한 `subset`의 `select` 옵션을 이용해서 변수를 선택할 수도 있으며 `$`(AND)와 `|`(OR) 연산자를 사용해서 조건을 두 개 이상 설정할 수 있습니다. 아래 `select` 옵션에서 `-`는 해당 변수를 제외한다는 의미 입니다. 
 
 ```{r, eval=F}
 ozone_complete4 <- subset(airquality, !is.na(ozone), select=c(ozone, temp, month, day))

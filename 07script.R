@@ -82,6 +82,20 @@ ggplot(dat, aes(x=x1, y=y1, group=1)) +
 
 
 
+# =====================================
+
+
+head(airquality)
+is.na(airquality$Ozone)
+ozone_complete1 <- airquality[!is.na(airquality$Ozone),]
+ozone_complete2 <- filter(airquality, !is.na(airquality$Ozone))
+
+
+
+
+
+
+
 
 
 
