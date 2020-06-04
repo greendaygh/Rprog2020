@@ -24,7 +24,7 @@
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2020-06-02" />
+<meta name="date" content="2020-06-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,6 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#lecture-chapter-4"><i class="fa fa-check"></i><b>1.8.2</b> Lecture Chapter 4</a></li>
 <li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#lecture-chapter-5"><i class="fa fa-check"></i><b>1.8.3</b> Lecture Chapter 5</a></li>
 <li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#lecture-chapter-6"><i class="fa fa-check"></i><b>1.8.4</b> Lecture Chapter 6</a></li>
+<li class="chapter" data-level="1.8.5" data-path="index.html"><a href="index.html#lecture-chapter-7"><i class="fa fa-check"></i><b>1.8.5</b> Lecture Chapter 7</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics</a>
@@ -317,8 +318,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exercise-7.1" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Exercise 7.1</h3>
 <ol style="list-style-type: decimal">
-<li><p>airquality 데이터에서 <code>temp</code>와 <code>ozone</code> 변수로 이루어진 df라는 이름의 <code>data.frame</code>을 만드시오 (단 <code>NA</code>가 있는 샘플(열)은 모두 제외)</p></li>
-<li><p><code>ggplot</code>을 이용하여 <code>temp</code>와 <code>ozone</code>의 산포도와 추세선을 그리시오</p></li>
+<li><p>airquality 데이터에서 <code>Temp</code>와 <code>Ozone</code> 변수로 이루어진 df라는 이름의 <code>data.frame</code>을 만드시오 (단 <code>NA</code>가 있는 샘플(열)은 모두 제외)</p></li>
+<li><p><code>ggplot</code>을 이용하여 <code>Temp</code>와 <code>Ozone</code>의 산포도와 추세선을 그리시오</p></li>
 </ol>
 </div>
 </div>
@@ -337,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>만약 두 데이터셋의 id가 다를 경우나 각각 다른 기준으로 결합해야 하는 경우는 <code>by</code>대신 <code>by.x</code>, <code>by.y</code> 옵션을 사용할 수 있습니다.</p>
 <p><code>split</code> 함수는 데이터를 특정 기준으로 나누는 역할을 하며 해당 기준은 factor 형 벡터 형태로 주어질 수 있습니다. 예를 들어 <code>airquality</code> 데이터의 <code>month</code> 변수를 기준으로 데이터를 분리해 보겠습니다.</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="data-transformation-basics.html#cb124-1"></a><span class="kw">str</span>(airquality)</span>
-<span id="cb124-2"><a href="data-transformation-basics.html#cb124-2"></a>g &lt;-<span class="st"> </span><span class="kw">factor</span>(airquality<span class="op">$</span>month)</span>
+<span id="cb124-2"><a href="data-transformation-basics.html#cb124-2"></a>g &lt;-<span class="st"> </span><span class="kw">factor</span>(airquality<span class="op">$</span>Month)</span>
 <span id="cb124-3"><a href="data-transformation-basics.html#cb124-3"></a>airq_split &lt;-<span class="st"> </span><span class="kw">split</span>(airquality, g)</span>
 <span id="cb124-4"><a href="data-transformation-basics.html#cb124-4"></a><span class="kw">class</span>(airq_split)</span>
 <span id="cb124-5"><a href="data-transformation-basics.html#cb124-5"></a><span class="kw">str</span>(airq_split)</span></code></pre></div>
@@ -348,25 +349,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R에서 기존 가지고 있는 데이터의 변경은 새로운 변수의 추가, 삭제, 변형과 샘플의 추가, 삭제, 변형을 생각해 볼 수 있습니다. 이러한 기능은 앞에서 배운 <code>merge</code>, <code>split</code>이나 <code>rbind</code>, <code>cbind</code>, 그리고 인덱싱을 활용한 값 변경 등의 방법을 이용할 수 있습니다. 또한 가장 직관적으로 필요한 변수들을 기존 데이터셋에서 추출한 후 <code>data.frame</code> 명령어를 사용해서 새로운 데이터셋으로 만들어주면 될 것 입니다.</p>
 <p>이러한 방법들 외에 <code>within</code>을 사용할 경우 특정 변수의 변형과 이를 반영한 새로운 데이터셋을 어렵지 않게 만들수 있습니다. <code>with</code> 함수의 사용 예와 함께 <code>within</code> 함수를 사용하여 데이터를 변형하는 예를 살펴봅니다. <code>with</code>나 <code>within</code> 함수는 R을 활용하는데 많이 사용되는 함수들은 아닙니다. 또한 이러한 기능들은 <code>dplyr</code> 등의 패키지에서 제공하는 경우가 많아서 필수적으로 익힐 부분은 아닙니다. 그러나 개념적인 이해를 돕기위한 좋은 도구들이며 여전히 고수준의 R 사용자들이 코드에 사용하고 있는 함수들이므로 알아두는 것이 좋습니다.</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-transformation-basics.html#cb125-1"></a><span class="co">## without with</span></span>
-<span id="cb125-2"><a href="data-transformation-basics.html#cb125-2"></a>ozone_complete &lt;-<span class="st"> </span>airquality[<span class="op">!</span><span class="kw">is.na</span>(airquality<span class="op">$</span>ozone),<span class="st">&quot;ozone&quot;</span>]</span>
-<span id="cb125-3"><a href="data-transformation-basics.html#cb125-3"></a>temp_complete &lt;-<span class="st"> </span>airquality[<span class="op">!</span><span class="kw">is.na</span>(airquality<span class="op">$</span>temp),<span class="st">&quot;temp&quot;</span>]</span>
+<span id="cb125-2"><a href="data-transformation-basics.html#cb125-2"></a>ozone_complete &lt;-<span class="st"> </span>airquality[<span class="op">!</span><span class="kw">is.na</span>(airquality<span class="op">$</span>Ozone),<span class="st">&quot;Ozone&quot;</span>]</span>
+<span id="cb125-3"><a href="data-transformation-basics.html#cb125-3"></a>temp_complete &lt;-<span class="st"> </span>airquality[<span class="op">!</span><span class="kw">is.na</span>(airquality<span class="op">$</span>Temp),<span class="st">&quot;Temp&quot;</span>]</span>
 <span id="cb125-4"><a href="data-transformation-basics.html#cb125-4"></a><span class="kw">print</span>(<span class="kw">mean</span>(ozone_complete))</span>
 <span id="cb125-5"><a href="data-transformation-basics.html#cb125-5"></a><span class="kw">print</span>(<span class="kw">mean</span>(temp_complete))</span>
 <span id="cb125-6"><a href="data-transformation-basics.html#cb125-6"></a></span>
 <span id="cb125-7"><a href="data-transformation-basics.html#cb125-7"></a><span class="co">## with</span></span>
 <span id="cb125-8"><a href="data-transformation-basics.html#cb125-8"></a><span class="kw">with</span>(airquality, {</span>
-<span id="cb125-9"><a href="data-transformation-basics.html#cb125-9"></a>  <span class="kw">print</span>(<span class="kw">mean</span>(ozone[<span class="op">!</span><span class="kw">is.na</span>(ozone)]))</span>
-<span id="cb125-10"><a href="data-transformation-basics.html#cb125-10"></a>  <span class="kw">print</span>(<span class="kw">mean</span>(temp[<span class="op">!</span><span class="kw">is.na</span>(temp)]))</span>
+<span id="cb125-9"><a href="data-transformation-basics.html#cb125-9"></a>  <span class="kw">print</span>(<span class="kw">mean</span>(Ozone[<span class="op">!</span><span class="kw">is.na</span>(Ozone)]))</span>
+<span id="cb125-10"><a href="data-transformation-basics.html#cb125-10"></a>  <span class="kw">print</span>(<span class="kw">mean</span>(Temp[<span class="op">!</span><span class="kw">is.na</span>(Temp)]))</span>
 <span id="cb125-11"><a href="data-transformation-basics.html#cb125-11"></a>})</span></code></pre></div>
 <p>위 <code>with</code> 함수에서 보는바와 같이 <code>$</code>를 이용한 변수 접근 대신 <code>with</code>함수 내에서는 (<code>{</code>, <code>}</code> 안에서) 해당 <code>data.frame</code>에 있는 변수 이름을 직접 접근할 수 있으며 따라서 코드의 간결함과 가독성이 향상됩니다.</p>
 <p><code>within</code> 함수는 <code>with</code>함수와 같이 <code>{</code>, <code>}</code> 안에서 변수의 이름만으로 해당 변수에 접근이 가능하나 입력된 데이터와 변경된 변수(들)을 반환한다는 점이 다릅니다. 아래 예는 <code>airquality</code> 데이터의 화씨 (Fahrenheit) 온도를 섭씨 (Celsius) 온도로 변환해서 새로운 데이터셋을 만드는 코드입니다. <code>data.frame</code>을 이용한 코드와 비교해 보시기 바랍니다. 데이터셋 내에서 참조할 변수들이 많아질 경우 <code>airquality$xxx</code> 식의 코드를 줄이는 것 만으로도 코드의 가독성과 간결성을 유지할 수 있습니다.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data-transformation-basics.html#cb126-1"></a>newairquality &lt;-<span class="st"> </span><span class="kw">within</span>(airquality, {</span>
-<span id="cb126-2"><a href="data-transformation-basics.html#cb126-2"></a>  celsius =<span class="st"> </span><span class="kw">round</span>((<span class="dv">5</span><span class="op">*</span>(temp<span class="dv">-32</span>))<span class="op">/</span><span class="dv">9</span>, <span class="dv">2</span>)</span>
+<span id="cb126-2"><a href="data-transformation-basics.html#cb126-2"></a>  celsius =<span class="st"> </span><span class="kw">round</span>((<span class="dv">5</span><span class="op">*</span>(Temp<span class="dv">-32</span>))<span class="op">/</span><span class="dv">9</span>, <span class="dv">2</span>)</span>
 <span id="cb126-3"><a href="data-transformation-basics.html#cb126-3"></a>})</span>
 <span id="cb126-4"><a href="data-transformation-basics.html#cb126-4"></a><span class="kw">head</span>(newairquality)</span>
 <span id="cb126-5"><a href="data-transformation-basics.html#cb126-5"></a></span>
 <span id="cb126-6"><a href="data-transformation-basics.html#cb126-6"></a><span class="co">## data.frame</span></span>
-<span id="cb126-7"><a href="data-transformation-basics.html#cb126-7"></a>celsius &lt;-<span class="st"> </span><span class="kw">round</span>((<span class="dv">5</span><span class="op">*</span>(airquality<span class="op">$</span>temp<span class="dv">-32</span>))<span class="op">/</span><span class="dv">9</span>, <span class="dv">2</span>)</span>
+<span id="cb126-7"><a href="data-transformation-basics.html#cb126-7"></a>celsius &lt;-<span class="st"> </span><span class="kw">round</span>((<span class="dv">5</span><span class="op">*</span>(airquality<span class="op">$</span>Temp<span class="dv">-32</span>))<span class="op">/</span><span class="dv">9</span>, <span class="dv">2</span>)</span>
 <span id="cb126-8"><a href="data-transformation-basics.html#cb126-8"></a>newairquality &lt;-<span class="st"> </span><span class="kw">data.frame</span>(airquality, celsius)</span>
 <span id="cb126-9"><a href="data-transformation-basics.html#cb126-9"></a><span class="kw">head</span>(newairquality)</span></code></pre></div>
 </div>

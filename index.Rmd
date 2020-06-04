@@ -125,3 +125,9 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 * 강의 Chapter 6-6 (ggplot2 theme) https://youtu.be/u-XcIHSFu9Q
 * 강의 Chapter 6-7 (ggplot2 theme and ex) https://youtu.be/NTAjYPVVH1c
 
+
+### Lecture Chapter 7
+* 강의 Chapter 7-1 (Data transformation basics)
+https://youtu.be/loG82uC89nQ
+
+

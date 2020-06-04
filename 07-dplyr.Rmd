@@ -29,13 +29,13 @@ ozone_complete5 <- subset(airquality, !is.na(ozone) & !is.na(solar.r), select=c(
 
 
 ### Exercise 7.1 
-1) airquality 데이터에서 `temp`와 `ozone` 변수로 이루어진 df라는 이름의 `data.frame`을 만드시오 (단 `NA`가 있는 샘플(열)은 모두 제외) 
+1) airquality 데이터에서 `Temp`와 `Ozone` 변수로 이루어진 df라는 이름의 `data.frame`을 만드시오 (단 `NA`가 있는 샘플(열)은 모두 제외) 
 
 ```{r, eval=F, echo=F}
-subset(airquality, !is.na(temp) & !is.na(ozone), select=c("temp", "ozone"))
+subset(airquality, !is.na(Temp) & !is.na(Ozone), select=c("Temp", "Ozone"))
 ```
 
-2) `ggplot`을 이용하여 `temp`와 `ozone`의 산포도와 추세선을 그리시오
+2) `ggplot`을 이용하여 `Temp`와 `Ozone`의 산포도와 추세선을 그리시오
 
 
 ## merging and split
@@ -63,7 +63,7 @@ df_right_outer <- merge(df1, df2, by="id", all.y=T)
 
 ```{r, eval=F}
 str(airquality)
-g <- factor(airquality$month)
+g <- factor(airquality$Month)
 airq_split <- split(airquality, g)
 class(airq_split)
 str(airq_split)
@@ -80,15 +80,15 @@ R에서 기존 가지고 있는 데이터의 변경은 새로운 변수의 추�
 
 ```{r, eval=F}
 ## without with
-ozone_complete <- airquality[!is.na(airquality$ozone),"ozone"]
-temp_complete <- airquality[!is.na(airquality$temp),"temp"]
+ozone_complete <- airquality[!is.na(airquality$Ozone),"Ozone"]
+temp_complete <- airquality[!is.na(airquality$Temp),"Temp"]
 print(mean(ozone_complete))
 print(mean(temp_complete))
 
 ## with
 with(airquality, {
-  print(mean(ozone[!is.na(ozone)]))
-  print(mean(temp[!is.na(temp)]))
+  print(mean(Ozone[!is.na(Ozone)]))
+  print(mean(Temp[!is.na(Temp)]))
 })
 
 ```
@@ -100,12 +100,12 @@ with(airquality, {
 
 ```{r, eval=F}
 newairquality <- within(airquality, {
-  celsius = round((5*(temp-32))/9, 2)
+  celsius = round((5*(Temp-32))/9, 2)
 })
 head(newairquality)
 
 ## data.frame
-celsius <- round((5*(airquality$temp-32))/9, 2)
+celsius <- round((5*(airquality$Temp-32))/9, 2)
 newairquality <- data.frame(airquality, celsius)
 head(newairquality)
 ```
