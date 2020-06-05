@@ -29,8 +29,6 @@ myair_mlt
 `ggplot`을 이용한 그래프 작성에는 위와 같은 long형 데이터가 주로 사용됩니다. R을 이용한 데이터 가시화는 이번 장에서 배우는 `dplyr` 패키지로 wide형 데이터를 편집하고 `melt` 함수로 long형 데이터로 변환 후 `ggplot`을 이용하는 방식으로 수행합니다. 두 데이터 포멧에 대한 좀 더 구체적인 내용은 다음 링크를 참고하시기 바랍니다.
 https://www.theanalysisfactor.com/wide-and-long-data/
 
-###
-
 ## ddplyr - pipe operator
 
 `dplyr` (https://dplyr.tidyverse.org/) 은 `ggplot`을 개발한 해들리위컴이 (Hadley Wickham) 중심이 되어 만들어 졌으며 `ggplot2`와 함께 `tidyverse`의 (https://www.tidyverse.org/) 핵심 패키지 입니다. 데이터 변환은 앞 7장에서와 같이 R의 builtin 함수에서 이미 제공하는 기능입니다. `dplyr`은 이러한 기능들에 데이터 크기나 분석의 속도, 편의성을 향상시켜 새롭게 만들어놓은 패키지 입니다. 앞에서 배운 `apply`와 같은 행렬 연산 기능과 `subset`, `split`, `group` 와 같은 행렬 편집 기능을 더하여 만들어진 도구라고 할 수 있습니다.
