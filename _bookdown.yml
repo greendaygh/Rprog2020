@@ -5,7 +5,8 @@ rmd_files: [
   "04-Rprogbasics.Rmd", 
   "05-basic-plot.Rmd", 
   "06-ggplot2.Rmd", 
-  "07-dplyr.Rmd"
+  "07-dplyr.Rmd",
+  "08-dplyr.Rmd"
 ]
 book_filename: "Rprog"
 repo: https://github.com/greendaygh/Rprog2020/
