@@ -130,3 +130,10 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 * 강의 Chapter 7-1 (Data transformation basics) https://youtu.be/loG82uC89nQ
 * 강의 Chapter 7-2 (Data transformation basics) https://youtu.be/Arbz7Nt_eKE
 * 강의 Chapter 7-3 (Data transformation basics) https://youtu.be/r9Q_P-n0gLI
+
+
+### Lecture Chapter 8
+* 강의 Chapter 8-1 (dplyr) https://youtu.be/geXHum2wwns
+* 강의 Chapter 8-2 (dplyr) https://youtu.be/eioDf3oA4AE
+* 강의 Chapter 8-3 (dplyr) https://youtu.be/WOLotZYhZeE
+* 강의 Chapter 8-4 (dplyr) https://youtu.be/BOFAxazZv60
