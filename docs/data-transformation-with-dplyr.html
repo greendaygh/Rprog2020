@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.6" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#join"><i class="fa fa-check"></i><b>8.3.6</b> join</a></li>
 <li class="chapter" data-level="8.3.7" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#code-comparison"><i class="fa fa-check"></i><b>8.3.7</b> code comparison</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#dplyr-example1---bar-graph-with-iris"><i class="fa fa-check"></i><b>8.4</b> dplyr example1 - bar graph with iris</a></li>
+<li class="chapter" data-level="8.4" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#dplyr-example-iris"><i class="fa fa-check"></i><b>8.4</b> dplyr example iris</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -465,8 +465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb157-5"><a href="data-transformation-with-dplyr.html#cb157-5"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Species, <span class="dt">y=</span>Sepal.Length), <span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="dplyr-example1---bar-graph-with-iris" class="section level2">
-<h2><span class="header-section-number">8.4</span> dplyr example1 - bar graph with iris</h2>
+<div id="dplyr-example-iris" class="section level2">
+<h2><span class="header-section-number">8.4</span> dplyr example iris</h2>
 <p><code>dplyr</code>패키지를 이용해서 <code>iris</code> 품종별로 꽃과 꽃받침의 넓이와 길이의 평균을 비교하는 bar그래프를 (error bar 포) 그려보겠습니다. 이를 위해서는 먼저 iris 데이터를 품종별로 grouping 할 필요가 있습니다.</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="data-transformation-with-dplyr.html#cb158-1"></a>iris2 &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Species)</span>
 <span id="cb158-2"><a href="data-transformation-with-dplyr.html#cb158-2"></a><span class="kw">str</span>(iris2)</span></code></pre></div>
@@ -514,6 +514,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb166-3"><a href="data-transformation-with-dplyr.html#cb166-3"></a><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin=</span>value.x<span class="op">-</span>value.y, <span class="dt">ymax=</span>value.x<span class="op">+</span>value.y), </span>
 <span id="cb166-4"><a href="data-transformation-with-dplyr.html#cb166-4"></a>                <span class="dt">position=</span><span class="kw">position_dodge</span>(<span class="fl">0.9</span>), </span>
 <span id="cb166-5"><a href="data-transformation-with-dplyr.html#cb166-5"></a>                <span class="dt">width=</span><span class="fl">0.4</span>)</span></code></pre></div>
+<!-- ```{r, eval=F} -->
+<!-- ggplot(subdat.mlt, aes(x=device_name, y=value, fill=device_name)) + -->
+<!--   geom_violin(trim=FALSE) + -->
+<!--   geom_jitter(shape=16, position=position_jitter(0.1), color="#00000055") + -->
+<!--   scale_fill_brewer(palette="Blues") + -->
+<!--   geom_boxplot(width=0.1, fill="white")+ -->
+<!--   theme_minimal() + -->
+<!--   labs(y="OD600",  -->
+<!--        x="DmpR mutant sensors", -->
+<!--        fill=element_blank()) + -->
+<!--   theme(legend.position = "none",  -->
+<!--         axis.text = element_text(size=12), -->
+<!--         axis.title=element_text(size=14)) -->
+<!-- ``` -->
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
