@@ -127,7 +127,7 @@ ggplot(x_mlt, aes(x=variable, y=value)) +
 
 
 
-```{r, eval=F, echo=F}
+```{r, eval=F}
 ggplot(x_mlt, aes(x=variable, y=value, fill=variable)) +
   geom_violin(trim=FALSE) +
   geom_jitter(shape=16, position=position_jitter(0.2), color="#00000055") +

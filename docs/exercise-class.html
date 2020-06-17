@@ -427,6 +427,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb171-6"><a href="exercise-class.html#cb171-6"></a>x_mlt &lt;-<span class="st"> </span><span class="kw">melt</span>(x)</span>
 <span id="cb171-7"><a href="exercise-class.html#cb171-7"></a><span class="kw">ggplot</span>(x_mlt, <span class="kw">aes</span>(<span class="dt">x=</span>variable, <span class="dt">y=</span>value)) <span class="op">+</span></span>
 <span id="cb171-8"><a href="exercise-class.html#cb171-8"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="exercise-class.html#cb172-1"></a><span class="kw">ggplot</span>(x_mlt, <span class="kw">aes</span>(<span class="dt">x=</span>variable, <span class="dt">y=</span>value, <span class="dt">fill=</span>variable)) <span class="op">+</span></span>
+<span id="cb172-2"><a href="exercise-class.html#cb172-2"></a><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">trim=</span><span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb172-3"><a href="exercise-class.html#cb172-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitter</span>(<span class="fl">0.2</span>), <span class="dt">color=</span><span class="st">&quot;#00000055&quot;</span>) <span class="op">+</span></span>
+<span id="cb172-4"><a href="exercise-class.html#cb172-4"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Blues&quot;</span>) <span class="op">+</span></span>
+<span id="cb172-5"><a href="exercise-class.html#cb172-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width=</span><span class="fl">0.1</span>, <span class="dt">fill=</span><span class="st">&quot;white&quot;</span>)<span class="op">+</span></span>
+<span id="cb172-6"><a href="exercise-class.html#cb172-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb172-7"><a href="exercise-class.html#cb172-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;value&quot;</span>, </span>
+<span id="cb172-8"><a href="exercise-class.html#cb172-8"></a>       <span class="dt">x=</span><span class="st">&quot;variable&quot;</span>,</span>
+<span id="cb172-9"><a href="exercise-class.html#cb172-9"></a>       <span class="dt">fill=</span><span class="kw">element_blank</span>()) <span class="op">+</span></span>
+<span id="cb172-10"><a href="exercise-class.html#cb172-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>, </span>
+<span id="cb172-11"><a href="exercise-class.html#cb172-11"></a>        <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>),</span>
+<span id="cb172-12"><a href="exercise-class.html#cb172-12"></a>        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>))</span></code></pre></div>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
