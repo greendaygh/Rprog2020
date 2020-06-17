@@ -90,3 +90,83 @@ ozone_func(df)
 ozone_means <- unlist(lapply(airq_split, ozone_func))
 
 
+
+str(iris)
+iris %>% filter(Species=="virginica") %>% str
+
+iris2 <- mutate(iris, sepal_ratio = Sepal.Length/Sepal.Width)
+iris %>% mutate(sepal_ratio = Sepal.Length/Sepal.Width) %>% head
+head(iris2)
+iris$Sepal.Length
+
+
+
+airquality %>% str
+airquality %>% 
+  group_by(Month) %>% 
+  summarise(ozone_mean=mean(Ozone, na.rm=T), temp_mean=mean(Temp, na.rm=T))
+
+airquality %>% 
+  group_by(Month) %>% 
+  summarise_all(mean, na.rm=T)
+
+aq_mean <- airquality %>% 
+  group_by(Month) %>% 
+  dplyr::select(-Day) %>% 
+  summarise_all(mean, na.rm=T)
+
+aq_sd <- airquality %>% 
+  group_by(Month) %>% 
+  dplyr::select(-Day) %>% 
+  summarise_all(sd, na.rm=T)
+
+## 
+aq_mean_mlt <- aq_mean %>% melt(id.var="Month") 
+aq_sd_mlt <- aq_sd %>% melt(id.var="Month") 
+aq_join <- inner_join(aq_mean_mlt, aq_sd_mlt, by=c("Month", "variable"))
+aq_join %>% head
+data.frame(aq_mean_mlt, aq_sd_mlt$value) %>% head
+
+ggplot(aq_join, aes(x=Month, y=value.x, fill=variable)) +
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymax=value.x+value.y, ymin=value.x-value.y),
+                position=position_dodge(0.9),
+                width=0.4)
+
+head(babies)
+
+babies %>% dplyr::select(wt, gestation, smoke) %>% 
+  ggplot(aes(x=wt, y=gestation)) +
+  geom_point()
+
+# levels(smoke) = list(
+#     "never" = 0, 
+#     "smoke now" = 1, 
+#     "until current pregnancy" = 2,
+#     "once did, not now" = 3)
+#   })
+
+b1 <- babies %>% dplyr::select(wt, gestation, smoke) %>% 
+  filter(gestation!=999 & smoke!=9) %>% 
+  mutate(smokef=factor(smoke, labels = c("naver", 
+                                         "smoke now",
+                                         "until current pre",
+                                         "once did, not now")))
+
+b1 %>% str
+
+
+plot(b1$smoke)
+
+ggplot(b1, aes(x=wt, y=gestation, color=smokef)) +
+  geom_point() +
+  facet_wrap(.~smokef, nrow=2) +
+  geom_smooth(method="lm", color="black") +
+  theme_bw()
+
+# average gestation in each smoke group 
+b1 %>%  head
+b1 %>% group_by(smokef) %>% summarise(mean(gestation))
+
+# correlation between gestation and wt in each smoke group
+b1 %>% group_by(smokef) %>% summarise(cor(gestation, wt))
