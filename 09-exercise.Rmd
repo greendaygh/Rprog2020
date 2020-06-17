@@ -52,7 +52,7 @@ aq_sd <- airquality %>%
 ## Exercise 9.2
 예제 9.1 데이터 막대그래프로 표현 (에러바 포함) 
 
-```{r, eval=F, echo=F}
+```{r, eval=F}
 ## melt and join
 aq_mean_mlt <- aq_mean %>% melt(id.var="Month") 
 aq_sd_mlt <- aq_sd %>% melt(id.var="Month") 
