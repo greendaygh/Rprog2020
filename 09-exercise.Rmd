@@ -75,6 +75,10 @@ ggplot(babies_new, aes(x=gestation, y=wt, color=smokef)) +
 
 ```
 
+## Exercise 9.4
+
+* Categorical data generation
+* Save the data to a excel file
 
 
 ---
