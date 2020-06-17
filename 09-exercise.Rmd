@@ -1,0 +1,84 @@
+
+# Exercise class  
+
+## Exercise 7.3 
+연습문제 7.3 
+
+```{r, eval=F, echo=F}
+g <- factor(airquality$Month)
+airq_split <- split(airquality, g)
+df <- airq_split[[1]]
+
+ozone_func <- function(df){
+  oz_mean <- mean(df$Ozone, na.rm=T)
+  return(oz_mean)
+}
+
+ozone_func(df)
+
+ozone_means <- unlist(lapply(airq_split, ozone_func))
+```
+
+
+## Exercise 9.1 
+airquality 데이터의 모든 변수에 대한 월별 평균 및 편차 구하기 (dplyr 함수 이용)
+
+```{r, eval=F, echo=F}
+aq_mean <- airquality %>% 
+  group_by(Month) %>% 
+  select(-Day) %>% 
+  summarize_all(mean, na.rm=T) %>% 
+  melt(id.var="Month")
+  
+aq_sd <- airquality %>% 
+  group_by(Month) %>% 
+  select(-Day) %>% 
+  summarize_all(sd, na.rm=T) %>% 
+  melt(id.var="Month")
+
+df <- inner_join(aq_mean, aq_sd, by=c("Month", "variable"))
+```
+
+
+## Exercise 9.2
+예제 9.1 데이터 막대그래프로 표현
+
+```{r, eval=F, echo=F}
+ggplot(df, aes(x=Month, y=value.x, fill=variable))+
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=value.x-value.y, ymax=value.x+value.y), 
+                position=position_dodge(0.9), 
+                width=0.4)
+```
+
+
+## Exercise 9.3
+
+7.4 Babies dataset에서 data filtering 후 wt와 gestation의 산포도 그리기 
+
+```{r, eval=F, echo=F}
+library(UsingR)
+head(babies)
+
+babies_new <- babies %>% filter(gestation!=999 & wt !=999 & smoke!=9) %>% 
+  mutate(smokef=factor(smoke, 
+                       labels=c("never", 
+                                "smoke now", 
+                                "until current pregnancy",
+                                "once did, not now"
+                                )))  %>% 
+  dplyr::select(gestation, wt, smokef)
+
+ggplot(babies_new, aes(x=gestation, y=wt, color=smokef)) +
+  geom_point() +
+  facet_wrap(.~smokef, nrow=2)
+
+```
+
+
+
+---
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
+
