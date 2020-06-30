@@ -137,3 +137,8 @@ Murdoch (https://www.cambridge.org/core/books/first-course-in-statistical-progra
 * 강의 Chapter 8-2 (dplyr) https://youtu.be/eioDf3oA4AE
 * 강의 Chapter 8-3 (dplyr) https://youtu.be/WOLotZYhZeE
 * 강의 Chapter 8-4 (dplyr) https://youtu.be/BOFAxazZv60
+
+### Lecture Chapter 9
+* 강의 Chapter 9-1 (shiny) https://youtu.be/cr09Wafv92U
+* 강의 Chapter 9-2 (shiny) https://youtu.be/gW5br2j9p1E
+
