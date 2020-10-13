@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 R basics | R 프로그래밍과 데이터 분석</title>
-  <meta name="description" content="UST lecture web site" />
-  <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
+  <title>Chapter 2 R basics | 연구데이터 분석과정 (R프로그래밍)</title>
+  <meta name="description" content="Lecture" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 R basics | R 프로그래밍과 데이터 분석" />
+  <meta property="og:title" content="Chapter 2 R basics | 연구데이터 분석과정 (R프로그래밍)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="UST lecture web site" />
+  <meta property="og:description" content="Lecture" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 R basics | R 프로그래밍과 데이터 분석" />
+  <meta name="twitter:title" content="Chapter 2 R basics | 연구데이터 분석과정 (R프로그래밍)" />
   
-  <meta name="twitter:description" content="UST lecture web site" />
+  <meta name="twitter:description" content="Lecture" />
   
 
 <meta name="author" content="한국생명공학연구원 김하성" />
 
 
-<meta name="date" content="2020-06-30" />
+<meta name="date" content="2020-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="r-programming-basics-i.html"/>
+<link rel="next" href="basic-statistics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -134,173 +135,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction 강의 개요</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goal-강의-목표"><i class="fa fa-check"></i><b>1.1</b> Goal 강의 목표</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#this-course"><i class="fa fa-check"></i><b>1.2</b> This course</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tips"><i class="fa fa-check"></i><b>1.3</b> Tips</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references-books-참고-교제"><i class="fa fa-check"></i><b>1.4</b> References books 참고 교제</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#references-참고-자료"><i class="fa fa-check"></i><b>1.5</b> References 참고 자료</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#evaluation-평가-세부-항목"><i class="fa fa-check"></i><b>1.6</b> Evaluation 평가 세부 항목</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#schedule-강의-계획"><i class="fa fa-check"></i><b>1.7</b> Schedule 강의 계획</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#r-lecture-youtube-link"><i class="fa fa-check"></i><b>1.8</b> R Lecture Youtube Link</a>
-<ul>
-<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#lecture-chapter-3"><i class="fa fa-check"></i><b>1.8.1</b> Lecture Chapter 3</a></li>
-<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#lecture-chapter-4"><i class="fa fa-check"></i><b>1.8.2</b> Lecture Chapter 4</a></li>
-<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#lecture-chapter-5"><i class="fa fa-check"></i><b>1.8.3</b> Lecture Chapter 5</a></li>
-<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#lecture-chapter-6"><i class="fa fa-check"></i><b>1.8.4</b> Lecture Chapter 6</a></li>
-<li class="chapter" data-level="1.8.5" data-path="index.html"><a href="index.html#lecture-chapter-7"><i class="fa fa-check"></i><b>1.8.5</b> Lecture Chapter 7</a></li>
-<li class="chapter" data-level="1.8.6" data-path="index.html"><a href="index.html#lecture-chapter-8"><i class="fa fa-check"></i><b>1.8.6</b> Lecture Chapter 8</a></li>
-<li class="chapter" data-level="1.8.7" data-path="index.html"><a href="index.html#lecture-chapter-9"><i class="fa fa-check"></i><b>1.8.7</b> Lecture Chapter 9</a></li>
-</ul></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#references-books-참고-교제"><i class="fa fa-check"></i><b>1.1</b> References books 참고 교제</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#references-참고-자료"><i class="fa fa-check"></i><b>1.2</b> References 참고 자료</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#schedule-강의-계획"><i class="fa fa-check"></i><b>1.3</b> Schedule 강의 계획</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R / Rstudio</a></li>
-<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#r-rstudio-installation"><i class="fa fa-check"></i><b>2.2</b> R / Rstudio installation</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#r-rstudio-installation"><i class="fa fa-check"></i><b>2.2</b> R / Rstudio installation</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-basics.html"><a href="r-basics.html#r-설치"><i class="fa fa-check"></i><b>2.2.1</b> R 설치</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-basics.html"><a href="r-basics.html#rstudio-설치"><i class="fa fa-check"></i><b>2.2.2</b> Rstudio 설치</a></li>
+</ul></li>
 <li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#rstudio-interface"><i class="fa fa-check"></i><b>2.3</b> Rstudio interface</a></li>
 <li class="chapter" data-level="2.4" data-path="r-basics.html"><a href="r-basics.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>2.4</b> Keyboard shortcuts</a></li>
-<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#set-working-directory"><i class="fa fa-check"></i><b>2.5</b> Set working directory</a></li>
-<li class="chapter" data-level="2.6" data-path="r-basics.html"><a href="r-basics.html#hello-world"><i class="fa fa-check"></i><b>2.6</b> Hello world</a></li>
-<li class="chapter" data-level="2.7" data-path="r-basics.html"><a href="r-basics.html#help"><i class="fa fa-check"></i><b>2.7</b> Help</a></li>
-<li class="chapter" data-level="2.8" data-path="r-basics.html"><a href="r-basics.html#rstudio-workspace"><i class="fa fa-check"></i><b>2.8</b> RStudio workspace</a></li>
-<li class="chapter" data-level="2.9" data-path="r-basics.html"><a href="r-basics.html#r-packages"><i class="fa fa-check"></i><b>2.9</b> R packages</a></li>
-<li class="chapter" data-level="2.10" data-path="r-basics.html"><a href="r-basics.html#data-sets"><i class="fa fa-check"></i><b>2.10</b> Data sets</a></li>
-<li class="chapter" data-level="2.11" data-path="r-basics.html"><a href="r-basics.html#cheatsheet"><i class="fa fa-check"></i><b>2.11</b> Cheatsheet</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#set-a-working-directory"><i class="fa fa-check"></i><b>2.5</b> Set a working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="r-basics.html"><a href="r-basics.html#set-a-project"><i class="fa fa-check"></i><b>2.6</b> Set a project</a></li>
+<li class="chapter" data-level="2.7" data-path="r-basics.html"><a href="r-basics.html#r-coding-practice"><i class="fa fa-check"></i><b>2.7</b> R coding practice</a></li>
+<li class="chapter" data-level="2.8" data-path="r-basics.html"><a href="r-basics.html#variables-and-values"><i class="fa fa-check"></i><b>2.8</b> Variables and values</a></li>
+<li class="chapter" data-level="2.9" data-path="r-basics.html"><a href="r-basics.html#help"><i class="fa fa-check"></i><b>2.9</b> Help</a></li>
+<li class="chapter" data-level="2.10" data-path="r-basics.html"><a href="r-basics.html#r-packages"><i class="fa fa-check"></i><b>2.10</b> R packages</a></li>
+<li class="chapter" data-level="2.11" data-path="r-basics.html"><a href="r-basics.html#data-sets"><i class="fa fa-check"></i><b>2.11</b> Data sets</a></li>
+<li class="chapter" data-level="2.12" data-path="r-basics.html"><a href="r-basics.html#cheatsheet"><i class="fa fa-check"></i><b>2.12</b> Cheatsheet</a></li>
+<li class="chapter" data-level="2.13" data-path="r-basics.html"><a href="r-basics.html#problems"><i class="fa fa-check"></i><b>2.13</b> Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html"><i class="fa fa-check"></i><b>3</b> R programming basics I</a>
+<li class="chapter" data-level="3" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>3</b> Basic Statistics</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#terminology"><i class="fa fa-check"></i><b>3.1</b> Terminology</a></li>
-<li class="chapter" data-level="3.2" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#r-console-script"><i class="fa fa-check"></i><b>3.2</b> R console script</a></li>
-<li class="chapter" data-level="3.3" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#what-is-a-programming-language"><i class="fa fa-check"></i><b>3.3</b> What is a programming language</a></li>
-<li class="chapter" data-level="3.4" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#variables-and-values"><i class="fa fa-check"></i><b>3.4</b> Variables and values</a></li>
-<li class="chapter" data-level="3.5" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#object-variable-type-of-storage-mode"><i class="fa fa-check"></i><b>3.5</b> Object (variable) type of (storage) mode</a></li>
-<li class="chapter" data-level="3.6" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#levels-of-measurement"><i class="fa fa-check"></i><b>3.6</b> Levels of measurement</a></li>
-<li class="chapter" data-level="3.7" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#object---vectors"><i class="fa fa-check"></i><b>3.7</b> Object - Vectors</a>
+<li class="chapter" data-level="3.1" data-path="basic-statistics.html"><a href="basic-statistics.html#univariat-data"><i class="fa fa-check"></i><b>3.1</b> Univariat data</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-statistics.html"><a href="basic-statistics.html#variable-type-of-storage-mode"><i class="fa fa-check"></i><b>3.2</b> Variable type of (storage) mode</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-statistics.html"><a href="basic-statistics.html#data-vectors"><i class="fa fa-check"></i><b>3.3</b> Data vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-statistics.html"><a href="basic-statistics.html#data-type"><i class="fa fa-check"></i><b>3.4</b> Data type</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-statistics.html"><a href="basic-statistics.html#use-of-functions"><i class="fa fa-check"></i><b>3.5</b> Use of functions</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-statistics.html"><a href="basic-statistics.html#miscellaneous-1"><i class="fa fa-check"></i><b>3.6</b> Miscellaneous 1</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-statistics.html"><a href="basic-statistics.html#numeric-summaries"><i class="fa fa-check"></i><b>3.7</b> Numeric summaries</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-statistics.html"><a href="basic-statistics.html#center-for-a-univariat-variable"><i class="fa fa-check"></i><b>3.8</b> Center for a univariat variable</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#exercise-3-1"><i class="fa fa-check"></i><b>3.7.1</b> Exercise 3-1</a></li>
-<li class="chapter" data-level="3.7.2" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#exercise-3-2"><i class="fa fa-check"></i><b>3.7.2</b> Exercise 3-2</a></li>
-<li class="chapter" data-level="3.7.3" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#exercise-3-3"><i class="fa fa-check"></i><b>3.7.3</b> Exercise 3-3</a></li>
+<li class="chapter" data-level="3.8.1" data-path="basic-statistics.html"><a href="basic-statistics.html#sample-mean"><i class="fa fa-check"></i><b>3.8.1</b> Sample mean</a></li>
+<li class="chapter" data-level="3.8.2" data-path="basic-statistics.html"><a href="basic-statistics.html#measure-of-position"><i class="fa fa-check"></i><b>3.8.2</b> Measure of Position</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#object---matrix"><i class="fa fa-check"></i><b>3.8</b> Object - matrix</a>
+<li class="chapter" data-level="3.9" data-path="basic-statistics.html"><a href="basic-statistics.html#spread-for-a-univariat-variable"><i class="fa fa-check"></i><b>3.9</b> Spread for a univariat variable</a></li>
+<li class="chapter" data-level="3.10" data-path="basic-statistics.html"><a href="basic-statistics.html#problems-02"><i class="fa fa-check"></i><b>3.10</b> Problems 02</a></li>
+<li class="chapter" data-level="3.11" data-path="basic-statistics.html"><a href="basic-statistics.html#shape-for-a-univariat-variable"><i class="fa fa-check"></i><b>3.11</b> Shape for a univariat variable</a></li>
+<li class="chapter" data-level="3.12" data-path="basic-statistics.html"><a href="basic-statistics.html#viewing-the-shape"><i class="fa fa-check"></i><b>3.12</b> Viewing the shape</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#exercise-3-4"><i class="fa fa-check"></i><b>3.8.1</b> Exercise 3-4</a></li>
+<li class="chapter" data-level="3.12.1" data-path="basic-statistics.html"><a href="basic-statistics.html#histogram"><i class="fa fa-check"></i><b>3.12.1</b> Histogram</a></li>
+<li class="chapter" data-level="3.12.2" data-path="basic-statistics.html"><a href="basic-statistics.html#density-plots"><i class="fa fa-check"></i><b>3.12.2</b> Density plots</a></li>
+<li class="chapter" data-level="3.12.3" data-path="basic-statistics.html"><a href="basic-statistics.html#boxplots"><i class="fa fa-check"></i><b>3.12.3</b> Boxplots</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#object---data.frame"><i class="fa fa-check"></i><b>3.9</b> Object - data.frame</a></li>
-<li class="chapter" data-level="3.10" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#object---list"><i class="fa fa-check"></i><b>3.10</b> Object - list</a></li>
-<li class="chapter" data-level="3.11" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#missing-values"><i class="fa fa-check"></i><b>3.11</b> Missing values</a></li>
-<li class="chapter" data-level="3.12" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#useful-functions-i"><i class="fa fa-check"></i><b>3.12</b> Useful functions I</a>
-<ul>
-<li class="chapter" data-level="3.12.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#exercise-3-5"><i class="fa fa-check"></i><b>3.12.1</b> Exercise 3-5</a></li>
+<li class="chapter" data-level="3.13" data-path="basic-statistics.html"><a href="basic-statistics.html#quantile-graph"><i class="fa fa-check"></i><b>3.13</b> Quantile graph</a></li>
+<li class="chapter" data-level="3.14" data-path="basic-statistics.html"><a href="basic-statistics.html#categorical-data"><i class="fa fa-check"></i><b>3.14</b> Categorical data</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="bioconductor.html"><a href="bioconductor.html"><i class="fa fa-check"></i><b>4</b> Bioconductor</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bioconductor.html"><a href="bioconductor.html#working-with-objects"><i class="fa fa-check"></i><b>4.1</b> Working with objects</a></li>
+<li class="chapter" data-level="4.2" data-path="bioconductor.html"><a href="bioconductor.html#discovering-installing-and-learning-how-to-use-bioconductor-packages"><i class="fa fa-check"></i><b>4.2</b> Discovering, installing, and learning how to use Bioconductor packages</a></li>
+<li class="chapter" data-level="4.3" data-path="bioconductor.html"><a href="bioconductor.html#data-structure-and-management-for-genome-scale-experiments"><i class="fa fa-check"></i><b>4.3</b> Data structure and management for genome-scale experiments</a></li>
+<li class="chapter" data-level="4.4" data-path="bioconductor.html"><a href="bioconductor.html#object-variable-type-of-storage-mode"><i class="fa fa-check"></i><b>4.4</b> Object (variable) type of (storage) mode</a></li>
+<li class="chapter" data-level="4.5" data-path="bioconductor.html"><a href="bioconductor.html#levels-of-measurement"><i class="fa fa-check"></i><b>4.5</b> Levels of measurement</a></li>
+<li class="chapter" data-level="4.6" data-path="bioconductor.html"><a href="bioconductor.html#object---vectors"><i class="fa fa-check"></i><b>4.6</b> Object - Vectors</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-1"><i class="fa fa-check"></i><b>4.6.1</b> Exercise 3-1</a></li>
+<li class="chapter" data-level="4.6.2" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-2"><i class="fa fa-check"></i><b>4.6.2</b> Exercise 3-2</a></li>
+<li class="chapter" data-level="4.6.3" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-3"><i class="fa fa-check"></i><b>4.6.3</b> Exercise 3-3</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html"><i class="fa fa-check"></i><b>4</b> R programming basics II</a>
+<li class="chapter" data-level="4.7" data-path="bioconductor.html"><a href="bioconductor.html#object---matrix"><i class="fa fa-check"></i><b>4.7</b> Object - matrix</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#a-script-in-r"><i class="fa fa-check"></i><b>4.1</b> A script in R</a></li>
-<li class="chapter" data-level="4.2" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#functions"><i class="fa fa-check"></i><b>4.2</b> Functions</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#exercise-4-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise 4-1</a></li>
+<li class="chapter" data-level="4.7.1" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-4"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 3-4</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#vectorized-functions"><i class="fa fa-check"></i><b>4.3</b> Vectorized functions</a>
+<li class="chapter" data-level="4.8" data-path="bioconductor.html"><a href="bioconductor.html#object---data.frame"><i class="fa fa-check"></i><b>4.8</b> Object - data.frame</a></li>
+<li class="chapter" data-level="4.9" data-path="bioconductor.html"><a href="bioconductor.html#object---list"><i class="fa fa-check"></i><b>4.9</b> Object - list</a></li>
+<li class="chapter" data-level="4.10" data-path="bioconductor.html"><a href="bioconductor.html#missing-values"><i class="fa fa-check"></i><b>4.10</b> Missing values</a></li>
+<li class="chapter" data-level="4.11" data-path="bioconductor.html"><a href="bioconductor.html#useful-functions-i"><i class="fa fa-check"></i><b>4.11</b> Useful functions I</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#exercise-4-2"><i class="fa fa-check"></i><b>4.3.1</b> Exercise 4-2</a></li>
-<li class="chapter" data-level="4.3.2" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#exercise-4-3"><i class="fa fa-check"></i><b>4.3.2</b> Exercise 4-3</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#if-statements"><i class="fa fa-check"></i><b>4.4</b> if statements</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#exercise-4-4"><i class="fa fa-check"></i><b>4.4.1</b> Exercise 4-4</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#for-while-repeat"><i class="fa fa-check"></i><b>4.5</b> for, while, repeat</a></li>
-<li class="chapter" data-level="4.6" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#avoiding-loops"><i class="fa fa-check"></i><b>4.6</b> Avoiding Loops</a></li>
-<li class="chapter" data-level="4.7" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#object-oriented-programming-advanced"><i class="fa fa-check"></i><b>4.7</b> Object Oriented Programming (Advanced)</a></li>
-<li class="chapter" data-level="4.8" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#usuful-functions-ii"><i class="fa fa-check"></i><b>4.8</b> Usuful functions II</a>
-<ul>
-<li class="chapter" data-level="4.8.1" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#exercise-4-5"><i class="fa fa-check"></i><b>4.8.1</b> Exercise 4-5</a></li>
-</ul></li>
-<li class="chapter" data-level="4.9" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#file-read-and-write"><i class="fa fa-check"></i><b>4.9</b> File read and write</a>
-<ul>
-<li class="chapter" data-level="4.9.1" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#exercise-4-6"><i class="fa fa-check"></i><b>4.9.1</b> Exercise 4-6</a></li>
-</ul></li>
-<li class="chapter" data-level="4.10" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#excel-file-read-and-data-plotting"><i class="fa fa-check"></i><b>4.10</b> Excel file read and data plotting</a>
-<ul>
-<li class="chapter" data-level="4.10.1" data-path="r-programming-basics-ii.html"><a href="r-programming-basics-ii.html#exercise-4-7-barplot-with-error-bars"><i class="fa fa-check"></i><b>4.10.1</b> Exercise 4-7 barplot with error bars</a></li>
+<li class="chapter" data-level="4.11.1" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-5"><i class="fa fa-check"></i><b>4.11.1</b> Exercise 3-5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html"><i class="fa fa-check"></i><b>5</b> R graphics basics</a>
+<li class="chapter" data-level="5" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html"><i class="fa fa-check"></i><b>5</b> R programming basics I</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#scatter-plot"><i class="fa fa-check"></i><b>5.1</b> scatter plot</a></li>
-<li class="chapter" data-level="5.2" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#histogram"><i class="fa fa-check"></i><b>5.2</b> histogram</a></li>
-<li class="chapter" data-level="5.3" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#boxplot"><i class="fa fa-check"></i><b>5.3</b> boxplot</a></li>
-<li class="chapter" data-level="5.4" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#barplot"><i class="fa fa-check"></i><b>5.4</b> barplot</a>
+<li class="chapter" data-level="5.1" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#terminology"><i class="fa fa-check"></i><b>5.1</b> Terminology</a></li>
+<li class="chapter" data-level="5.2" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#r-console-script"><i class="fa fa-check"></i><b>5.2</b> R console script</a></li>
+<li class="chapter" data-level="5.3" data-path="r-programming-basics-i.html"><a href="r-programming-basics-i.html#what-is-a-programming-language"><i class="fa fa-check"></i><b>5.3</b> What is a programming language</a></li>
+<li class="chapter" data-level="5.4" data-path="r-basics.html"><a href="r-basics.html#variables-and-values"><i class="fa fa-check"></i><b>5.4</b> Variables and values</a></li>
+<li class="chapter" data-level="5.5" data-path="bioconductor.html"><a href="bioconductor.html#object-variable-type-of-storage-mode"><i class="fa fa-check"></i><b>5.5</b> Object (variable) type of (storage) mode</a></li>
+<li class="chapter" data-level="5.6" data-path="bioconductor.html"><a href="bioconductor.html#levels-of-measurement"><i class="fa fa-check"></i><b>5.6</b> Levels of measurement</a></li>
+<li class="chapter" data-level="5.7" data-path="bioconductor.html"><a href="bioconductor.html#object---vectors"><i class="fa fa-check"></i><b>5.7</b> Object - Vectors</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#exercise-5-1"><i class="fa fa-check"></i><b>5.4.1</b> Exercise 5-1</a></li>
+<li class="chapter" data-level="5.7.1" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-1"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 3-1</a></li>
+<li class="chapter" data-level="5.7.2" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-2"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 3-2</a></li>
+<li class="chapter" data-level="5.7.3" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-3"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3-3</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#draw-multiple-graphs-in-the-same-plot"><i class="fa fa-check"></i><b>5.5</b> Draw multiple graphs in the same plot</a>
+<li class="chapter" data-level="5.8" data-path="bioconductor.html"><a href="bioconductor.html#object---matrix"><i class="fa fa-check"></i><b>5.8</b> Object - matrix</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#exercise-5-2"><i class="fa fa-check"></i><b>5.5.1</b> Exercise 5-2</a></li>
+<li class="chapter" data-level="5.8.1" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-4"><i class="fa fa-check"></i><b>5.8.1</b> Exercise 3-4</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="r-graphics-basics.html"><a href="r-graphics-basics.html#barplot-for-multiplate-reader-data"><i class="fa fa-check"></i><b>5.6</b> Barplot for multiplate reader data</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html"><i class="fa fa-check"></i><b>6</b> R graphics ggplot2</a>
+<li class="chapter" data-level="5.9" data-path="bioconductor.html"><a href="bioconductor.html#object---data.frame"><i class="fa fa-check"></i><b>5.9</b> Object - data.frame</a></li>
+<li class="chapter" data-level="5.10" data-path="bioconductor.html"><a href="bioconductor.html#object---list"><i class="fa fa-check"></i><b>5.10</b> Object - list</a></li>
+<li class="chapter" data-level="5.11" data-path="bioconductor.html"><a href="bioconductor.html#missing-values"><i class="fa fa-check"></i><b>5.11</b> Missing values</a></li>
+<li class="chapter" data-level="5.12" data-path="bioconductor.html"><a href="bioconductor.html#useful-functions-i"><i class="fa fa-check"></i><b>5.12</b> Useful functions I</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#basics"><i class="fa fa-check"></i><b>6.1</b> Basics</a></li>
-<li class="chapter" data-level="6.2" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#facets"><i class="fa fa-check"></i><b>6.2</b> Facets</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.1"><i class="fa fa-check"></i><b>6.2.1</b> Exercise 6.1</a></li>
+<li class="chapter" data-level="5.12.1" data-path="bioconductor.html"><a href="bioconductor.html#exercise-3-5"><i class="fa fa-check"></i><b>5.12.1</b> Exercise 3-5</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#bar-graph"><i class="fa fa-check"></i><b>6.3</b> Bar graph</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.2"><i class="fa fa-check"></i><b>6.3.1</b> Exercise 6.2</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#line-graph"><i class="fa fa-check"></i><b>6.4</b> Line graph</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.3"><i class="fa fa-check"></i><b>6.4.1</b> Exercise 6.3</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#smoothing"><i class="fa fa-check"></i><b>6.5</b> Smoothing</a></li>
-<li class="chapter" data-level="6.6" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#statstics-and-positions"><i class="fa fa-check"></i><b>6.6</b> Statstics and positions</a></li>
-<li class="chapter" data-level="6.7" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#themes-labels-and-scales"><i class="fa fa-check"></i><b>6.7</b> Themes, Labels, and Scales</a>
-<ul>
-<li class="chapter" data-level="6.7.1" data-path="r-graphics-ggplot2.html"><a href="r-graphics-ggplot2.html#exercise-6.4"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 6.4</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html"><i class="fa fa-check"></i><b>7</b> Data transformation basics</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#subset-and-filter"><i class="fa fa-check"></i><b>7.1</b> subset and filter</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#exercise-7.1"><i class="fa fa-check"></i><b>7.1.1</b> Exercise 7.1</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#merging-and-split"><i class="fa fa-check"></i><b>7.2</b> merging and split</a></li>
-<li class="chapter" data-level="7.3" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#transforming-data"><i class="fa fa-check"></i><b>7.3</b> transforming data</a></li>
-<li class="chapter" data-level="7.4" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#analysis-example-babies"><i class="fa fa-check"></i><b>7.4</b> Analysis example (babies)</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#exercise-7.2"><i class="fa fa-check"></i><b>7.4.1</b> Exercise 7.2</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#apply"><i class="fa fa-check"></i><b>7.5</b> apply</a>
-<ul>
-<li class="chapter" data-level="7.5.1" data-path="data-transformation-basics.html"><a href="data-transformation-basics.html#exercise-7.3"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 7.3</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html"><i class="fa fa-check"></i><b>8</b> Data transformation with dplyr</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#long-and-wide-data-structure"><i class="fa fa-check"></i><b>8.1</b> Long and wide data structure</a></li>
-<li class="chapter" data-level="8.2" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#dplyr---pipe-operator"><i class="fa fa-check"></i><b>8.2</b> dplyr - pipe operator</a></li>
-<li class="chapter" data-level="8.3" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#dplyr---important-functions"><i class="fa fa-check"></i><b>8.3</b> dplyr - Important functions</a>
-<ul>
-<li class="chapter" data-level="8.3.1" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#filter"><i class="fa fa-check"></i><b>8.3.1</b> filter</a></li>
-<li class="chapter" data-level="8.3.2" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#arrange"><i class="fa fa-check"></i><b>8.3.2</b> arrange</a></li>
-<li class="chapter" data-level="8.3.3" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#select"><i class="fa fa-check"></i><b>8.3.3</b> select</a></li>
-<li class="chapter" data-level="8.3.4" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#mutate"><i class="fa fa-check"></i><b>8.3.4</b> mutate</a></li>
-<li class="chapter" data-level="8.3.5" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#summarise"><i class="fa fa-check"></i><b>8.3.5</b> summarise</a></li>
-<li class="chapter" data-level="8.3.6" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#join"><i class="fa fa-check"></i><b>8.3.6</b> join</a></li>
-<li class="chapter" data-level="8.3.7" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#code-comparison"><i class="fa fa-check"></i><b>8.3.7</b> code comparison</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="data-transformation-with-dplyr.html"><a href="data-transformation-with-dplyr.html#dplyr-example-iris"><i class="fa fa-check"></i><b>8.4</b> dplyr example iris</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="exercise-class.html"><a href="exercise-class.html"><i class="fa fa-check"></i><b>9</b> Exercise class</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="exercise-class.html"><a href="exercise-class.html#exercise-7.3-1"><i class="fa fa-check"></i><b>9.1</b> Exercise 7.3</a></li>
-<li class="chapter" data-level="9.2" data-path="exercise-class.html"><a href="exercise-class.html#exercise-9.1"><i class="fa fa-check"></i><b>9.2</b> Exercise 9.1</a></li>
-<li class="chapter" data-level="9.3" data-path="exercise-class.html"><a href="exercise-class.html#exercise-9.2"><i class="fa fa-check"></i><b>9.3</b> Exercise 9.2</a></li>
-<li class="chapter" data-level="9.4" data-path="exercise-class.html"><a href="exercise-class.html#exercise-9.3"><i class="fa fa-check"></i><b>9.4</b> Exercise 9.3</a></li>
-<li class="chapter" data-level="9.5" data-path="exercise-class.html"><a href="exercise-class.html#exercise-9.4"><i class="fa fa-check"></i><b>9.5</b> Exercise 9.4</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -314,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R 프로그래밍과 데이터 분석</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">연구데이터 분석과정 (R프로그래밍)</a>
           </h1>
         </div>
 
@@ -331,40 +265,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/01/topproglang.jpeg" width="450" /></p>
 <p>Despite being a much more specialized language than the others, it’s maintained its popularity in recent years due to the world being awash in an ever-growing pile of big data.
 <a href="https://spectrum.ieee.org/computing/software/the-top-programming-languages-2019" class="uri">https://spectrum.ieee.org/computing/software/the-top-programming-languages-2019</a></p>
-<p>R은 데이터를 통계분석에 널리 사용되는데 이는 데이터를 눈으로 확인하기 위한 visualization 이나 벡터 연산 등의 강력한 기능 때문에 점점 더 많은 사람들이 사용하고 있습니다. 기존에는 속도나 확장성이 다른 언어들에 비해 단점으로 지적되었으나 R 언어의 계속적인 개발과 업데이트로 이러한 단점들이 빠르게 보완되고 있습니다. R 사용을 위해서는 R 언어의 코어 프로그램을 먼저 설치하고 그 다음 R 언어용 IDE인 RStudio 설치가 필요합니다.</p>
+<p>R은 통계분석에 널리 사용되는데 이는 데이터 가시화를 위한 그래픽 기능이나 벡터 연산 등의 편리함 때문에 점점 더 많은 사람들이 사용하고 있습니다. 기존에는 느린 속도나 부족한 확장성이 다른 언어들에 비해 단점으로 지적되었으나 R 언어의 계속적인 개발과 업데이트로 이러한 단점들이 빠르게 극복되고 있습니다. R 사용을 위해서는 R 언어의 코어 프로그램을 먼저 설치하고 그 다음 R 언어용 IDE인 RStudio 설치가 필요합니다.</p>
 <p><img src="images/01/22.PNG" /></p>
 <p><img src="images/01/23.PNG" /></p>
 </div>
 <div id="r-rstudio-installation" class="section level2">
 <h2><span class="header-section-number">2.2</span> R / Rstudio installation</h2>
+<div id="r-설치" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> R 설치</h3>
 <ul>
-<li><p>R 사이트에 접속 후 (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>) 좌측 메뉴 상단에 위치한 CRAN 클릭.
-<img src="images/01/01-01.PNG" /></p></li>
-<li><p>미러 사이트 목록에서 Korea의 아무 사이트나 들어감
-<img src="images/01/01-02.PNG" /></p></li>
-<li><p>Download R for Windows를 클릭 후 base 링크 들어가서
-<img src="images/01/01-03.PNG" /><br />
-<img src="images/01/01-04.PNG" /></p></li>
-<li><p>Download R 3.6.3 for Windows 링크로 실행 프로그램 다운로드 (2020.3 현재 R 버전은 3.6.3). 로컬 컴퓨터에 Download 된 R-3.6.3-win.exe 를 실행하고 설치 프로그램의 지시에 따라 R 언어 소프트웨어 설치를 완료합니다.</p></li>
+<li>R 사이트에 접속 후 (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>) 좌측 메뉴 상단에 위치한 CRAN 클릭.</li>
+<li>미러 사이트 목록에서 Korea의 아무 사이트나 들어감</li>
+<li>Download R for Windows를 클릭 후 base 링크 들어가서</li>
+<li>Download R x.x.x for Windows 링크 클릭으로 실행 프로그램 다운로드 - 로컬 컴퓨터에 Download 된 R-x.x.x-win.exe 를 실행</li>
+<li>설치 가이드에 따라 R 언어 소프트웨어 설치 완료</li>
 </ul>
-<p><img src="images/01/01-05.PNG" /></p>
+</div>
+<div id="rstudio-설치" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Rstudio 설치</h3>
+<p>Rstudio는 R 언어를 위한 오픈소스 기반 통합개발환경(IDE)으로 R 프로그래밍을 위한 편리한 기능들을 제공해 줍니다.</p>
 <ul>
-<li><p>Rstudio는 R 언어를 위한 오픈소스 기반 통합개발환경(IDE)으로 R 프로그래밍을 위한 편리한 기능들을 제공해 줍니다. 다음 사이트에 접속 (<a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a>), 상단의 Products &gt; RStudio 클릭
-<img src="images/01/01-06.PNG" /></p></li>
-<li><p>RStudio Desktop 선택
-<img src="images/01/01-07.PNG" /></p></li>
-<li><p>Download RStudio Desktop 클릭
-<img src="images/01/01-08.PNG" /></p></li>
-<li><p>RStudio Desktop Free 버전의 Download를 선택하고
-<img src="images/01/01-09.PNG" /></p></li>
-<li><p>Download RStudio for Windows (2020.03현재 version 1.2.5033) 클릭, 다운로드. 로컬 컴퓨터에 다운로드된 RStudio-1.2.5033.exe를 실행하고 설치 가이드에 따라 설치 완료합니다.
-<img src="images/01/01-10.PNG" /></p></li>
+<li>사이트에 접속 (<a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a>), 상단의 Products &gt; RStudio 클릭</li>
+<li>RStudio Desktop 선택</li>
+<li>Download RStudio Desktop 클릭</li>
+<li>RStudio Desktop Free 버전의 Download를 선택하고</li>
+<li>Download RStudio for Windows 클릭, 다운로드</li>
+<li>로컬 컴퓨터에 다운로드된 RStudio-x.x.x.exe 실행</li>
+<li>설치 가이드에 따라 설치 완료</li>
 </ul>
+</div>
 </div>
 <div id="rstudio-interface" class="section level2">
 <h2><span class="header-section-number">2.3</span> Rstudio interface</h2>
 <ul>
-<li>아래 그림의 좌측 상단의 공간은 코드편집창, 좌측 하단은 콘솔창 입니다.
+<li>좌측 상단의 공간은 코드편집창, 좌측 하단은 콘솔창 이며 각 위치를 기호에 따라서 바꿀 수 있습니다.
 <img src="images/01/01-11.PNG" /></li>
 </ul>
 </div>
@@ -397,77 +331,155 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-basics.html#cb1-1"></a><span class="co"># x &lt;- 10</span></span>
 <span id="cb1-2"><a href="r-basics.html#cb1-2"></a><span class="co"># y &lt;- 20</span></span></code></pre></div>
 </div>
-<div id="set-working-directory" class="section level2">
-<h2><span class="header-section-number">2.5</span> Set working directory</h2>
-<p>시작 전 항상 작업 디렉토리 설정. 예를 들어 c: 아래 새로운 디렉토리 rprog2020 을 만들고 작업공간으로 설정</p>
+<div id="set-a-working-directory" class="section level2">
+<h2><span class="header-section-number">2.5</span> Set a working directory</h2>
+<ul>
+<li>시작 전 항상 작업 디렉토리 설정하는 것이 좋습니다. 예를 들어 <code>c:\</code> 아래 새로운 디렉토리 rstat01 을 만들고 작업공간으로 설정할 수 있습니다.</li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-basics.html#cb2-1"></a><span class="kw">getwd</span>()</span>
 <span id="cb2-2"><a href="r-basics.html#cb2-2"></a><span class="kw">dir</span>()</span>
-<span id="cb2-3"><a href="r-basics.html#cb2-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">rprog2020&quot;</span>)</span>
+<span id="cb2-3"><a href="r-basics.html#cb2-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">rstat01&quot;</span>)</span>
 <span id="cb2-4"><a href="r-basics.html#cb2-4"></a><span class="kw">getwd</span>()</span>
 <span id="cb2-5"><a href="r-basics.html#cb2-5"></a><span class="kw">dir</span>()</span></code></pre></div>
-<p>또는 아래와 같이 RStudio 메뉴 에서 설정</p>
-<p><img src="images/01/01-12.PNG" /></p>
+<ul>
+<li>또는 RStudio &gt; Session &gt; Set Working Directory &gt; Choose Directory</li>
+</ul>
 </div>
-<div id="hello-world" class="section level2">
-<h2><span class="header-section-number">2.6</span> Hello world</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-basics.html#cb3-1"></a>mystring &lt;-<span class="st"> &quot;Hello </span><span class="ch">\n</span><span class="st"> world!&quot;</span></span>
-<span id="cb3-2"><a href="r-basics.html#cb3-2"></a><span class="kw">cat</span>(mystring)</span>
-<span id="cb3-3"><a href="r-basics.html#cb3-3"></a><span class="kw">print</span>(mystring)</span></code></pre></div>
+<div id="set-a-project" class="section level2">
+<h2><span class="header-section-number">2.6</span> Set a project</h2>
+<ul>
+<li><p>프로젝트를 만들어서 사용할 경우 파일이나 디렉토리, 내용 등을 쉽게 구분하여 사용 가능합니다. 아래와 같이 원하는 위치에 원하는 이름의 프로젝트를 생성하고 프로젝트를 시작할 때는 해당 디렉토리의 <code>xxx.Rproj</code> 파일을 클릭합니다.</p></li>
+<li><p>File &gt; New Project &gt; New Directory &gt; New Project &gt; “kribb-R” &gt; Create Project</p></li>
+<li><p>File &gt; New File &gt; R Script</p></li>
+</ul>
+</div>
+<div id="r-coding-practice" class="section level2">
+<h2><span class="header-section-number">2.7</span> R coding practice</h2>
+<ul>
+<li>콘솔 계산기</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-basics.html#cb3-1"></a><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb3-2"><a href="r-basics.html#cb3-2"></a>((<span class="dv">2</span> – <span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> – <span class="dv">3</span>)<span class="op">^</span><span class="dv">2</span> )<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="r-basics.html#cb3-3"></a><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>; <span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<ul>
+<li>Ex 1) 다음 공식들을 계산하는 R 코드를 작성하시오</li>
+</ul>
+<p><span class="math display">\[
+\sqrt{(4+3)(2+1)} \\
+2^3 + 3^2 \\
+\frac{0.25 - 0.2}{\sqrt{0.2 (1-0.2)/100}}
+\]</span></p>
+</div>
+<div id="variables-and-values" class="section level2">
+<h2><span class="header-section-number">2.8</span> Variables and values</h2>
+<ul>
+<li>프로그래밍 언에어서 변수, 값 개념</li>
+<li>Assignment operator ( <code>&lt;-</code> OR <code>=</code> )
+<ul>
+<li>Valid object name <code>&lt;-</code> value</li>
+<li>단축키: <code>Alt + -</code> (the minus sign)</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-basics.html#cb4-1"></a>x &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb4-2"><a href="r-basics.html#cb4-2"></a>y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span> – <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb4-3"><a href="r-basics.html#cb4-3"></a>y</span>
+<span id="cb4-4"><a href="r-basics.html#cb4-4"></a>x &lt;-<span class="st"> &quot;two&quot;</span>  </span>
+<span id="cb4-5"><a href="r-basics.html#cb4-5"></a>some_data &lt;-<span class="st"> </span><span class="fl">9.8</span></span></code></pre></div>
+<ul>
+<li>내장 변수 Built-in variables</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-basics.html#cb5-1"></a>pi</span></code></pre></div>
+<ul>
+<li>변수이름 작명법
+<ul>
+<li>문자, 숫자, “_”, “.” 등으로 구성</li>
+<li>대소문자 구분</li>
+<li>가독성, 의미있는 변수 이름</li>
+<li>길이 제한 없음</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-basics.html#cb6-1"></a>i_use_snake_case &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb6-2"><a href="r-basics.html#cb6-2"></a>otherPeopleUseCamelCase &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb6-3"><a href="r-basics.html#cb6-3"></a>some.people.use.periods &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb6-4"><a href="r-basics.html#cb6-4"></a>And_aFew.People_RENOUNCEconvention &lt;-<span class="st"> </span><span class="dv">4</span></span></code></pre></div>
+<ul>
+<li><p>자동 완성 기능 (Tab completion) in RStudio</p></li>
+<li><p>이전 명령은 콘솔에서 위 아래 화살표</p></li>
+<li><p>내장 함수 (Built-in functions)</p></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1"></a>x &lt;-<span class="st"> </span>pi</span>
+<span id="cb7-2"><a href="r-basics.html#cb7-2"></a><span class="kw">sin</span>(x)</span>
+<span id="cb7-3"><a href="r-basics.html#cb7-3"></a><span class="kw">sqrt</span>(x)</span>
+<span id="cb7-4"><a href="r-basics.html#cb7-4"></a><span class="kw">log</span>(x)</span>
+<span id="cb7-5"><a href="r-basics.html#cb7-5"></a><span class="kw">log</span>(x, <span class="dv">10</span>)</span>
+<span id="cb7-6"><a href="r-basics.html#cb7-6"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb7-7"><a href="r-basics.html#cb7-7"></a>x <span class="op">+</span><span class="st"> </span>x</span>
+<span id="cb7-8"><a href="r-basics.html#cb7-8"></a><span class="kw">mean</span>(x)</span>
+<span id="cb7-9"><a href="r-basics.html#cb7-9"></a><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)</span></code></pre></div>
 </div>
 <div id="help" class="section level2">
-<h2><span class="header-section-number">2.7</span> Help</h2>
-<p>R의 장점 중 하나로 방대한 양의 도움말 페이지가 제공됩니다. <code>?</code> 명령을 사용하면 되며 구글이나 웹에서도 도움을 얻을 수 있습니다.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-basics.html#cb4-1"></a>?cat</span>
-<span id="cb4-2"><a href="r-basics.html#cb4-2"></a>?print</span>
-<span id="cb4-3"><a href="r-basics.html#cb4-3"></a>?mean</span>
-<span id="cb4-4"><a href="r-basics.html#cb4-4"></a><span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb4-5"><a href="r-basics.html#cb4-5"></a><span class="kw">example</span>(<span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb4-6"><a href="r-basics.html#cb4-6"></a><span class="kw">help.search</span>(<span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb4-7"><a href="r-basics.html#cb4-7"></a><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;MASS&quot;</span>)</span></code></pre></div>
-</div>
-<div id="rstudio-workspace" class="section level2">
-<h2><span class="header-section-number">2.8</span> RStudio workspace</h2>
-<p><img src="images/01/01-17.PNG" />
-<img src="images/01/rstudio-ide-1.png" />
-<img src="images/01/rstudio-ide-2.png" /></p>
+<h2><span class="header-section-number">2.9</span> Help</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-basics.html#cb8-1"></a><span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb8-2"><a href="r-basics.html#cb8-2"></a>?mean</span>
+<span id="cb8-3"><a href="r-basics.html#cb8-3"></a><span class="kw">example</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb8-4"><a href="r-basics.html#cb8-4"></a><span class="kw">help.search</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb8-5"><a href="r-basics.html#cb8-5"></a>??mean</span>
+<span id="cb8-6"><a href="r-basics.html#cb8-6"></a><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;MASS&quot;</span>)</span></code></pre></div>
 </div>
 <div id="r-packages" class="section level2">
-<h2><span class="header-section-number">2.9</span> R packages</h2>
-<p>R은 “package”라 불리우는 다양한 함수 라이브러리를 사용할 수 있습니다. 예를 들어 <code>sum()</code> 이나 <code>sd()</code>와 같은 함수는 <code>stats</code>이라는 패키지에서 구현된 함수 입니다. 이러한 패키지는 인터넷의 <code>repository</code>에서 구할 수 있으며 대표적으로 The Comprehensive R Archive Network (CRAN) <a href="http://cran.r-project.org/web/views/" class="uri">http://cran.r-project.org/web/views/</a> 와 생물학자를 위한 Bioconductor specialised in genomics <a href="http://www.bioconductor.org/packages/release/BiocViews.html#___Software" class="uri">http://www.bioconductor.org/packages/release/BiocViews.html#___Software</a> 가 있습니다. 이러한 패키지의 설치는 아래와 같이 RStudio를 이용하거나 콘솔창에서 <code>install.packages()</code> 함수를 이용할 수 있습니다.</p>
+<h2><span class="header-section-number">2.10</span> R packages</h2>
+<ul>
+<li>R 패키지는 함수들의 모음으로 다른 사람들이 만들어 놓은 함수를 가져와서 사용할 수 있음</li>
+<li>예) sum() 은 “base” package에 있고 sd() 함수는 “stats” package에서 제공</li>
+<li>패키지를 구할 수 있는 가장 대표적인 사이트</li>
+<li>The Comprehensive R Archive Network (CRAN) - <a href="http://cran.r-project.org/web/views/" class="uri">http://cran.r-project.org/web/views/</a></li>
+<li>Bioconductor - <a href="http://www.bioconductor.org/packages/release/bioc/" class="uri">http://www.bioconductor.org/packages/release/bioc/</a></li>
+</ul>
 <p><img src="images/01/01-18.PNG" /></p>
 <ul>
 <li>UsingR package installation</li>
 </ul>
 <p><img src="images/01/01-19.PNG" /></p>
-<p>패키지를 설치하고 사용하기 위해서는 <code>library()</code> 함수를 사용해서 미리 loading 해 두어야 합니다. 한 번 로딩으로 작업 세션이 끝날때까지 관련된 함수를 사용할 수 있으나 R 세션이나 RStudio를 재시작 할 경우 다시 로딩해야 사용할 수 있습니다.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-basics.html#cb5-1"></a><span class="kw">library</span>(UsingR)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-basics.html#cb9-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;UsingR&quot;</span>)</span></code></pre></div>
 <ul>
-<li>R 설치 디렉토리</li>
-<li>R 패키지 설치 디렉토리</li>
+<li>UsingR package loading</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-basics.html#cb6-1"></a><span class="kw">.libPaths</span>()</span>
-<span id="cb6-2"><a href="r-basics.html#cb6-2"></a><span class="kw">path.package</span>()</span></code></pre></div>
-<p><img src="images/01/01-20.PNG" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-basics.html#cb10-1"></a><span class="kw">library</span>(UsingR)</span>
+<span id="cb10-2"><a href="r-basics.html#cb10-2"></a><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;UsingR&quot;</span>)</span></code></pre></div>
 </div>
 <div id="data-sets" class="section level2">
-<h2><span class="header-section-number">2.10</span> Data sets</h2>
-<p>대부분의 패키지는 함수와 함께 관련된 도움말, 예제, 그리고 데이터셋을 같이 제공해 줍니다. <code>library()</code> 함수를 사용할 때 자동으로 같이 로딩이 되며 <code>data()</code> 함수를 사용해서 사용자 작업공간에 복사본을 만들어서 사용할 수 있습니다.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1"></a><span class="kw">head</span>(rivers)</span>
-<span id="cb7-2"><a href="r-basics.html#cb7-2"></a><span class="kw">length</span>(rivers)</span>
-<span id="cb7-3"><a href="r-basics.html#cb7-3"></a><span class="kw">class</span>(rivers)</span>
-<span id="cb7-4"><a href="r-basics.html#cb7-4"></a><span class="kw">data</span>(rivers)</span>
-<span id="cb7-5"><a href="r-basics.html#cb7-5"></a><span class="kw">data</span>(<span class="dt">package=</span><span class="st">&quot;UsingR&quot;</span>)</span>
-<span id="cb7-6"><a href="r-basics.html#cb7-6"></a><span class="kw">library</span>(HistData)</span>
-<span id="cb7-7"><a href="r-basics.html#cb7-7"></a><span class="kw">head</span>(Cavendish)</span>
-<span id="cb7-8"><a href="r-basics.html#cb7-8"></a><span class="kw">str</span>(Cavendish)</span>
-<span id="cb7-9"><a href="r-basics.html#cb7-9"></a><span class="kw">head</span>(Cavendish<span class="op">$</span>density2)</span>
-<span id="cb7-10"><a href="r-basics.html#cb7-10"></a><span class="kw">data</span>(<span class="dt">package=</span><span class="st">&quot;HistData&quot;</span>)</span></code></pre></div>
+<h2><span class="header-section-number">2.11</span> Data sets</h2>
+<ul>
+<li>일반적으로 패키지 안에 관련된 데이터도 같이 저장</li>
+<li>data() function를 이용해서 패키지 데이터를 사용자 작업공간에 복사해서 사용 가능</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-basics.html#cb11-1"></a><span class="kw">head</span>(rivers)</span>
+<span id="cb11-2"><a href="r-basics.html#cb11-2"></a><span class="kw">length</span>(rivers)</span>
+<span id="cb11-3"><a href="r-basics.html#cb11-3"></a><span class="kw">class</span>(rivers)</span>
+<span id="cb11-4"><a href="r-basics.html#cb11-4"></a><span class="kw">data</span>(rivers)</span>
+<span id="cb11-5"><a href="r-basics.html#cb11-5"></a><span class="kw">data</span>(<span class="dt">package=</span><span class="st">&quot;UsingR&quot;</span>)</span>
+<span id="cb11-6"><a href="r-basics.html#cb11-6"></a><span class="kw">library</span>(HistData)</span>
+<span id="cb11-7"><a href="r-basics.html#cb11-7"></a><span class="kw">head</span>(Cavendish)</span>
+<span id="cb11-8"><a href="r-basics.html#cb11-8"></a><span class="kw">str</span>(Cavendish)</span>
+<span id="cb11-9"><a href="r-basics.html#cb11-9"></a><span class="kw">head</span>(Cavendish<span class="op">$</span>density2)</span></code></pre></div>
 </div>
 <div id="cheatsheet" class="section level2">
-<h2><span class="header-section-number">2.11</span> Cheatsheet</h2>
+<h2><span class="header-section-number">2.12</span> Cheatsheet</h2>
+<p><a href="https://rstudio.com/resources/cheatsheets/" class="uri">https://rstudio.com/resources/cheatsheets/</a></p>
 <p><img src="images/01/base-r_1.png" />
 <img src="images/01/base-r_2.png" /></p>
-<hr />
+</div>
+<div id="problems" class="section level2">
+<h2><span class="header-section-number">2.13</span> Problems</h2>
+<ul>
+<li><p>1.2 변수 <code>x</code>에 1, 3, 5, 7, 9를 저장하는 코드를 작성하시오</p></li>
+<li><p>1.3 변수 <code>y</code>에 2, 4, 6, 8, 10을 저장하는 코드를 작성하시오</p></li>
+<li><p>1.4 위 변수 <code>x</code>와 <code>y</code>를 더한 값을 <code>z</code>에 저장하는 코드를 작성하시오 (백터연산)</p></li>
+<li><p>1.5 <code>z</code>의 원소들의 합을 구하시오 (<code>sum()</code>함수 활용)</p></li>
+<li><p>1.6 두 값을 입력받아 합을 출력하는 <code>mysum</code> 이름의 함수를 만들고 이 함수를 다음과 같이 이용해서 15와 20 두 값의 합을 구하는 코드를 작성하시오 (참고로 직접 만든 함수를 사용하기 위해서는 사용하기 전 해당 함수를 workspace에 등록하는 과정이 필요함)</p></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-basics.html#cb12-1"></a>z =<span class="st"> </span><span class="kw">mysum</span>(<span class="dv">15</span>, <span class="dv">20</span>)</span>
+<span id="cb12-2"><a href="r-basics.html#cb12-2"></a><span class="kw">cat</span>(z)</span></code></pre></div>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</p>
 
 </div>
@@ -478,7 +490,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-programming-basics-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="basic-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
